@@ -3,3 +3,17 @@
 ****************
 
 Added 4 potential bibliographic entries, worked on cover
+
+****************
+** 2021.07.06 **
+****************
+
+Issues logging into Microsoft teams with new issued email. Will need to contact service desk.
+
+Alternatively, using with Microsoft Edge, and awaiting request to join CUoL-Doctoral Researchers channel, then hopefully get induction info.
+
+Todos:
+
+1. Add slides (pdf format) presented at PhD interview to appendix
+2. Add PhD project proposal (pdf format) to appendix
+
