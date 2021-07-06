@@ -12,6 +12,8 @@ Issues logging into Microsoft teams with new issued email. Will need to contact 
 
 Alternatively, using with Microsoft Edge, and awaiting request to join CUoL-Doctoral Researchers channel, then hopefully get induction info.
 
+Documents examined so far - Offer Notes.pdf and research_student_guide.pdf are appended in email with subject header "MPhil/PhD in Computer Science (full time) (JUL Entry) 2020/1 Offer, Student ID: 180036287"
+
 Todos:
 
 1. Add slides (pdf format) presented at PhD interview to appendix
