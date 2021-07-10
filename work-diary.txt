@@ -26,3 +26,47 @@ Todos:
 Sorted out ID Card, to be collected today, hopefully with access to A304 University Building.
 Saw some induction videos in the CUoL-Doctoral Researchers Teams group.
 Desk and PC to be allocated in the coming days for the July starters.
+
+Meeting minutes:
+
+
+****************
+** 2021.07.10 **
+****************
+
+Join Slack channels for Autoware and City Autonomous Driving Research.
+
+Contacted Radu Jianu with respect to supporting labs in Term 2.
+
+Looked up Carla simulator on Twitter, account seems stale since December 2020, seemingly date of last major release.
+
+Join Carla Simulator on discord, this seems to be quite a vibrant community.
+
+Autoware source code repository on github:
+https://github.com/Autoware-AI/simulation
+
+https://www.autoware.org/ , reported to be powering self-driving cars in Japan since 2017.
+
+Read an earlier slack post which led to this discussions:
+https://answers.ros.org/question/377659/occupangygrid-map-issue-ray_ground_filter-fails-to-generate-costmap-on-autowareai/
+
+" I strongly suggest to use Apollo.Auto AD stack from Baidu instead Autoware. The perception module does not fail!!! And Autoware.AI project seems that is not more supported."
+
+"Apollo.Auto AD baidu" google search:
+
+https://apollo.auto/
+https://apollo.auto/platform/simulation.html
+https://github.com/ApolloAuto/apollo
+
+This is a very vibrant community.
+
+LG also has a simulator, Unity based, which "currently has integration with The Autoware Foundation's Autoware.auto and Baidu's Apollo platforms"
+
+https://github.com/lgsvl/simulator
+
+Some decisions required at this point. Do we install Carla/Apollo/Autoware in another box, and leave current box as dedicated Unity/Depth completion workstation?
+
+
+
+
+
