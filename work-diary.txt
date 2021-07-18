@@ -116,6 +116,15 @@ Scholarly (searching google scholar) seems to have broken. Semantic Scholar sear
 
 https://github.com/dsikar/semanticscholar/blob/master/SAFECOMP/SAFECOMP1997-2014-2020.ipynb
 
+TODOS
+
+1. Artur articles x2
+2. LG Self Driving 
+3. OpenSD renders
+4. Arxiv
+5. Continue with AI applied to literature review
+
+
 
 
 
