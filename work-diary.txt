@@ -73,5 +73,50 @@ Some decisions required at this point. Do we install Carla/Apollo/Autoware in an
 Working on Safecomp abstract scraper:
 git@github.com:dsikar/scholarly.git
 
+****************
+** 2021.07.13 **
+****************
+
+Meeting
+
+Agenda
+
+1. Sabbatical
+2. Licenses Mathematica
+3. ICO
+4. Self-driving platforms
+5. Safecomp
+6. ClearGrasp
+
+****************
+** 2021.07.15 **
+****************
+
+Reading through:
+
+1. A Neural-Symbolic Cognitive Agent for Online Learning and Reasoning
+
+and
+
+2. ERIC: Extracting Relations Inferred from Convolutions
+
+Added references.
+
+****************
+** 2021.07.18 **
+****************
+
+1. Admin
+
+Enrolment still not confirmed? Chasing it up with Ann Marie.
+
+2. SAFECOMP word cloud
+
+Scholarly (searching google scholar) seems to have broken. Semantic Scholar searches by ID only, e.g. the search "Safety Verification of Multiple Autonomous Systems by Formal Approach" will return no matches while the corresponding ID e.g. "10.1007/978-3-319-10557-4_3".
+
+https://github.com/dsikar/semanticscholar/blob/master/SAFECOMP/SAFECOMP1997-2014-2020.ipynb
+
+
+
 
 
