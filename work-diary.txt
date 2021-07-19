@@ -124,6 +124,14 @@ TODOS
 4. Arxiv
 5. Continue with AI applied to literature review
 
+****************
+** 2021.07.19 **
+****************
+
+Asking around about NLP/NLU/data visualisation applied to literature survey.
+
+Suggestions from A. Slingsby and N. Andrienko. No source code.
+
 
 
 
