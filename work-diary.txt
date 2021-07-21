@@ -132,8 +132,16 @@ Asking around about NLP/NLU/data visualisation applied to literature survey.
 
 Suggestions from A. Slingsby and N. Andrienko. No source code.
 
+****************
+** 2021.07.20 **
+****************
 
+Running predictions off lambda functions on AWS. This might come in handy if we have multiple models and running all predictive models on same hardware is not feasible.
 
+****************
+** 2021.07.21 **
+****************
 
+Lit. review. Drilling down on SAFECOMP conferences and word clouds. Touched base with Mirela - PhD candidate at giCentre.
 
 
