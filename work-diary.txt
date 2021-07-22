@@ -144,4 +144,9 @@ Running predictions off lambda functions on AWS. This might come in handy if we 
 
 Lit. review. Drilling down on SAFECOMP conferences and word clouds. Touched base with Mirela - PhD candidate at giCentre.
 
+****************
+** 2021.07.22 **
+****************
+
+Getting the 3D reconstruction demo ready for August 5th meeting, showing point clouds with acquired (noisy) transparent object detail and predicted (clean) transparent object 3D reconstruction.
 
