@@ -1,0 +1,141 @@
+1. email Asif ref desk cancel
+
+2. Reply Ann Marie
+
+GPU ask for
+Find some funds in budget
+
+My intention is to come regularly
+I would require a high spec machine
+"The department can pay up to this
+the rest can be paid by project"
+
+Mathematica licensing - online system
+One thing they will ask can you do this with MatLab?
+Maybe in Maths department - third topic to Ann Marie - ask about process.
+Hopefully someone uses it in Maths dept. then available, if not, there
+Service Now - make request for IT support.
+
+Standard Policy
+
+Blocks of 1 years
+
+1. 1st year Transfer form MPhil to PhD
+Goal is to prepare for that
+
+End of first year, write a report 20 to 30 pages
+give a presentation
+Dry run of the vivo ?
+
+Goal is to check that I am on track in terms of choice - choice is promissing
+Start with literature review
+
+Have some indication of the promise of your chosen direction
+Identify pros and cons lit review
+main thing examiner is looking for
+examiner "your preliminary results you are in a good shape to get PhD"
+
+2. Work towards papers and consolidate results and research
+
+3. Continues in the 3rd year "viva" (viva voice)
+
+present the thesis in the 3rd year (closed meeting with examiners) - quick ten minute presentation, read the thesis in advance, examiners read the thesis
+
+4. year
+
+many people will submit the thesis
+
+One common mistake start writing late
+
+Whatever you are writing now is the draft for the transfer report,
+
+Using bibtex (bibtec)
+
+* As a separate document - write a short summary (paragraph)
+
+4. Artur sabbatical
+5. Artur licenses mathematica
+6. Artur ICO OK
+7. Artur sd platforms
+8. Artur Safecomp
+9. Artur cleargrasp
+
+
+ICO establishes the connectiion between accountability, assurance cases, AI/Machine Learning
+
+Peter Popov - sceptical
+Robin - open on explainability
+
+Keep PhD working on technical aspect.
+
+Interaction - bounce ideas,
+
+6 or 7 chapters, 8 application chapter
+high level - ICO document - the document puts explainability, knowledge extraction, rule
+
+explainability, one component of accountability (ICO doc failed to say this)
+
+Develop MSc thesis more towards explainability, one to one as part of supervision.
+
+Bring to them, some of the things I have been doing in the MSc, and how that can continue. In the next couple of months, explore a bit
+
+Most PhDs today, start with the topic, explore options.
+
+Within explainability of CNNs, job
+
+We are seeing more CNNs, combined with RNNs, conv AE graph conv AE
+
+explainability method, identify limits, may be limited to domain
+
+In a paper - one claim - one thing that you do better than the others,
+
+In a research dissertation PhD thesis, identify limitations of approach, pros and cons, up to what point you solved the problem.
+
+Most important now, identify
+
+SLAM, path planning
+Simulators hardware
+AI on top
+Explainability
+
+Example and application focus to ground. Literature review - identify directions I AM NOT GOING INTO.
+
+THIS IS MY FOCUS BECAUSE
+because of my interests
+because I already have produced some results
+To solve this concrete problem, my
+
+Have a justification. Data Bytes - Alberto - using CNNs cameras - path reconstruction.
+
+Robin - project leader
+
+Peter + Lorenzo, city side.
+
+* Quick chat before 22nd
+General goal of explainability
+Alberto
+MSc
+Zivid
+
+Example of an example of a decision that needs to be made based on the reconstruction
+
+LIDAR - expensive
+Camera - combine
+
+Find an example where this technology.
+
+One example to present to people -
+
+guys not from this area, different interests and perspectives.
+
+let's think of an example.
+
+Publish - effort is focused, refer to it to build up.
+
+Next relevant January/February, May, September - conference
+
+AAI triple AI (September)
+IJGAI January
+Neurips May
+
+Novelty? explainability

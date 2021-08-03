@@ -150,3 +150,79 @@ Lit. review. Drilling down on SAFECOMP conferences and word clouds. Touched base
 
 Getting the 3D reconstruction demo ready for August 5th meeting, showing point clouds with acquired (noisy) transparent object detail and predicted (clean) transparent object 3D reconstruction.
 
+****************
+** 2021.07.24 **
+****************
+
+More word clouds from IJCAI
+
+ IJCAI 2011 - https://github.com/dsikar/semanticscholar/blob/master/IJCAI/Penning_et_Al.ipynb
+IJCAI 2017 - https://github.com/dsikar/semanticscholar/blob/master/IJCAI/IJCAI2017.ipynb
+IJCAI 2018 - https://github.com/dsikar/semanticscholar/blob/master/IJCAI/IJCAI2018.ipynb
+IJCAI 2019 - https://github.com/dsikar/semanticscholar/blob/master/IJCAI/IJCAI2019.ipynb
+IJCAI 2020 - https://github.com/dsikar/semanticscholar/blob/master/IJCAI/IJCAI2020.ipynb
+
+****************
+** 2021.07.27 **
+****************
+
+Tried wizdom.ai. Interesting visualisations but not sure this could be useful. Maybe for identifying trends. TBD
+
+****************
+** 2021.07.29 **
+****************
+
+Signed up to https://beta.genei.io
+
+Added Robab's references to trial. It is a useful tool so might pursue further.
+
+****************
+** 2021.07.30 **
+****************
+
+Tried OpenAI beta to help with literature review. Results have not been great.
+
+https://beta.openai.com
+
+****************
+** 2021.07.31 **
+****************
+
+Cloning Baidu Apolo following procedure at 
+https://github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_software_installation_guide.md
+
+Stopped at
+bash docker/scripts/dev_into.sh
+
+Next clone
+https://github.com/lgsvl/simulator
+
+****************
+** 2021.08.02 **
+****************
+
+From Ernesto Ruiz:
+
+ Here you can find some resources about Knowledge Graphs https://github.com/turing-knowledge-graphs/teaching/tree/main/city
+This is the module I gave to Judith and Eduard in case you are interested.
+
+Ernesto
+
+ Give also a look to:
+https://github.com/angelosalatino/cso-classifier
+And the Computer Science Ontology:
+
+https://cso.kmi.open.ac.uk/home 
+
+****************
+** 2021.08.03 **
+****************
+
+Completed application for Introductory Certificate in Teaching in Higher PT.
+
+Experimenting with GPT3 - OpenAI NLP engine.
+Experimenting with twint - twitter scraper
+
+Uploaded ClearGrasp pipeline demo for Artur
+https://youtu.be/sBJPD3UBxBY
+
