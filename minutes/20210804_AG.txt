@@ -1,0 +1,74 @@
+Meeting (other doctoral students) useful for finding synergies
+
+"No clear overarching plan" - at the moments
+
+"Direction is down to us"
+
+Robin experience in industry
+
+Links in industry
+
+Try to strengthen connection 
+
+Data (common to group) - find
+
+Having a scenario - important, let's find one
+
+Twitter - Tesla - Full Moon on horizon problem 
+
+Scenarios - originally rain creating anomaly
+account and explain exceptions
+
+"long tail" (Karpathy)
+
+Amber traffic lights
+
+amber fewer examples
+
+1. Collect data - do something practical and compare models
+2. Make sense - how models are managing or failing to deals with exceptions
+
+How do we make sense of how models are dealing with those
+
+"Main novelty of PhD" 
+
+Focus on a scenario - simple example with some data and 
+
+Closer on engineering task
+
+Closer on decision making
+
+Use simulator to evaluate enough data to perform direct comparison
+
+Think about infrastructure
+
+Papers - proving that something holds / probabilistic models
+all the way to provide an explanation
+
+Bear in mind
+
+"HOw a look 
+
+logical rules
+proofs
+
+* Verify learning system
+
+Scenario 2011 - makes sense not to use RBM - AE
+
+train a simple modle
+
+Safety - avoiding crash
+Probabilistic - different levels of expertise
+
+Specify - specify logic - can get ugly
+but borrow specially related to Robustness
+
+"Talked to company" collect data
+"Create dataset of problem cases"
+"Rush those examples"
+Mixing up oranges and pears
+
+"Fairness"
+"Robustness"
+"Dining PHilosophersams"
