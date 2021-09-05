@@ -254,4 +254,72 @@ Looking at AirSim
 
 Looking at Transfer Report templates from Mirela
 
+****************
+** 2021.08.19 **
+****************
 
+ICRI meeting minutes
+
+****************
+** 2021.08.20 **
+****************
+
+Mirela's transfer reports (various PhD students past and present).
+
+****************
+** 2021.08.21 **
+****************
+
+More Transfer Reports, Simulators, specifically Gazebo, from which AirSim seems to have borrowed some concepts.
+Looked up Gazebo on Arxiv, 54 results, including:
+"A Neuro-Symbolic Humanlike Arm Controller for Sophia the Robot"
+which might be of interest to Artur, "Although  we 
+still have to further implement this, these are some of the 
+ideas that our team is now working on testing."
+
+****************
+** 2021.08.22 **
+****************
+
+Introductory Survey to Open-Source Mobile Robot Simulation Software
+
+@INPROCEEDINGS{5702197,
+
+  author={Castillo-Pizarro, Patricio and Arredondo, Tomas V. and Torres-Torriti, Miguel},
+
+  booktitle={2010 Latin American Robotics Symposium and Intelligent Robotics Meeting}, 
+
+  title={Introductory Survey to Open-Source Mobile Robot Simulation Software}, 
+
+  year={2010},
+
+  volume={},
+
+  number={},
+
+  pages={150-155},
+
+  doi={10.1109/LARS.2010.19}}
+
+A Survey of Frameworks and Game Engines for Serious Game Development
+
+@INPROCEEDINGS{6901570,  author={Cowan, Brent and Kapralos, Bill},  booktitle={2014 IEEE 14th International Conference on Advanced Learning Technologies},   title={A Survey of Frameworks and Game Engines for Serious Game Development},   year={2014},  volume={},  number={},  pages={662-664},  doi={10.1109/ICALT.2014.194}}
+
+****************
+** 2021.08.23 **
+****************
+
+Arxiv
+
+****************
+** 2021.08.24 **
+****************
+
+Arxiv
+
+****************
+** 2021.09.05 **
+****************
+
+Arxiv, transferring tables, equations and images.
+In the process of transferring text to Transfer Report, thus abandoning this repository for the time being, until at least after (if and when) Transfer Report is approved.
