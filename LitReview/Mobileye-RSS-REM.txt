@@ -1,0 +1,66 @@
+Motivation of this text
+
+What are suppliers of self-driving systems e.g. Intel Mobileye doing in terms of certification?
+
+We looked up keywords "mobileye certification" on google and found this 2020 article:
+
+https://venturebeat.com/2020/07/16/mobileye-wins-permit-to-test-autonomous-vehicles-in-germany/
+
+Where it is stated that Mobileye was issued by TÜV Süd (Technical Inspection Association) "recommendation for a permit to drive its autonomous vehicles on public roads in Germany"
+
+Mobileye, which Intel paid \$15.3 billion to acquire in March 2017, is building two independent self-driving systems. One is based entirely on cameras, while the second incorporates radar, lidar sensors, modems, GPS, and other components. Both confer the full benefits of Mobileye’s Responsibility-Sensitive Safety (RSS) model, an open policy that imposes “common sense” constraints on the decisions driverless vehicles make, and with the latter theoretically able to travel 100 million hours without a crash.
+
+** COMMENT
+So Mobileye/CEO Amnon Shashua going back a few years for totally against the computer vision only approach to SD/AV, this seems to have changed. Andrey Karpathy, head of AI at Telsa mentions in a recent presentation the lower latency of image processing compared to sonar and radar.
+
+Mobileye claims it is the first non-OEM to receive a driverless vehicle test permit.
+OEMs such as BMW and VW have been testing since mid-2019, when PEGASUS project was scheduled to conclude.
+
+Mobileye/Intel acquired a urban mobility startup start-up (is, Moovit, going since 2012)
+https://venturebeat.com/2020/05/04/intel-acquires-urban-mobility-startup-moovit-for-1-billion/#:~:text=Intel%20acquires%20urban%20mobility%20startup%20Moovit%20for%20%24900%20million%20%7C%20VentureBeat
+
+Path-planning app
+
+"TÜV Süd self-driving certification" search returns a number of pages:
+
+Why is this certification in particular significant:
+
+German car makers (Audi, BMW, Daimler, VW) account for around 14\% (source statista.com), approximately 1 in 7 vehicles manufactured globally, are part of the PEGASUS project, delivering standards for automated driving.
+
+Permit for operating autonomous vehicles
+https://www.tuvsud.com/en-sg/industries/mobility-and-automotive/automotive-and-oem/autonomous-driving/permit-for-operating-autonomous-vehicles
+
+How they do it:
+
+Verify that vehicle is:
+operational safety = vehicle safety + functional safety + cybersecurity
+through phases of
+risk assessment, gap analysis, validation and testing, reports and documents.
+
+of note:
+
+https://www.tuvsud.com/en-sg/industries/mobility-and-automotive/automotive-and-oem/autonomous-driving/pegasus-project
+
+" TÜV SÜD experts and their partners in the PEGASUS project have been following a hybrid approach, in which the safety tests are largely conducted in virtual simulations and selected representative scenarios are performed on test grounds or in the field. This combination of virtual and real-world tests should cover the whole spectrum of driverless functions and ensure their safety. "
+
+* Revision of existing regulations
+* Cooperation in the development of new standards
+
+Approvals annecdotes
+CO detectors 2000's, when first on the market, no approval standards
+CO detectors 2020, testing failure, report must be written internally to explain why failure occurred and mitigation process.
+Failure due to stack overflow.
+3 versions of software.
+1 failed - stack overflow
+1 did not fail but statistically expected to fail - decreased possibility of stack overflow due to smaller code footprint.
+1 not expected to fail due to stack overflow
+
+Where do we go from here?
+
+Have a simulation scenario - fits with TÜV SÜD procedures
+Compare and contrast safety assessment:
+
+CAE
+Statistical/Probabilistic
+Explainability
+Software quality assurance

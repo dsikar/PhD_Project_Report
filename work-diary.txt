@@ -323,3 +323,37 @@ Arxiv
 
 Arxiv, transferring tables, equations and images.
 In the process of transferring text to Transfer Report, thus abandoning this repository for the time being, until at least after (if and when) Transfer Report is approved.
+
+****************
+** 2021.09.13 **
+****************
+
+Lit review
+
+****************
+** 2022.01.05 **
+****************
+
+Running the SVL simulator. Next, need to investigate some (of the several interesting) approaches covered here:
+https://www.svlsimulator.com/docs/tutorials/lane-following/
+
+Continuing with submission for:
+https://wcci2022.org/call-for-papers/
+
+****************
+** 2022.01.13 **
+****************
+
+Adding access to HPC computing in "Methods", including videos posted by Angelina Nasev. Added to methods appendix, commented out.
+
+****************
+** 2022.01.15 **
+****************
+
+Continuing with EDM120 essay.
+
+****************
+** 2022.01.16 **
+****************
+
+Continuing with EDM120 essay.

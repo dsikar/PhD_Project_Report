@@ -1,0 +1,130 @@
+******************************
+Meeting preparation
+
+1. Searched "Mobileye Certification"
+
+July 2020 - Mobileye wins permit to test autonomous vehicles in Germany
+
+first non-OEMs to receive a driverless vehicle test permit from German regulators. Volkswagen and BMW, among others, have been testing in German cities, including Hamburg, since mid-2019.
+
+https://venturebeat.com/2020/07/16/mobileye-wins-permit-to-test-autonomous-vehicles-in-germany/
+
+It is significant that TUV SUD is a "Technical Inspection Association", it ensures operational safety by verifying vehicle safety, functional safety and cyber security, though Risk Assessment, Gap Analysis, Validation / Testing and finally generating reports and documents, then submitted to "official bodies" (undisclosed) who then issue the permission.
+
+TUV SUD considers
+"Relevant topics in autonomous driving"
+
+* Simulation
+* IT Security
+
+The testing, remembering testing leads to certification, procedure combines "real world tests and simulation"
+
+https://www.tuvsud.com/en-sg/industries/mobility-and-automotive/automotive-and-oem/autonomous-driving/pegasus-project
+
+"TÜV SÜD experts and their partners in the PEGASUS project have been following a hybrid approach, in which the safety tests are largely conducted in virtual simulations and selected representative scenarios are performed on test grounds or in the field. This combination of virtual and real-world tests should cover the whole spectrum of driverless functions and ensure their safety."
+ 
+Q: How did TUV SUB become involved in AV certification ?
+
+A: PEGASUS RESEARCH PROJECT
+
+https://www.pegasusprojekt.de/en/home
+
+SECURING AUTOMATED DRIVING EFFECTIVELY.
+
+PEGASUS delivers the standards for the automation of the future. With the PEGASUS joint project, promoted by the Federal Ministry for Economic Affairs and Energy (BMWi), key gaps in the field of testing of highly-automated driving functions will be concluded by the middle of 2019.
+
+Project Partners (goto https://www.pegasusprojekt.de/en/home then top left hamburguer link):
+(...)
+Audi
+BMW
+Daimler
+VW (these account for 14\% approx or cars manufactured globally, or 1 in 7 cars manufactured globally.
+TUV SUD
+
+So it seems the project has a critical mass
+
+Note BMW, VW and "other german carmakers" have been testing since mid 2019, when Project Pegasus was scheduled to conclude.
+
+Other cited documents:
+
+https://www.iso.org/standard/73928.html
+
+"This document focuses on system-initiated and human-initiated transitions (Clause 6) from a higher level to a lower level of automated driving"
+
+"This approach will aid research design by ensuring that important factors are considered and support consistency across studies enabling meaningful comparisons of findings. This document also includes information on considerations in test scenario design (Clause 9), common measures for human takeover performance (Clause 10) and considerations in choosing a testing environment (Clause 11) to help readers design experiments comparable to other studies."
+
+Price CHF 158
+
+WHERE DO WE GO FROM HERE?
+
+If the research question is "How do you prove an SD/AV is safe?" then
+CAE - Robin
+Probabilistic/Statistical - Lorenzo
+
+If the research question is "why is the SD/AV safe" then
+Explainability - Artur
+
+Applied to a Simulation Scenario
+
+In the context of what Intel are (Probably) looking for:
+
+1. Validate SD/AV as provided by Mobileye and subsidiary companies
+
+Where does is a simulation placed in the certification/approvals space?
+
+1. Simulation
+2. Cybersecurity (running model is software)
+
+
+Note, TUV SUD seems to have done quite a bit of work on this topic already, so perhaps INTEL has some comments on what type of Safety Assurance they are looking for, after all, in cases the certification authority puts the onus on the customer (manufacturer wishing to get a product to market) to prove product is safe.
+
+Examples, HART association, provides software, expect system to run for weeks, expects an output log.
+*****************************
+
+Progress report
+
+* Access to HPC - I now have
+* Started on template for Transfer Report
+* Article submission to NeurIPS 2021
+
+
+TODOS
+
+1. Desk, looking at swapping for tidier desk
+2. In touch with IT about logging into A304 terminals
+3. Waiting to hear on high-end PC
+4. Waiting to hear on licensing Mathematica
+
+The ICSI
+    
+Pointing out how they could tweak (TUV SUD) PP
+
+Part of reason we are being paid by Intel (diversity/redundancy)
+
+Papers
+
+Correlated Failures in Multi-Version Software" Knight and Leveson
+pfd =  Probability of Failure on Demand ?
+"Diversity with off-the-shelf components: a study with SQL database servers"  ?
+"Diversity for Safety and Security in Embedded Systems"  2014 ?
+The Effectiveness of Software Diversity PhD Thesis
+
+* most people have no idea how much more safe it is if you apply diversity
+"It is an improvement because it kind of work sometimes" LS
+
+* Is training "less" a fallacy ?
+* Example HART - weeks on testing for approvals
+
+Operational Design Domain
+Definitions
+
+An Operational Design Domain (ODD) is
+“ 	[a] description of the specific operating domain(s) in which an automated function or system is designed to properly operate, including but not limited to roadway types, speed range, environmental conditions (weather, daytime/nighttime, etc.), and other domain constraints.[1] 	”
+“ 	[t]he specific conditions under which a given driving automation system or feature thereof is designed to function, including, but not limited to, driving modes. This can incorporate a variety of limitations, such as those from geography, traffic, speed, and roadways.[2]
+
+conditional pfd  qai abi pi
+
+Mobileye REM Road Experience Management - https://www.mobileye.com/our-technology/rem/
+Mobileye RSS Responsibility-Sensitive Safety - https://www.mobileye.com/responsibility-sensitive-safety/
+Mobileye True Redundancy - https://www.mobileye.com/true-redundancy/
+
