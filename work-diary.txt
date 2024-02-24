@@ -357,3 +357,355 @@ Continuing with EDM120 essay.
 ****************
 
 Continuing with EDM120 essay.
+****************
+** 2023.02.12 **
+****************
+
+Goal is to work on presentation, and Carla x ROS Bridge
+
+****************
+** 2023.07.15 **
+****************
+
+Resuming the use of this format. In the 5 months since the last entry, a mix of OneNote, other Overleaf projects, including two papers submissions, have been used, and may still be used:
+Image Pertubations:
+https://www.overleaf.com/project/64847d66451af1fa32ffd61d
+ECAI-2023-Sikar-Garcez:
+https://www.overleaf.com/project/63e26ae626afe49c639210bc
+
+****************
+** 2023.07.16 **
+****************
+
+Added Context and Methods.
+Revisiting https://www.youtube.com/watch?v=pONr1R1dy88 next
+
+****************
+** 2023.07.16 **
+****************
+
+Looked at the channel.
+
+****************
+** 2023.08.26 **
+****************
+
+Structuring ICLR2024 submission for includes. Taking it from previous submission to CVPR.
+
+Slides on noise being applied to data. Infographics. 
+
+Added discussion on Methods, plus figures.
+
+Next:
+
+1. Text and image re-use CVPR submissioni
+2. Text and image re-use Transfer Report
+3. Literature survey and AI assisted research workshop.
+4. Code
+
+****************
+** 2023.08.27 **
+****************
+
+Follow up on previous todo list - FAIL !
+Automated search, PDF download - PASS !
+
+****************
+** 2023.08.28 **
+****************
+
+git@github.com:dsikar/iclr2024.git
+To be continued.
+
+Need to 
+1. Run semantic_scholar_runner.py
+2. Fill and run paper_similarity_analysis.py
+3. Fill and run pdf_to_text_training_prep.py
+
+****************
+** 2023.09.02 **
+****************
+
+1. Performing Geo analysis on gpx data
+
+https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536%2C-104.9847034&key=AIzaSyAhjdPQwrFTftetBKk88JEvG6_-khNazfU
+
+https://developers.google.com/maps/documentation/elevation/start
+
+****************
+** 2023.09.15 **
+****************
+
+Running the Semantic Scholar Runner, semantic_scholar_runner.py, in https://github.com/dsikar/iclr2024
+
+Note, one paper we are looking at: "C AN CNN S B E M ORE R OBUST T HAN
+T RANSFORMERS ?", repo in https://github.com/UCSC-VLAA/RobustCNN, uses code from https://github.com/huggingface/pytorch-image-models/tree/main/timm, almost unmodified. where the "timm" repo seems to come from hugging face. Takeaway, a lot of code is written already, get it from hugging face if possible.
+
+****************
+** 2023.09.16 **
+****************
+
+Working on Appendix for ICLR. Code in 
+
+origin	git@github.com:dsikar/iclr2024.git (fetch)
+origin	git@github.com:dsikar/iclr2024.git (push)
+
+Note Cosine similarity is incomplete - code broken. A few more to go:
+
+Overlap Coefficient:
+
+    This is the size of the intersection of the sets divided by the size of the smaller of the two sets.
+    Formula: O(A,B)=∣A∩B∣min⁡(∣A∣,∣B∣)O(A,B)=min(∣A∣,∣B∣)∣A∩B∣​
+
+Dice's Coefficient (Sørensen–Dice coefficient):
+
+    This is twice the size of the intersection of the sets divided by the sum of the sizes of the two sets.
+    Formula: D(A,B)=2∣A∩B∣∣A∣+∣B∣D(A,B)=∣A∣+∣B∣2∣A∩B∣​
+
+Hamming Distance:
+
+    If the reference lists are treated as binary vectors (similar to the cosine similarity approach), the Hamming distance can be used to measure the difference between the two vectors. This would give a measure of dissimilarity, which can be converted to similarity.
+
+Tanimoto Coefficient:
+
+    It is equivalent to Jaccard similarity for binary data.
+
+
+===========================
+
+Top 20 most cited
+
+Top 20 less cited
+
+*************
+*************
+
+Afterwards - tomorrow (sunday) start structuring, paper, references, result figures, tables, etc.
+
+Oops, to be continued.
+
+****************
+** 2023.09.30 **
+****************
+
+Worked on understanding the code to generate predictions and distance metrics.
+Next, splice in perturbation, distance metrics, to be computed at test time.
+
+****************
+** 2023.10.01 **
+****************
+
+Stopped at mnist_cnn_eval.py. Continue with adding results to dictionary, then going over other perturbations e.g. zoom.
+
+****************
+** 2023.10.04 **
+****************
+
+Adding pertubation levels dictionary to iterate through for every perturbation type.
+
+****************
+** 2023.10.07 **
+****************
+
+Generating heat maps for perturbations levels, like the work done in ECAI-2023-Sikar-Garcez.
+
+We need to get into the habit of generating references for our figures, that is, whenever we see a figure in text, we need a reference to some experiment ID to be found in the appendix of the PhD, with a reference to source code.
+
+Writing code to generate data for Google Drive/PhD/ ICLR2024 - Perturbations excel spreadsheet in one go.
+
+Stopped at brightness, using getattr, and passing dictionary of values. Note, this might need tweaking as it is not yet clear if we pass the dictionary or a list with the dictionary.
+
+TODO fix issues:
+
+We have issues with the mnist_cnn_eval.py:
+
+1. Histogram intersection is returning values great than 1, this is wrong, maximum value should be 1:
+
+2. contrast has thrown and error when taking the mean of the image.
+
+****************
+** 2023.10.14 **
+****************
+
+We need to write unit tests to investigate the issues.
+
+Load one image, pass to each function, in turn.
+
+Need to fix:
+
+1. image tensor passed as arguments: must be passed as image.numpy()
+2. **kwargs - might, might not, tbd.
+
+****************
+** 2023.10.22 **
+****************
+
+Need to fix:
+
+1. Snow parameters in perturbation_levels.py, to have a linear-ish change in the distance metrics.
+
+2. Create figures with unit_tests.py
+
+2. Finish off zoom_blur, create figures and build table.
+
+****************
+** 2023.10.23 **
+****************
+
+1. Finished all perturbations
+
+2. Tomorrow, run batch and generate perturbation table
+
+3. Thursday - CIFAR10
+
+****************
+** 2023.10.28 **
+****************
+
+The use of perturbations.py class needs to change, such that when calling, only numpy arrays are used. Code needs to be checked such that when calling Perturbations member class functions, tensors are converted to numpy arrays, and converted back to tensors if required, from the calling code. That means modifiying Perturbations.py contrast member function, and mnist_cnn_eval.py.
+
+****************
+** 2023.10.29 **
+****************
+
+Building tables. Build preliminary tables. Work to be done on perturbations i.e. contrast needs to be inverted and so on.
+
+** Downtime work
+ 1. Remove warnings, errors
+ 2. Add all images - with pertubations
+ 3. Unpickle vanilla_cnn_mnist_contrast_3.0_to_minus_1.0_20231119194232.pkl and plot contrast level x accuracy
+ 
+Created vanilla_cnn_mnist_contrast_3.0_to_minus_1.0_20231119194232.pkl, with contrast going from 3.0 to -1.0. With accuracy varying from a max of 96.0 at 3.0 to a min of 16/67 at -0.8, while shooting up to 9.74 at -0.9 and -1.0, with very high Bhattacharya Distance and KLD, and low HI. Which suggests something weird is going on.
+
+****************
+** 2023.11.26 **
+****************
+
+1. Unpickled vanilla_cnn_mnist_contrast_3.0_to_minus_1.0_20231119194232.pkl and plotted contrast level x accuracy. Also added table with Constrast Level, Accuracy, BD, KL and HI in work in progress.
+
+Created vanilla_cnn_mnist_brightness_0.1_to_2.0_20231126195852.pkl. Commit 492ea56
+
+Next:
+
+1. Same plot and table for brightness (as created for contrast)
+
+****************
+** 2023.11.28 **
+****************
+
+Updated work-in-progress github README.md
+
+****************
+** 2023.12.10 **
+****************
+
+Modified https://github.com/dsikar/iclr2024
+Now using get.url() method.
+
+****************
+** 2023.12.13 **
+****************
+
+Added Null checks.
+Next, report on "exotic/external metric" e.g. papers not referenced by any other papers in the last 4 years / total papers
+Report on authors that are published every year
+Report on references by authors that are published every year
+
+****************
+** 2023.12.16 **
+****************
+
+Regenerate Contrast levels, inverting accuracy order - we want highest to lowest.
+
+2. Create one file per perturbation
+
+Added, defocus blur and fog levels, next, frost.
+
+****************
+** 2023.12.23 **
+****************
+
+Adding gaussian noise, refactoring noise data processing file, to take arguments.
+
+Starting a new page in latex work-in-progress for every noise type analysis.
+
+****************
+** 2023.12.25 **
+****************
+
+Added motion blur, Pixelation and shot (poisson) noise. Next are snow, zoom blur and frost.
+
+A correlation matrix with distance functions and accuracy would also be good.
+
+****************
+** 2023.12.26 **
+****************
+
+Added snow noise.
+
+****************
+** 2023.12.27 **
+****************
+
+Trying to fix frost, by looking at kernel distributions.
+
+Fixed frost, generating new table.
+
+Found that for frost, our distance functions are not correlating with accuracy in any way.
+
+****************
+** 2023.12.28 **
+****************
+
+Quizi work to start with, then regenerating accuracy table.
+
+****************
+** 2023.12.29 **
+****************
+
+More plots, hopefully we can start writing a basic four of five page paper now that we have sufficient results.
+
+****************
+** 2023.12.30 **
+****************
+
+Writing.
+
+****************
+** 2023.12.31 **
+****************
+
+Null
+
+****************
+** 2024.01.01 **
+****************
+
+Writing methods. Stopped at KL, DB and HI distance metrics.
+
+****************
+** 2024.01.02 **
+****************
+
+Finished methods, working on Discussion.
+
+****************
+** 2024.01.06 **
+****************
+
+Wrote theorem. Incorporated KLrgb plot. 
+
+Tomorrow, do some lit review with ChatGPT API, write a kind of biz plan to incorporate LLMs into gaming/education
+
+****************
+** 2024.01.07 **
+****************
+
+Need to do some work on quizi today, and try to get some momentum.
+
+Worked on quizi BMC and competition, added presentations to google drive, shared links on Notion, added follow-ups to google calendar.
+
+Created another latex project to document iclr2024 automated literature survey method.
+
+
+

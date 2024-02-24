@@ -46,6 +46,8 @@ reqno, % align equation numbers to right
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
+% Allow exact placement of images
+\usepackage{float} 
 
 \usepackage{mathpazo} % Use the Palatino font by default - Lara Chammas used this one
 % Looks time TNR so let's go with that
@@ -60,7 +62,7 @@ reqno, % align equation numbers to right
 \addbibresource{dissertation.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
-
+\usepackage{listings} % Add this line to include the listings package, and render algorithms
 \usepackage{mathtools} % for floor symbol
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
@@ -274,11 +276,13 @@ reqno, % align equation numbers to right
 
 %\include{Chapters/01-IntroductionAndObjectives} 
 %\include{Chapters/02-Context}
-%\include{Chapters/03-Methods}
+\include{Chapters/03-Methods}
+%\include{Chapters/04.4-SevsPseudoCode.tex}
+%\include{Chapters/03.01-CARLA}
 %\%include{Chapters/04-Results}
 %\include{Chapters/05-Discussion}
 %\include{Chapters/06-EvaluationReflectionsAndConclusions}
-\include{Appendixes/AppendixA-methods}
+%\include{Appendixes/AppendixA-methods}
 % \include{Appendixes/AppendixD-results}
 %\include{Appendixes/AppendixE-meetings}
 
@@ -311,7 +315,7 @@ reqno, % align equation numbers to right
 
 %\include{Appendices/Appendix0-RPMI-Project-Proposal}
 %\include{Appendices/AppendixA-methods}
-%\include{Appendices/AppendixD-results}
+%\include{Appendixes/AppendixD-results}
 
 \end{appendices}
 \end{document}  
