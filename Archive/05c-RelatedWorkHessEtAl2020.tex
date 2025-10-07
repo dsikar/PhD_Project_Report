@@ -1,0 +1,171 @@
+
+\section{Introduction}
+
+This document presents the mathematical justifications from the paper ``Softmax-based Classification is k-means Clustering: Formal Proof, Consequences for Adversarial Attacks, and Improvement through Centroid Based Tailoring'' by Hess, Duivesteijn, and Mocanu (2020). The paper establishes a formal equivalence between softmax-based neural network classification and k-means clustering.
+
+\section{Mathematical Foundations}
+
+\subsection{Network Function Definition}
+
+The feedforward network function is defined as:
+\begin{equation}
+F(x) = \sigma(f_p(x)^T W)
+\end{equation}
+where:
+\begin{itemize}
+\item $f_p(x)$ returns the output of the penultimate layer
+\item $\sigma$ is the softmax function
+\item $W \in \mathbb{R}^{d \times c}$ is the weight matrix of the last layer
+\item $d$ is the dimension of the penultimate layer
+\item $c$ is the number of classes
+\end{itemize}
+
+\subsection{Data Matrix Notation}
+
+\begin{itemize}
+\item $X \in \mathbb{R}^{n \times m}$ collects the $m$ training data points with $x_j = X_{\cdot j}$
+\item $f_p(X)$ is the $d \times m$ matrix with vector $f_p(x_j)$ as column $j$
+\end{itemize}
+
+\section{Lipschitz Continuity and Robustness}
+
+\subsection{Lipschitz Continuity Definition}
+
+A function $f : \mathbb{R}^n \rightarrow \mathbb{R}^c$ is Lipschitz continuous with modulus $L$ if for every $x_1, x_2 \in \mathbb{R}^n$:
+\begin{equation}
+\|f(x_1) - f(x_2)\| \leq L \|x_1 - x_2\|
+\end{equation}
+
+\subsection{Lipschitz Modulus of Network Function}
+
+The Lipschitz modulus of function $F$ is given by $L_p \|W\|$, where $L_p$ is the Lipschitz modulus of function $f_p$:
+\begin{equation}
+\|F(x_1) - F(x_2)\| \leq \|f_p(x_1)^T W - f_p(x_2)^T W\| \leq L_p \|W\| \|x_1 - x_2\|
+\end{equation}
+
+\section{Main Theoretical Results}
+
+\subsection{Theorem 1: Softmax-k-means Equivalence}
+
+\begin{theorem}[Softmax-k-means Equivalence]
+Let the dimension of the penultimate layer $d$ be at least as large as the number of classes: $d \geq c - 1$. Given a network whose predictions are calculated as $y = \arg \max_k f_p(x)^T W_{\cdot k}$, there exist $c$ class centroids $Z_{\cdot k} \in \mathbb{R}^d$, equidistant to the origin, such that every point $x$ is assigned to the class whose center is closest in the transformed space:
+\begin{equation}
+y = \arg \min_k \|f_p(x) - Z_{\cdot k}\|^2
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Since $d \geq c - 1$, a vector $v \in \mathbb{R}^d$ exists such that the vectors $W_{\cdot k} + v$ for $k \in \{1,\ldots,c\}$ have the same norm. Let $Z_{\cdot k} = W_{\cdot k} + v$. We have:
+\begin{align}
+y &= \arg \max_k f_p(x_j)^T W_{\cdot k} \\
+&= \arg \max_k f_p(x_j)^T W_{\cdot k} + f_p(x_j)^T v \\
+&= \arg \max_k f_p(x_j)^T Z_{\cdot k} \\
+&= \arg \min_k \|f_p(x_j)\|^2 - 2f_p(x_j)^T Z_{\cdot k} + \|Z_{\cdot k}\|^2 \\
+&= \arg \min_k \|f_p(x_j) - Z_{\cdot k}\|^2
+\end{align}
+
+The vector $v$ is a solution of the system of $c - 1$ linear equations for $2 \leq l \leq c$:
+\begin{equation}
+\|W_{\cdot 1} + v\|^2 = \|W_{\cdot l} + v\|^2
+\end{equation}
+which is equivalent to:
+\begin{equation}
+2(W_{\cdot 1} - W_{\cdot l})^T v = \|W_{\cdot 1}\|^2 - \|W_{\cdot l}\|^2
+\end{equation}
+\end{proof}
+
+\subsection{Matrix Factorization Form}
+
+Theorem 1 implies that the one-hot encoded predictions of a neural network are computed as:
+\begin{equation}
+\hat{Y} = \arg \min_Y \|f_p(X)^T - YZ^T\|^2 \quad \text{s.t. } Y \in \mathbf{1}^{m \times c}
+\end{equation}
+where $\mathbf{1}^{m \times c}$ consists of all binary partition matrices (binary matrices $Y \in \{0,1\}^{m \times c}$ where every row contains exactly one 1).
+
+\subsection{Theorem 2: Robustness Bound}
+
+\begin{theorem}[Robustness Bound]
+Let $x \in \mathbb{R}^n$ be a data point with predicted class $k$ and let the center matrix $Z$ be computed as in the proof of Theorem 1. We assume that $f_p$ is Lipschitz continuous with modulus $L_p$. Any distortion $\Delta \in \mathbb{R}^n$ which changes the prediction of point $\tilde{x} = x + \Delta$ to another class $l \neq k$ has a minimum size of:
+\begin{equation}
+\|\Delta\| \geq \frac{\|Z_{\cdot l} - Z_{\cdot k}\| - \|f_p(\tilde{x}) - Z_{\cdot l}\| - \|f_p(x) - Z_{\cdot k}\|}{L_p}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+From the triangle inequality and Lipschitz continuity:
+\begin{align}
+\|f_p(\tilde{x}) - Z_{\cdot k}\| &\leq \|f_p(\tilde{x}) - f_p(x)\| + \|f_p(x) - Z_{\cdot k}\| \\
+&\leq L_p \|\Delta\| + \|f_p(x) - Z_{\cdot k}\| \label{eq:triangle}
+\end{align}
+
+The triangle inequality also yields:
+\begin{equation}
+\|Z_{\cdot l} - Z_{\cdot k}\| \leq \|f_p(\tilde{x}) - Z_{\cdot l}\| + \|f_p(\tilde{x}) - Z_{\cdot k}\|
+\end{equation}
+
+Subtracting $\|f_p(\tilde{x}) - Z_{\cdot l}\|$ and applying equation \eqref{eq:triangle} gives the final bound.
+\end{proof}
+
+\section{Softmax Confidence Analysis}
+
+\subsection{Softmax Confidence Formula}
+
+The softmax confidence can be expressed as:
+\begin{align}
+\sigma(f_p(x)^T W)_k &= \frac{\exp(f_p(x)^T W_{\cdot k})}{\sum_{l=1}^c \exp(f_p(x)^T W_{\cdot l})} \\
+&= \frac{\exp(f_p(x)^T v)}{\exp(f_p(x)^T v)} \cdot \frac{\exp(f_p(x)^T Z_{\cdot k})}{\sum_{l=1}^c \exp(f_p(x)^T Z_{\cdot l})} \\
+&= \frac{\exp(f_p(x)^T Z_{\cdot k})}{\sum_{l=1}^c \exp(f_p(x)^T Z_{\cdot l})}
+\end{align}
+
+\subsection{Distance Bound}
+
+The Lipschitz continuity of $f_p$ yields:
+\begin{equation}
+\|f_p(x) - Z_{\cdot k}\| \leq L_p \|x - z_k\|
+\end{equation}
+where $z_k \in \mathbb{R}^n$ such that $f_p(z_k) = Z_{\cdot k}$.
+
+\section{Gauss-Confidence Definition}
+
+\begin{definition}[Gauss-Confidence]
+Given a function $f_p : \mathbb{R}^n \rightarrow \mathbb{R}^d$ and a centroid matrix $C \in \mathbb{R}^{d \times c}$, the Gauss-confidence is the vector returned by the function $\kappa(x)$, where for $k \in \{1,\ldots,c\}$:
+\begin{equation}
+\kappa(x)_k = \exp(-\|f_p(x) - C_{\cdot k}\|^2) \in (0,1]
+\end{equation}
+\end{definition}
+
+\section{Centroid Optimization}
+
+\subsection{Optimal Centroids Formula}
+
+The optimal centroids according to the k-means objective are given by:
+\begin{equation}
+C = f_p(X)Y(Y^T Y)^{-1}
+\end{equation}
+
+This provides a trade-off between the required proximity of points to their class centroid and the distance between the class centroids.
+
+\section{Key Mathematical Insights}
+
+\subsection{Voronoi Tessellation}
+
+The classification is performed according to a Voronoi tessellation of $\mathbb{R}^d$, where each Voronoi cell has the shape of a convex cone due to the equal norms of class centers $Z_{\cdot k}$.
+
+\subsection{Orthogonality Condition}
+
+The distance between centroids is maximal if the centroids are orthogonal, and the softmax confidence achieves its maximum value $\sigma(f_p(x)^T W)_k = 1$ only if:
+\begin{enumerate}
+\item The point $f_p(x) = \alpha Z_{\cdot k}$ points in the same direction as the closest centroid ($\alpha > 0$)
+\item The centroids are orthogonal
+\end{enumerate}
+
+\subsection{Outlier Detection Threshold}
+
+A point is considered an outlier if the Gauss confidence of the predicted class is smaller than $1/c$ (for datasets with $c$ classes).
+
+\section{Conclusion}
+
+This mathematical framework provides a rigorous foundation connecting softmax-based neural network classification to k-means clustering. The key theoretical contribution is establishing that neural networks with softmax activation partition the transformed input space into cones (Voronoi cells), which is mathematically equivalent to k-means clustering with centroids at equal distance from the origin. This equivalence has important implications for adversarial robustness and confidence calibration in neural networks.
+
+The robustness bound in Theorem 2 provides a theoretical foundation for understanding the minimum distortion required for adversarial attacks, while the Gauss-confidence formulation offers an alternative approach to confidence estimation that is more closely aligned with the geometric interpretation of the classification process.
+

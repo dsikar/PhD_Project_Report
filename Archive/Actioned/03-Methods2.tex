@@ -1,0 +1,132 @@
+%############
+% METHODS 2 #
+%############
+
+\section{Steering Smoothness Metrics}
+
+We propose three metrics to quantify the smoothness of steering in autonomous driving scenarios. These metrics are designed to help optimize the number of bins when converting steering angle prediction from a regression to a classification problem.
+
+\subsection{Jerk-based Steering Smoothness Index (JSSI)}
+
+\begin{definition}
+Let $\theta(t)$ be the steering angle at time $t$. The jerk $J(t)$ is defined as:
+
+\[ J(t) = \frac{d^3\theta}{dt^3} \]
+
+The JSSI is then defined as:
+
+\[ \text{JSSI} = \frac{1}{1 + \alpha \int |J(t)| dt} \]
+
+where $\alpha$ is a scaling factor, and the integral is taken over the duration of the test run.
+\end{definition}
+
+\textbf{Discussion:} The JSSI is based on the concept of jerk, which is the rate of change of acceleration. In the context of steering, we consider the rate of change of the steering angle. A smoother steering motion would result in lower jerk values and, consequently, a higher JSSI. This metric is particularly sensitive to sudden changes in steering angle, making it useful for detecting "jerky" steering behaviors.
+
+\subsection{Fourier Transform Steering Smoothness Index (FTSSI)}
+
+\begin{definition}
+Let $\Theta(f)$ be the Fourier transform of $\theta(t)$. The FTSSI is defined as:
+
+\[ \text{FTSSI} = \frac{\int_0^{f_c} |\Theta(f)|^2 df}{\int_0^{f_\text{max}} |\Theta(f)|^2 df} \]
+
+where $f_c$ is a cutoff frequency below which we consider the steering to be "smooth", and $f_\text{max}$ is the maximum frequency in the signal.
+\end{definition}
+
+\textbf{Discussion:} The FTSSI uses frequency domain analysis to quantify smoothness. Smooth steering should have most of its power in lower frequencies. This metric calculates the ratio of power in the lower frequency range (below $f_c$) to the total power in the signal. A higher FTSSI indicates smoother steering. This metric is particularly useful for identifying oscillatory behaviors in steering, which might not be as easily detected in the time domain.
+
+\subsection{Moving Window Variance Steering Smoothness Index (MWVSSI)}
+
+\begin{definition}
+For a window of size $w$, we calculate the variance of steering angle changes:
+
+\[ V(t) = \text{Var}(\Delta\theta(t), \Delta\theta(t+1), ..., \Delta\theta(t+w-1)) \]
+
+where $\Delta\theta(t) = \theta(t+1) - \theta(t)$
+
+The MWVSSI is then defined as:
+
+\[ \text{MWVSSI} = \frac{1}{1 + \beta \cdot \text{mean}(V(t))} \]
+
+where $\beta$ is a scaling factor.
+\end{definition}
+
+\textbf{Discussion:} The MWVSSI uses a moving window approach to calculate local variances in steering angle changes. This metric is sensitive to local fluctuations in steering angle, making it useful for detecting both sudden changes and sustained periods of unstable steering. A higher MWVSSI indicates smoother steering. The window size $w$ can be adjusted based on the specific requirements of the driving scenario.
+
+\section{Comparison and Usage}
+
+Each of these metrics captures different aspects of steering smoothness:
+
+\begin{itemize}
+    \item JSSI is most sensitive to rapid changes in steering angle.
+    \item FTSSI is best for detecting oscillatory behaviors and overall frequency characteristics of the steering.
+    \item MWVSSI is useful for identifying local periods of unstable steering.
+\end{itemize}
+
+In practice, it may be beneficial to use a combination of these metrics to get a comprehensive view of steering smoothness. The choice of which metric(s) to prioritize would depend on the specific requirements of the autonomous driving system and the characteristics of the driving environment.
+
+To optimize the number of bins for steering angle classification, one would:
+
+\begin{enumerate}
+    \item Train models with different numbers of bins.
+    \item Run these models in the Carla simulator, collecting steering angle data over time.
+    \item Calculate each smoothness metric for each bin configuration.
+    \item Choose the bin configuration that maximizes the desired smoothness metric(s) while still providing adequate steering control.
+\end{enumerate}
+
+It's important to note that these metrics should be validated and potentially adjusted based on real-world or high-fidelity simulation results. The scaling factors ($\alpha$ and $\beta$) and other parameters (like $f_c$ and $w$) may need to be tuned based on the specific characteristics of the autonomous driving system and the intended driving scenarios.
+
+\subsection{Maximum Distance Between Centroids}
+
+The maximum distance between two points in an n-dimensional space depends on the constraints applied to the coordinates. For probability distributions, each coordinate must be non-negative, and the sum of all coordinates must equal 1. These constraints define a simplex in the n-dimensional space. For a vector $\mathbf{p} = (p_1, ..., p_n)$ in this space:
+
+\begin{equation}
+\sum_{i=1}^n p_i = 1 \quad \text{and} \quad p_i \geq 0 \quad \forall i
+\end{equation}
+
+The maximum Euclidean distance between two points in this simplex occurs between vertices. Each vertex has one coordinate equal to 1 and all others equal to 0. The Euclidean distance $d$ between two vertices $\mathbf{p}$ and $\mathbf{q}$ is:
+
+\begin{equation}
+d(\mathbf{p}, \mathbf{q}) = \sqrt{\sum_{i=1}^n (p_i - q_i)^2}
+\end{equation}
+
+For two vertices that differ in positions $j$ and $k$, we have $p_j = 1$, $q_j = 0$, $p_k = 0$, $q_k = 1$, and all other coordinates are 0. This gives:
+
+\begin{equation}
+d(\mathbf{p}, \mathbf{q}) = \sqrt{(1-0)^2 + (0-1)^2} = \sqrt{2}
+\end{equation}
+
+This maximum distance applies to neural networks with softmax outputs. A prediction for class $j$ produces a vector with maximum probability at position $j$. When the network assigns probability 1 to a class, the output is a vertex of the simplex. The distance between predictions of different classes reaches its maximum of $\sqrt{2}$ when the network assigns probability 1 to each class.
+F
+\section{LLMs and Autonomous Systems}
+
+    % "Minds in Motion: LLMs Driving Robotic Innovation"
+
+    % "Bridging Language and Action: LLMs in Robotics"
+
+    % "The Synaptic Connection: LLMs and Robotic Systems"
+
+    % "From Words to Worlds: LLM-Actuated Robotics"
+
+    % "Cognitive Machines: The Role of LLMs in Robotics"
+
+    % "Language as the Catalyst: LLMs in Robotic Control"
+
+    % "Robotic Reasoning: LLMs at the Helm"
+
+    % "The Next Frontier: LLMs Powering Intelligent Robots"
+
+    % "Conversations with Machines: LLMs in Robotic Applications"
+
+    % "Beyond Code: LLMs as Robotic Decision-Makers"
+
+    % "Intelligent Integration: LLMs and Robotic Autonomy"
+
+    % "The Language of Robotics: LLMs in Action"
+
+    % "Robotic Evolution: LLMs as the Brain of Machines"
+
+    % "From Text to Task: LLMs in Robotic Systems"
+
+    % "The AI Nexus: LLMs and Robotic Intelligence"
+
+    

@@ -1,0 +1,35 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+This thesis has presented a comprehensive investigation into quantized neural network models for autonomous driving applications, with particular focus on steering angle prediction and vision-language model integration.
+
+Through systematic experimentation using the CARLA driving simulator, we have demonstrated the effectiveness of both CNN and Vision Transformer architectures for discrete steering control.
+
+This work has made contributions to autonomous system safety. Two papers covering some of the results have been peer-reviewed and accepted for publication in conference proceedings \citep{sikar2024misclassificationlikelihoodmatrixclasses, sikar2025explorationssoftmaxspaceknowing}. A third paper based on these contributions is planned for submission.
+
+\textbf{Quantized Steering Models:} We developed and evaluated multiple quantization strategies for steering angle prediction, demonstrating that coarser quantization (3-5 bins) achieves better performance compared to finer granularity approaches.
+
+\textbf{Architecture Comparison:} Through systematic comparison of CNN and Vision Transformer models, we showed that the methodology is model agnostic, and the geometric properties of the softmax space hold in the resulting networks from both model architectures.
+
+\textbf{VLM Fine-tuning:} Successfully fine-tuned vision-language models (Qwen2-VL) for driving scene understanding, improving accuracy from baseline performance to $85.08\%$.
+
+\textbf{Performance Metrics:} Established Distance Mean Absolute Error (D MAE) as a metric for autonomous driving evaluation, achieving values well below the 0.85 lane invasion threshold across all best models, meaning no lane invasions while driving around the figure-of-eight circuit.
+
+\textbf{Dataset Creation:} Created comprehensive datasets including figure-of-eight CARLA tracks, MNIST-based variations, and quantized steering angle datasets to train models and validate our methodology.
+
+Our findings have several important implications for autonomous driving research. We demonstrated applications in both classification and regression tasks, showing that when regression is transformed into classification, the softmax space can be leveraged for uncertainty analysis, providing interpretability in autonomous systems.
+
+Our VLM experiments reveal both the potential and current limitations of large vision-language models for real-time autonomous driving applications, highlighting the importance of local inference capabilities and latency optimization on constrained hardware.
+
+\section{Limitations and Considerations}
+
+Several limitations must be acknowledged:
+
+\textbf{Simulation Environment:} Our experiments were conducted in CARLA simulation, which may not fully capture real-world driving complexity and variability.
+
+\textbf{Hardware Constraints:} GPU memory limitations (GeForce GTX 1060 6GB, RTX 3060 12GB, latency to access more GPU memory) restricted our ability to conduct larger-scale VLM experiments locally.
+
+\textbf{Dataset Imbalance:} Severe class imbalance in our steering datasets (22,460 middle vs 1,422 left samples) may have biased model performance.
+
+\textbf{Latency Issues:} Remote VLM inference introduced unacceptable latency for real-time driving applications, limiting practical deployment.
+

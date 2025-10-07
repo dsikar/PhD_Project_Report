@@ -1,0 +1,241 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTRODUCTION AND OBJECTIVES %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% this has a section on Trust in autonomous systems, reliability, safety, security and ethical dedicion making that might be useful, the rest seems like repetition.
+\chapter{Introduction and Objectives}
+\label{Intro} 
+
+%%%%%%%%%%%%%%%%
+% INTRODUCTION %
+%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+This study is sponsored by ICRI-SAVe, the Intel Collaborative Research Institute (ICRI) on Safe Automated Vehicles (SAVe), focused on practical innovations that advance the state of the art, security and resilience of real-world autonomous systems such as autonomous vehicles (AVs). Trust is a major bottleneck for commercial introduction of AVs. Consumers must feel comfortable with, and regulators need to build and approve methodologies to prove the safety of, AVs \cite{ICRI-SAVe2024}. This study aims to contribute in the assessment and quantification of Autonomous Systems Safety, of which AVs are a particular case.
+
+\subsection{ICRI-SAVe}
+
+The ICRI-SAVe project - Intel Collaborative Research Institute on Safety of Autonomous Vehicles \cite{ICRI-SAVe2024}, funded by Intel Corporation with a budget of USD 300,000, was officially conducted from September 2019 to September 2022. This research initiative, led by the Centre for Software Reliability at City, University of London, focused on enhancing the safety of autonomous vehicles (AVs). The project's primary objectives were to develop structured assurance cases using Assurance 2.0, employ statistical inference methods for safety confidence, and create probabilistic models to analyze the impact of road hazards and subsystem reliability on AV safety.
+
+The research was divided into three main themes: assurance cases, diversity and defense-in-depth, and systemic risk modeling. The assurance cases aimed to clarify the reasoning from evidence to top-level safety claims, utilizing the "claims, argument, evidence (CAE)" framework. Probabilistic modeling techniques, including stochastic activity networks and Markov models, were used to study the imperfections in perception systems and safety monitors. The project also focused on mathematical models combining Bayesian reasoning and bounding methods to address uncertainties from various evidence sources.
+
+The project's achievements include contributions to understanding the role of diversity in AV safety and developing robust models for safety assurance. The project involved collaboration with research institutions such as Karlsruhe Institute of Technology and Fraunhofer IESE, enhancing its impact on the field of autonomous systems safety research.
+
+However, before delving into the technical details of this research, it is important to understand the broader context of trust in autonomous vehicles. The following section will discuss the key aspects of trust and the challenges that need to be addressed to ensure the safe and successful deployment of AVs.
+
+\section{Trust in Autonomous Vehicles}
+
+Trust in Autonomous Vehicles (AVs) encompasses several critical aspects such as reliability, safety, security, and ethical decision-making. For AVs to be widely accepted and integrated into everyday life, it is essential to address these concerns comprehensively. This section discusses these various aspects and highlights specific concerns that consumers and regulators have regarding AVs.
+
+\subsection{Reliability}
+\textbf{Reliability} refers to the consistent performance of AVs under various conditions. For consumers, the reliability of AVs is paramount as it determines the vehicle's dependability in routine operations and unexpected scenarios. Issues such as software bugs, hardware malfunctions, or failures in sensor systems can significantly undermine trust. Studies indicate that consumers are particularly wary of AVs' ability to handle adverse weather conditions or complex traffic situations \cite{gogoll2017}.
+
+\subsection{Safety}
+\textbf{Safety} is the most significant factor influencing trust in AVs. This aspect covers the vehicle's ability to avoid accidents and protect passengers and pedestrians. According to the National Highway Traffic Safety Administration (NHTSA), while AVs have the potential to reduce accidents caused by human error, there is a need for rigorous testing and validation to ensure their safety in real-world conditions \cite{nhtsa2020}. Incidents involving AVs, such as the fatal Uber crash in 2018, have heightened public concern and skepticism about the technology’s readiness \cite{goodall2016}.
+
+\subsection{Security}
+\textbf{Security} concerns involve the protection of AVs from cyber-attacks. As AVs rely heavily on software and connectivity for their operation, they are vulnerable to hacking, which could lead to disastrous consequences. Ensuring robust cybersecurity measures is essential to protect against unauthorized access and data breaches. The European Union Agency for Cybersecurity (ENISA) has emphasized the importance of cybersecurity in AVs, recommending the implementation of stringent security protocols and regular updates to counter emerging threats \cite{enisa2020}.
+
+\subsection{Ethical Decision-Making}
+\textbf{Ethical decision-making} in AVs involves programming these vehicles to make decisions during unavoidable accidents. This aspect raises moral and philosophical questions about how AVs should prioritize lives and property in critical situations. The "trolley problem" is a classic example often discussed in the context of AV ethics, where the vehicle must choose between two harmful outcomes \cite{lin2015}. Public trust in AVs significantly depends on transparent and ethically sound decision-making frameworks that align with societal values.
+
+Consumers are primarily concerned with the aforementioned aspects of trust—reliability, safety, security, and ethical decision-making. Additionally, there is apprehension about the lack of control and the ability to intervene in the vehicle’s operation during emergencies. Regulators, on the other hand, focus on establishing comprehensive guidelines and standards to ensure the safe deployment of AVs. They are concerned with liability issues, the adequacy of current infrastructure to support AV technology, and the long-term societal impacts of widespread AV adoption \cite{litman2020}.
+
+Building trust in AVs is a complex endeavor that requires addressing reliability, safety, security, and ethical decision-making comprehensively. Both consumer acceptance and regulatory approval hinge on demonstrating that AVs can operate dependably and safely while adhering to ethical standards. Ongoing research, transparent communication, and robust regulatory frameworks are crucial to fostering trust in this transformative technology.
+
+With this understanding of the importance of trust, the next section will provide an overview of the current state of AV technology, including the key players, recent advancements, and the safety methodologies that are being used to assess and verify the safety of these systems.
+
+\section{State of the Art}
+
+\subsection{Current State of AV Technology}
+
+Autonomous Vehicle (AV) technology has evolved significantly in the past decade, moving from conceptual designs to real-world deployments. Major technology companies and traditional automakers are investing heavily in this field, leading to a diverse and competitive landscape.
+
+Currently, most commercially available autonomous systems operate at SAE Level 2 or Level 3 autonomy \cite{SAE2021}. % TODO: Replace with specific paper
+These systems can control steering, acceleration, and braking in specific scenarios but require human oversight. However, several companies are actively testing Level 4 and Level 5 systems, which promise full autonomy in most or all driving conditions \cite{Yurtsever2020}.
+
+Waymo, a subsidiary of Alphabet Inc., is one of the leaders in the AV field. Their self-driving taxi service, Waymo One, has been operational in Phoenix, Arizona since 2018, recently expanding to San Francisco \cite{Waymo2023}. Tesla, with its Autopilot and Full Self-Driving (FSD) systems, has the largest fleet of AVs, providing vast amounts of real-world data \cite{Tesla2023}.
+
+Other major players include traditional automakers like General Motors (through its Cruise subsidiary), Ford, and Volkswagen, as well as technology companies like Uber, Aptiv, and Baidu \cite{Koopman2019}. These companies are employing a variety of sensing technologies, including LIDAR, radar, cameras, and ultrasonic sensors, often in combination \cite{Yurtsever2020}.
+
+Recent advancements in the field include improved perception systems capable of detecting and classifying objects with greater accuracy, even in challenging weather conditions \cite{Grigorescu2020}. There have also been significant developments in decision-making algorithms, with the incorporation of deep learning and reinforcement learning \cite{Kiran2021}.
+
+Despite these advancements, several challenges remain. These include ensuring safety in the high-numbering edge cases, sometimes referred to as "the long tail", gaining regulatory approval, addressing ethical concerns, and achieving public acceptance \cite{Koopman2019}. The ability of AVs to operate in diverse environments and weather conditions, as well as their interaction with human-driven vehicles and pedestrians, are ongoing areas of research and development \cite{Yurtsever2020}.
+
+It is clear that AVs have the potential to disrupt transportation. However, the timeline for widespread adoption of fully autonomous vehicles remains uncertain and dependent on overcoming technical, regulatory, and social challenges \cite{Litman2023}.
+
+\subsection{Regulatory Landscape for Autonomous Vehicles and Systems}
+
+The regulatory environment for Autonomous Vehicles (AVs) and other autonomous systems is evolving rapidly, with different regions adopting varied approaches. This diversity in regulation reflects the complex challenges of balancing innovation, safety, and public interest in the face of rapidly advancing technology.
+
+In the United States, the regulatory approach has been largely decentralized, with individual states taking the lead in AV regulation \cite{Claybrook2018}. % TODO: Find a suitable replacement for this citation
+The National Highway Traffic Safety Administration (NHTSA) has provided guidelines for AV testing and deployment, but these are largely voluntary \cite{nhtsa2020}. This flexible approach has facilitated extensive AV testing, but it has also led to a patchwork of regulations that may complicate interstate operations.
+
+The European Union has taken a more centralized approach, working towards harmonized regulations across member states. The EU has introduced the AV-Ready initiative, aiming to create a comprehensive regulatory framework for AVs \cite{EuropeanCommission2020}. This includes updates to type-approval regulations and efforts to address liability and ethical issues.
+
+In Asia, countries like China, Japan, and Singapore have been proactive in creating regulatory frameworks for AVs. China, in particular, has implemented national guidelines for AV testing and is working on standards for AV deployment \cite{Du2020}. Singapore has created a flexible regulatory framework that allows for rapid adaptation to technological advancements \cite{Taeihagh2019}.
+
+Globally, there's a growing recognition of the need for international cooperation in AV regulation. The United Nations Economic Commission for Europe (UNECE) has been working on amendments to the Vienna Convention on Road Traffic to accommodate AVs \cite{UNECE2021}.
+
+For broader autonomous systems, regulatory approaches vary significantly depending on the application domain. In aviation, for instance, regulations for autonomous drones are more developed than those for autonomous passenger aircraft \cite{Hodgkinson2018}. In healthcare, regulatory bodies like the FDA in the US are developing frameworks for AI and machine learning in medical devices \cite{FDA2021}.
+
+A key challenge across all regions is keeping pace with rapid technological advancements. Regulators are increasingly adopting "adaptive" or "agile" regulatory approaches that allow for more flexibility and rapid updates \cite{Eggers2019}. These approaches aim to balance the need for safety and accountability with the desire to foster innovation.
+
+Another common theme is the shift towards performance-based regulations rather than prescriptive rules. This approach focuses on defining desired outcomes rather than specifying exact methods, allowing for technological innovation while maintaining safety standards \cite{Cihon2019}.
+
+Ethics and liability remain challenging areas for regulators globally. Questions about how to encode ethical decision-making into autonomous systems and how to assign liability in case of accidents are still largely unresolved \cite{Awad2018}.
+
+As the technology continues to evolve, regulatory frameworks will need to adapt. The challenge for policymakers will be to create regulations that ensure safety and public trust while allowing for continued innovation in the field of autonomous systems.
+
+The following section will delve deeper into the research challenges that need to be addressed to ensure the safe and successful deployment of AVs.
+
+\section{Research Challenges}
+
+Despite the advancements in AV technology, several challenges remain. These include ensuring safety in the high-numbering edge cases, sometimes referred to as "the long tail", gaining regulatory approval, addressing ethical concerns, and achieving public acceptance \cite{Koopman2019}. The ability of AVs to operate in diverse environments and weather conditions, as well as their interaction with human-driven vehicles and pedestrians, are ongoing areas of research and development \cite{Yurtsever2020}.
+
+A more detailed discussion of the challenges in quantifying safety and the methodologies for assessing the safety of AVs can be found in Chapter \ref{Methodology}.
+
+\subsection{Connecting AVs to Broader Autonomous Systems}
+
+Autonomous Vehicles (AVs) represent a prominent subset of the larger field of autonomous systems, which encompasses a wide range of self-governing machines and software designed to operate with minimal human intervention. The challenges and solutions developed for AV safety have broad implications for autonomous systems in general, offering valuable insights and methodologies that can be applied across various domains.
+
+At their core, AVs share fundamental characteristics with other autonomous systems, including perception, decision-making, and actuation capabilities \cite{Scharre2018}. These systems must operate reliably in complex, dynamic environments, often alongside humans, while adhering to strict safety requirements. This commonality allows for the transfer of knowledge and methodologies between AVs and other autonomous domains such as robotics, unmanned aerial vehicles (UAVs), and industrial automation systems \cite{Kaber2018}.
+
+One key area where AV research has potential cross-domain applications is in the development of robust perception systems. The techniques used for sensor fusion, object detection, and environmental mapping in AVs can be adapted for use in other autonomous systems operating in challenging environments \cite{Thrun2005}. For instance, the methods developed for AVs to navigate in urban environments could inform the design of autonomous robots for disaster response or space exploration.
+
+Similarly, the decision-making algorithms developed for AVs, particularly those dealing with uncertain and partially observable environments, have broad applicability. The use of probabilistic reasoning, reinforcement learning, and planning under uncertainty in AVs provides valuable insights for autonomous systems in fields ranging from healthcare to finance \cite{Russell2015}.
+
+The safety assurance methods being developed for AVs are particularly relevant to other safety-critical autonomous systems. Formal verification techniques, scenario-based testing, and safety of the intended functionality (SOTIF) approaches pioneered in the AV domain can be adapted to verify and validate other types of autonomous systems \cite{Koopman2019}. For example, the methods used to ensure AV safety in unpredictable traffic scenarios could inform safety protocols for autonomous surgical robots or nuclear plant control systems.
+
+Furthermore, the ethical considerations and decision-making frameworks being developed for AVs in scenarios involving potential harm have implications for autonomous systems in various fields. The trolley problem and its variants, often discussed in the context of AVs, are relevant to any autonomous system that must make decisions with potential ethical implications \cite{Awad2018}.
+
+The regulatory frameworks and standards being developed for AVs also provide a template for governance of other autonomous systems. The approaches to certification, testing, and ongoing monitoring of AVs can inform regulatory strategies for other autonomous technologies \cite{Cummings2021}.
+
+However, it's important to note that while there are many commonalities, each domain of autonomous systems also has unique challenges. The specific operational environment, risk profile, and societal impact of different autonomous systems may necessitate tailored approaches \cite{Endsley2017}. For instance, while an AV primarily interacts with its environment through physical movement, an autonomous trading system interacts through financial transactions, requiring different safety and ethical considerations.
+
+In conclusion, the lessons learned from AV safety research and development offer valuable insights for the broader field of autonomous systems. By leveraging these insights and adapting them to specific domains, we can accelerate the development of safe and reliable autonomous systems across a wide range of applications. As research in AVs continues to advance, it will likely remain a key driver of innovation in the larger autonomous systems landscape.
+
+\subsection{Challenges in Quantifying Safety of Autonomous Systems}
+
+Quantifying the safety of autonomous systems, particularly Autonomous Vehicles (AVs), presents a challenge that is crucial to overcome for widespread adoption. The difficulty lies in the nature of safety in these systems and the limitations of traditional safety metrics when applied to autonomy.
+
+One fundamental challenge is the sheer complexity of the operational environment. Autonomous systems must navigate through an almost infinite number of possible scenarios, many of which may be difficult to anticipate or model \cite{Koopman2016}. This 'open world' problem makes it challenging to define a comprehensive set of safety criteria that covers all potential situations.
+
+Traditional automotive safety metrics, such as the number of accidents per million miles driven, are insufficient for autonomous systems. These metrics fail to capture the nuanced performance of AI-driven systems and don't account for the quality or difficulty of the miles driven \cite{Kalra2016}. Moreover, rare but critical events, often termed 'edge cases', are particularly problematic for statistical approaches to safety quantification \cite{Koopman2019}.
+
+The probabilistic nature of accidents poses a significant challenge. Unlike traditional engineering systems, where failures can often be traced to specific components or design flaws, accidents involving AVs can result from a complex interplay of factors, including human error, environmental conditions, and unforeseen interactions with other road users. This makes it difficult to predict and quantify the likelihood of accidents with high confidence \cite{Zhao2020}.
+
+Moreover, the behavior of autonomous systems is often non-deterministic, especially when machine learning algorithms are involved. These algorithms can make decisions based on patterns in data that may not be explicitly programmed. As a result, predicting and verifying the behavior of such systems in every possible situation becomes challenging \cite{Amodei2016}.
+
+The use of machine learning algorithms, particularly deep learning, in autonomous systems introduces additional complexities in safety quantification. These systems often behave as 'black boxes', making it difficult to provide formal guarantees about their behaviour or to fully understand their decision-making processes \cite{Burton2017}. This lack of interpretability poses significant challenges for safety certification and public trust.
+
+Another key challenge is the dynamic nature of autonomous systems. Many of these systems, including AVs, are designed to learn and adapt over time. This continuous evolution makes it difficult to apply traditional safety assessment methods, which often assume a static system \cite{Salay2019}. Ensuring that safety is maintained as the system learns and adapts is a significant challenge.
+
+The interaction between autonomous systems and humans adds another layer of complexity to safety quantification. In semi-autonomous systems or in environments where autonomous systems operate alongside humans, the variability and unpredictability of human behaviour must be accounted for in safety assessments \cite{Endsley2017}. This human-machine interaction is particularly challenging to model and quantify.
+
+Despite these challenges, quantifying safety is crucial for the widespread adoption of autonomous systems. Clear, quantifiable safety metrics are necessary for several reasons:
+
+\begin{enumerate}
+    \item \textbf{Regulatory Compliance}: Regulators require concrete evidence of safety before allowing autonomous systems to operate in public spaces \cite{Cummings2021}.
+    
+    \item \textbf{Public Trust}: Quantifiable safety metrics can help build public confidence in autonomous systems, which is essential for their acceptance and adoption \cite{Choi2020}.
+    
+    \item \textbf{Design and Development}: Clear safety metrics provide goals and benchmarks for system designers and developers, guiding the improvement of autonomous systems \cite{Shalev2017}.
+    
+    \item \textbf{Insurance and Liability}: Quantifiable safety metrics are necessary for insurance companies to assess risk and for determining liability in case of accidents \cite{Schellekens2015}.
+    
+    \item \textbf{Ethical Considerations}: Quantifiable safety metrics can inform ethical decision-making processes in the development and deployment of autonomous systems \cite{Awad2018}).
+\end{enumerate}
+
+Addressing these challenges requires interdisciplinary approaches combining expertise from fields such as robotics, statistics, psychology, and ethics. New methodologies being explored include adaptive testing frameworks, formal verification of machine learning systems, and novel approaches to scenario generation and analysis \cite{Seshia2016}.
+
+\subsection{Societal Impact of Autonomous Vehicles and Systems}
+
+The introduction of Autonomous Vehicles (AVs) and other autonomous systems is poised to bring about profound changes to society, offering a mix of potential benefits and concerns that warrant careful consideration.
+
+One of the most frequently cited benefits of AVs is the potential for significantly improved road safety. With human error contributing to the vast majority of traffic accidents, AVs could dramatically reduce road fatalities and injuries \cite{Fagnant2015}. This could lead to substantial societal benefits in terms of lives saved, reduced healthcare costs, and improved quality of life for many.
+
+AVs also promise enhanced mobility for those who are unable to drive conventional vehicles, such as the elderly, disabled, or young people. This increased independence could have far-reaching effects on social inclusion and quality of life for these groups \cite{Harper2016}. Furthermore, the potential for more efficient traffic flow and reduced congestion could lead to time savings and increased productivity for commuters \cite{Wadud2016}.
+
+From an environmental perspective, AVs could contribute to reduced emissions and energy consumption through more efficient driving patterns and the potential for increased use of electric vehicles \cite{Greenblatt2015}. However, this benefit could be offset if AVs lead to increased vehicle usage overall.
+
+The economic impact of AVs and autonomous systems is likely to be substantial. While they may create new job opportunities in technology and related fields, there are concerns about job displacement, particularly in transportation-related industries \cite{Autor2015}. The trucking and taxi industries, for instance, could face significant disruption. Some argue that the automation of monotonous and soul-destroying jobs, such as those of cashiers, would be a net positive for society, freeing up human potential for more creative and fulfilling endeavors \cite{Picone2025}.
+
+Urban planning and infrastructure could also see major changes. AVs might reduce the need for parking spaces in city centres, potentially freeing up valuable urban land for other uses \cite{Duarte2018}). However, they might also encourage urban sprawl by making longer commutes more tolerable.
+
+Privacy and data security represent significant concerns as AVs and other autonomous systems collect and process vast amounts of data. Questions about who owns this data, how it's used, and how it's protected are crucial ethical and legal issues that society will need to address \cite{Taeihagh2019}.
+
+The introduction of autonomous systems also raises complex ethical questions. For AVs, the much-discussed "trolley problem" highlights the challenges of encoding ethical decision-making into autonomous systems \cite{Awad2018}. Similar ethical dilemmas exist for other autonomous systems, such as AI in healthcare or autonomous weapons systems.
+
+There are also concerns about the potential for AVs and other autonomous systems to exacerbate existing social inequalities. If these technologies are not equitably distributed, they could create or widen gaps in mobility, job opportunities, and quality of life between different socioeconomic groups \cite{Milakis2017}.
+
+The psychological impact of increased automation in daily life is another area of consideration. While autonomous systems may reduce stress in some areas (e.g., driving in heavy traffic), they may also lead to a sense of loss of control or purpose for some individuals \cite{Hancock2020}.
+
+In the broader context of autonomous systems, the impact on work and employment is a critical consideration. While automation may eliminate certain jobs, it also has the potential to augment human capabilities, creating new types of jobs and potentially leading to more fulfilling work by eliminating routine tasks \cite{Autor2015}.
+
+Education systems will likely need to adapt to prepare people for a world where interaction with autonomous systems is commonplace. This may involve changes in curriculum to emphasise skills that complement rather than compete with AI and autonomous systems \cite{Manyika2017}.
+
+The introduction of autonomous systems, is having, and may have even more, profound effects on human behaviour and social norms. For instance, AVs could change our relationship with car ownership, potentially leading to more shared mobility models \cite{Fagnant2015}. Similarly, other autonomous systems might alter our expectations around service delivery, decision-making processes, and human-machine interactions.
+
+While AVs and other autonomous systems offer numerous potential benefits to society, their introduction also raises significant challenges and concerns. Addressing these issues will require ongoing dialogue between technologists, policymakers, ethicists, and other groups to ensure that the development and deployment of these technologies aligns with societal values and goals.
+
+\subsection{Interdisciplinary Nature of Autonomous Systems Research}
+
+The development and implementation of autonomous systems, particularly Autonomous Vehicles (AVs), is inherently interdisciplinary, drawing on expertise from a wide range of fields. This convergence of disciplines is not only necessary but crucial for addressing the complex challenges posed by autonomous systems.
+
+At its core, autonomous systems research is deeply rooted in computer science and engineering. The development of sensing technologies, machine learning algorithms, and control systems forms the technical foundation of AVs \cite{Yurtsever2020}. Computer vision, a key component in AV perception systems, combines elements of computer science, mathematics, and cognitive science \cite{Grigorescu2020}. Similarly, the creation of robust decision-making algorithms draws on artificial intelligence, operations research, and control theory \cite{Kiran2021}.
+
+However, the scope of AV research extends far beyond these technical domains. The field of human factors and ergonomics plays a crucial role in designing user interfaces and understanding human-machine interaction in semi-autonomous systems \cite{Endsley2017}. This intersection of engineering and psychology is vital for ensuring that autonomous systems can safely and effectively collaborate with human operators and other road users.
+
+Ethical considerations in autonomous systems necessitate input from philosophy and applied ethics. The much-discussed 'trolley problem' in the context of AVs, for instance, has sparked collaboration between engineers, ethicists, and psychologists to understand how ethical decision-making can be encoded into autonomous systems \cite{Awad2018}. This ethical dimension also extends to considerations of fairness and bias in AI systems, drawing on social sciences and legal studies.
+
+The legal and regulatory aspects of autonomous systems involve a synthesis of technical knowledge with law and policy studies. Policymakers must work closely with technologists to create appropriate regulatory frameworks that ensure safety while fostering innovation \cite{Cummings2021}. This collaboration is essential for addressing complex issues such as liability in accidents involving autonomous systems.
+
+Urban planning and transportation engineering are also integral to AV research, as the widespread adoption of AVs could significantly impact city layouts and transportation systems \cite{Duarte2018}. This necessitates collaboration between technologists, urban planners, and civil engineers to anticipate and shape the future of urban mobility.
+
+The economic implications of autonomous systems, including potential job displacement and new business models, require input from economists and business strategists \cite{Autor2015}. Understanding and predicting these economic impacts is crucial for policymaking and societal preparation for widespread autonomous system adoption.
+
+Environmental science also plays a role, particularly in assessing the potential environmental impacts of AVs, such as changes in energy consumption and emissions \cite{Greenblatt2015}. This involves collaboration between environmental scientists, engineers, and policymakers to ensure that autonomous systems contribute to sustainability goals.
+
+The cybersecurity aspects of autonomous systems necessitate expertise from computer security specialists, cryptographers, and network engineers \cite{Loukas2018}. Ensuring the security and resilience of autonomous systems against potential cyber attacks is crucial for their safe deployment.
+
+Finally, the social and psychological impacts of increasing automation in daily life are being studied by sociologists and psychologists \cite{Hancock2020}. Understanding public perception, trust, and acceptance of autonomous systems is crucial for their successful integration into society.
+
+This interdisciplinary approach to autonomous systems research is not without challenges. Different disciplines often have distinct methodologies, terminologies, and priorities, which can lead to communication difficulties and conflicting objectives \cite{Stilgoe2018}. However, these challenges also present opportunities for innovation and holistic problem-solving.
+
+In conclusion, the development of autonomous systems, particularly AVs, is a prime example of how complex technological challenges require interdisciplinary solutions. By bringing together expertise from diverse fields, researchers can address not only the technical aspects of autonomous systems but also their wider implications for society, ethics, and policy. This holistic approach is essential for realising the potential benefits of autonomous systems while mitigating potential risks and negative impacts.
+
+\section{Objectives}
+
+The primary objective of this thesis is to develop a novel framework for the safety assurance of autonomous vehicles, with a particular focus on the challenges posed by machine learning components. This research aims to contribute to the ICRI-SAVe project's goals by developing a practical and rigorous methodology for quantifying the safety of AVs.
+
+The specific objectives of this research are as follows:
+
+\begin{enumerate}
+    \item To develop a comprehensive and extensible safety case framework for AVs that explicitly addresses the uncertainties associated with machine learning components.
+    \item To develop and evaluate novel techniques for the verification and validation of machine learning algorithms used in AVs, with a focus on perception and decision-making systems.
+    \item To develop a probabilistic framework for quantifying the overall safety of an AV, taking into account the interactions between different components and the uncertainties associated with each.
+    \item To demonstrate the applicability of the proposed framework on a realistic case study, using a combination of simulation and real-world data.
+\end{enumerate}
+
+This research will be successful if it produces a safety assurance framework that is both theoretically sound and practically applicable. The success of this research will be evaluated based on the following criteria:
+
+\begin{itemize}
+    \item The ability of the proposed framework to provide a comprehensive and convincing safety argument for a complex autonomous system.
+    \item The effectiveness of the proposed verification and validation techniques in identifying potential safety issues in machine learning components.
+    \item The accuracy and robustness of the proposed probabilistic framework for safety quantification.
+    \item The successful application of the proposed framework to a real-world case study.
+\end{itemize}
+
+\section{Thesis Outline}
+
+This thesis is structured as follows:
+
+\begin{itemize}
+    \item \textbf{Chapter 2: Background and Literature Review} provides a comprehensive overview of the state of the art in AV safety, including a detailed review of existing safety standards, methodologies, and techniques.
+    \item \textbf{Chapter 3: Safety Case Framework} presents the proposed safety case framework for AVs, including a detailed description of the framework's components and their interactions.
+    \item \textbf{Chapter 4: Verification and Validation of Machine Learning Components} describes the novel techniques developed for the verification and validation of machine learning algorithms used in AVs.
+    \item \textbf{Chapter 5: Probabilistic Safety Quantification} presents the proposed probabilistic framework for quantifying the overall safety of an AV.
+    \item \textbf{Chapter 6: Case Study} demonstrates the application of the proposed framework to a realistic case study, using a combination of simulation and real-world data.
+    \item \textbf{Chapter 7: Conclusion and Future Work} summarizes the key contributions of this research and discusses potential directions for future work.
+\end{itemize}

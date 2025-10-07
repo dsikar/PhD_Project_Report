@@ -1,0 +1,492 @@
+\section{Scratch sections}
+
+\subsection{Prompts}
+
+Prompt: In the context of Neural Networks, explain a classification task using the MNIST as an example. Format you reply in latex.
+
+Claude: 
+
+In the context of neural networks, a classification task involves assigning input data to predefined categories or classes. The MNIST (Modified National Institute of Standards and Technology) dataset is a popular example used to demonstrate classification tasks.
+
+The MNIST dataset consists of 70,000 grayscale images of handwritten digits, where each image is $28 \times 28$ pixels in size. The goal of the classification task is to train a neural network model to accurately predict the digit represented in each image.
+
+Here's how a classification task using the MNIST dataset typically works:
+
+\begin{enumerate}
+  \item \textbf{Data Preparation:}
+  \begin{itemize}
+    \item The MNIST dataset is split into two parts: a training set (usually 60,000 images) and a test set (usually 10,000 images).
+    \item Each image is preprocessed by normalizing the pixel values to a range of 0 to 1, which helps in training the model.
+    \item The labels for each image (the actual digit it represents) are also provided.
+  \end{itemize}
+
+  \item \textbf{Model Architecture:}
+  \begin{itemize}
+    \item A neural network model is designed to perform the classification task.
+    \item The model typically consists of an input layer, one or more hidden layers, and an output layer.
+    \item The input layer has 784 neurons ($28 \times 28$ pixels flattened into a 1D array).
+    \item The hidden layers use activation functions (e.g., ReLU) to introduce non-linearity and learn complex patterns.
+    \item The output layer has 10 neurons, each representing one of the 10 possible digits (0 to 9).
+  \end{itemize}
+
+  \item \textbf{Training:}
+  \begin{itemize}
+    \item The training set is used to train the neural network model.
+    \item The model takes each image as input, passes it through the layers, and produces a probability distribution over the 10 possible digits.
+    \item The model's predictions are compared with the true labels using a loss function (e.g., cross-entropy loss).
+    \item The model's weights are adjusted using an optimization algorithm (e.g., stochastic gradient descent) to minimize the loss and improve its accuracy.
+    \item The training process is repeated for multiple epochs until the model achieves satisfactory performance.
+  \end{itemize}
+
+  \item \textbf{Evaluation:}
+  \begin{itemize}
+    \item The trained model is evaluated on the test set, which consists of images the model hasn't seen during training.
+    \item The model makes predictions on the test images, and its accuracy is calculated by comparing the predicted labels with the true labels.
+    \item The test accuracy gives an estimate of how well the model generalizes to unseen data.
+  \end{itemize}
+
+  \item \textbf{Inference:}
+  \begin{itemize}
+    \item Once the model is trained and evaluated, it can be used to make predictions on new, unseen images.
+    \item Given a new handwritten digit image, the model takes it as input and outputs the predicted digit class.
+  \end{itemize}
+\end{enumerate}
+
+The MNIST classification task using neural networks has become a benchmark for evaluating the performance of different model architectures and techniques. It demonstrates how neural networks can learn to recognize patterns and make accurate predictions based on training data.
+
+Various models, such as convolutional neural networks (CNNs), have achieved high accuracy on the MNIST dataset, reaching above 99\% accuracy. CNNs are particularly well-suited for image classification tasks due to their ability to capture spatial patterns and hierarchical features.
+
+
+Gemini:
+
+Here's a breakdown of the previous explanation on MNIST classification using Neural Networks, formatted in LaTeX:
+
+**The Task:**
+
+* We are presented with the MNIST dataset containing grayscale images of handwritten digits (0-9).
+* The objective is to construct a Neural Network capable of recognizing these images and accurately assigning them to their respective digit classes (0, 1, 2, ..., 9).
+
+**The Neural Network:**
+
+* Convolutional Neural Networks (CNNs) are a common choice for this task due to their inherent ability to handle image data. 
+* CNNs operate by identifying relevant features within the image, such as edges, curves, and endpoints, that aid in differentiating between digits.
+* The network comprises multiple layers, allowing it to progressively associate increasingly complex features with specific digit values. 
+
+**The Training Process:**
+
+1. **Data Preprocessing:** Images from the MNIST dataset might necessitate format conversions and normalization to be compatible with the network.
+2. **Feeding the Network:** Labeled images (image + corresponding digit class) are used as input for training the CNN. 
+3. **Learning and Adjustment:** The model reviews the input data, generates initial classifications, and then cross-references these predictions with the provided labels. Errors in classification trigger modifications to the network's internal parameters to enhance subsequent attempts. 
+4. **Iteration:** The training process is repeated over numerous iterations to enable the network to gradually fine-tune its classification capabilities.
+
+**Evaluation:**
+
+* Upon completion of training, the network's efficacy is assessed on a dedicated set of unseen MNIST images (test set).
+* This evaluation aims to determine the extent to which the network's acquired knowledge can be generalized to new data points.
+* Performance metrics, such as accuracy (the proportion of correctly classified digits), are employed for measurement. 
+
+**MNIST's Significance:**
+
+* MNIST's inherent simplicity and extensive exploration make it a valuable initial dataset for individuals studying Neural Networks and image classification.
+* It provides a controlled setting to practice the development and training of CNNs without the added complexities associated with larger-scale datasets.
+* Despite modern models surpassing 99\% accuracy on MNIST, it offers a robust basis for delving into more sophisticated computer vision problems. 
+
+Claude: 
+
+\textbf{Introduction}
+
+\begin{enumerate}
+    \item In the context of neural networks, a classification task involves categorizing input data into predefined classes or categories. The MNIST dataset, standing for "Modified National Institute of Standards and Technology," is a classic example used to demonstrate the process of classification. It is a large database of handwritten digits that is commonly used for training various image processing systems. The dataset comprises 60,000 training images and 10,000 test images, each being a 28x28 pixel grayscale image of a single handwritten digit (0 through 9).
+\end{enumerate}
+
+\textbf{Preprocessing}
+
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item \textbf{Normalization:} The pixel values of the images are normalized to a range, often between 0 and 1. This normalization makes the network easier to train by ensuring that the scale of the inputs is relatively similar across all inputs.
+    \item \textbf{Flattening (if necessary):} Each 28x28 image may be flattened into a 784-dimensional vector to serve as input, especially in architectures that do not inherently handle two-dimensional data, such as simple dense neural networks.
+\end{enumerate}
+
+\textbf{Model Architecture}
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item A neural network for the MNIST classification task usually consists of an input layer, one or more hidden layers, and an output layer. The input layer has 784 units (corresponding to the 28x28 pixels), and the output layer has 10 units, each representing one of the digit classes (0 to 9). Hidden layers can vary in complexity, from simple dense layers to convolutional neural network (CNN) layers designed to capture spatial hierarchies in the data.
+\end{enumerate}
+
+\textbf{Training}
+
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item During training, the neural network learns to recognize patterns of handwritten digits by adjusting its weights through a process called backpropagation. This process, combined with an optimization algorithm like Stochastic Gradient Descent (SGD) or Adam, aims to minimize the loss function (e.g., cross-entropy loss for classification tasks), which quantifies the difference between the predicted class and the true class of each image.
+\end{enumerate}
+
+\textbf{Evaluation}
+
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item After training, the model's performance is evaluated on a separate set of images not seen during training (the test set). The primary evaluation metric is accuracy, defined as the proportion of correctly classified images out of the total number of images in the test set.
+\end{enumerate}
+
+\textbf{Example}
+
+\begin{enumerate}
+    \setcounter{enumi}{6}
+    \item Consider feeding a handwritten "5" into the trained model. The model processes the image from the input layer through the hidden layers, applying weights to detect patterns and features, and finally outputs a set of probabilities in the output layer. Ideally, the model assigns the highest probability to the neuron corresponding to "5", correctly classifying the digit.
+\end{enumerate}
+
+
+Prompt: Discuss the output of the trained neural network you just described.
+
+GPT:
+
+\begin{enumerate}
+    \item \textbf{Introduction to the Output of the Trained Neural Network:}
+    The output of a trained neural network on the MNIST dataset is a classification model capable of recognizing and classifying handwritten digits from 0 to 9 with high accuracy. The model achieves this through its final layer, which provides a probabilistic distribution over the 10 possible digit classes.
+
+    \item \textbf{Understanding the Output Layer:}
+    The output layer of the neural network consists of 10 neurons, each corresponding to one of the ten digit classes (0 through 9). After processing an input image (a 28x28 pixel grayscale image of a handwritten digit), the network outputs a 10-dimensional vector of probabilities. Each component of this vector represents the network's confidence that the input image belongs to one of the 10 digit classes.
+
+    \item \textbf{Interpreting the Probabilities:}
+    The values in the output probability vector sum up to 1, with each value being between 0 and 1. A higher probability value for a particular digit indicates a higher confidence by the model that the input image represents that digit. For instance, if the output vector for an image is [0.01, 0.01, 0.01, 0.01, 0.9, 0.01, 0.01, 0.01, 0.01, 0.01], the model predicts with high confidence that the input image is a handwritten "4".
+
+    \item \textbf{Decision Rule:}
+    The final classification decision is made based on the highest probability in the output vector. This is known as the "argmax" decision rule, where the model selects the class with the maximum probability as the predicted class for the input image.
+
+    \item \textbf{Model Accuracy and Evaluation:}
+    The accuracy of the model is evaluated based on its performance on a set of test images that were not seen during the training phase. Accuracy is calculated as the percentage of test images correctly classified by the model. High accuracy on the test set indicates that the model has effectively learned to generalize from the training data to new, unseen data.
+
+    \item \textbf{Challenges and Misclassifications:}
+    Despite high overall accuracy, the model might still make misclassifications. These can occur due to factors like poor handwriting, ambiguous digit representations, or limitations in the model's architecture and training. Analyzing misclassifications can provide insights into areas where the model might be improved.
+\end{enumerate}
+
+Claude:
+
+When a trained neural network is used for inference on the MNIST dataset, it takes a new, unseen handwritten digit image as input and produces an output indicating the predicted digit class. Let's discuss the output of the trained neural network in more detail.
+
+\textbf{Output Format:}
+The output layer of the neural network typically consists of 10 neurons, each corresponding to one of the 10 possible digit classes (0 to 9). The activation function used in the output layer is often the softmax function, which converts the raw output values into a probability distribution over the classes.
+
+\textbf{Probability Distribution:}
+The softmax function ensures that the output values sum up to 1 and can be interpreted as probabilities. Each output neuron represents the probability of the input image belonging to its corresponding digit class. For example, if the output neuron corresponding to digit 7 has a high probability value (e.g., 0.95), it indicates that the network is highly confident that the input image represents the digit 7.
+
+\textbf{Predicted Class:}
+To determine the predicted digit class, the class with the highest probability is selected. In the example above, if the output neuron for digit 7 has the highest probability among all the output neurons, the network predicts that the input image belongs to the class of digit 7.
+
+\textbf{Confidence and Uncertainty:}
+The probability values assigned to each class can also provide insights into the network's confidence and uncertainty in its predictions. A high probability value for a particular class suggests high confidence in the prediction, while similar probability values across multiple classes indicate uncertainty or ambiguity in the prediction.
+
+For instance, if the network assigns similar probabilities to digits 3 and 8 for a given input image, it suggests that the network is uncertain about whether the image represents a 3 or an 8. This uncertainty may arise due to factors such as noisy or ambiguous handwriting in the input image.
+
+\textbf{Evaluation Metrics:}
+The performance of the trained neural network is typically evaluated using metrics such as accuracy, precision, recall, and F1 score. These metrics provide a quantitative measure of how well the network predicts the correct digit classes on the test set.
+
+\begin{itemize}
+  \item \textbf{Accuracy:} The percentage of correctly classified images out of the total number of test images.
+  \item \textbf{Precision:} The proportion of true positive predictions among all positive predictions for a specific class.
+  \item \textbf{Recall:} The proportion of true positive predictions among all actual instances of a specific class.
+  \item \textbf{F1 Score:} The harmonic mean of precision and recall, providing a balanced measure of the network's performance.
+\end{itemize}
+
+These evaluation metrics help assess the network's overall performance and its ability to generalize well to unseen data.
+
+\textbf{Misclassifications and Confusion Matrix:}
+In addition to the evaluation metrics, analyzing the misclassifications made by the network can provide valuable insights. A confusion matrix is often used to visualize the network's performance, showing the true classes versus the predicted classes. The diagonal elements of the confusion matrix represent correct classifications, while the off-diagonal elements represent misclassifications.
+
+Examining the confusion matrix can reveal patterns in the network's errors, such as frequently confusing certain digit pairs (e.g., confusing 4 and 9 or 3 and 5). This information can guide further improvements to the network architecture or data preprocessing techniques.
+
+In summary, the output of a trained neural network for MNIST classification consists of a probability distribution over the digit classes, with the highest probability indicating the predicted class. The network's performance is evaluated using metrics like accuracy, precision, recall, and F1 score, and misclassifications can be analyzed using a confusion matrix. Understanding the output and evaluation metrics helps assess the network's effectiveness and identify areas for improvement.
+
+GPT:
+
+**Output Representation:**
+
+* The final layer of the CNN typically has 10 output neurons, each corresponding to a possible digit class (0-9).
+* The output of the network is a vector of probabilities or confidence scores across these 10 neurons. For example:
+
+```
+Output Vector: [0.02, 0.01, 0.85, 0.05, 0.01, 0.02, 0.01, 0.01, 0.01, 0.01]
+```
+
+**Interpretation:**
+
+* Each element in the output vector signifies the probability the network assigns to the input image belonging to the corresponding digit class.
+* In the example above, the network is highly confident (85% probability) that the input image represents the digit '2'.
+
+**Decision Making:**
+
+* The final classification decision is usually made by selecting the digit class with the highest probability. In our example, the digit '2' would be the final classification.
+
+**Softmax Activation:**
+
+* Often, a softmax activation function is applied to the final layer of the network. This function has the following effects:
+   * **Normalization:** It ensures that the output values sum up to 1, making them interpretable as probabilities.
+   * **Accentuates Differences:** It amplifies the difference between the highest probability and the rest,  making the network's decision more definitive.
+
+**Considerations:**
+
+* While the highest probability usually leads to the correct classification, the network isn't always perfect.  
+* Factors like ambiguous handwriting or noisy images can lead to misclassifications.
+
+Let me know if you want a more technical breakdown of how the output probabilities are calculated within the neural network! 
+
+%%%%%%%%%%
+% PROMPT %
+%%%%%%%%%%
+
+Prompt: In the context of the MNIST classification problem we have been discussing, discuss the Softmax Activation function, provide equations if needed, as well as one or more references. Write your output in latex format. Assume \\begin{document} and \\end{document} are already present.
+
+
+Claude: 
+
+In the context of the MNIST classification problem, the softmax activation function plays a crucial role in the output layer of the neural network. The softmax function is used to convert the raw output values (logits) of the neural network into a probability distribution over the possible digit classes.
+
+The softmax function takes a vector of real numbers as input and normalizes it into a probability distribution. Given an input vector $\mathbf{z} = (z_1, z_2, \dots, z_K)$, where $K$ is the number of classes (10 in the case of MNIST), the softmax function computes the probability of each class as follows \cite{goodfellow2016deep}:
+
+\begin{equation}
+\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+\end{equation}
+
+where $\text{softmax}(z_i)$ represents the probability of the input belonging to class $i$, and $e^{z_i}$ is the exponential function applied to the $i$-th element of the input vector.
+
+The softmax function has several important properties:
+
+\begin{itemize}
+  \item The output probabilities sum up to 1, ensuring a valid probability distribution: $\sum_{i=1}^{K} \text{softmax}(z_i) = 1$.
+  \item The function is monotonic, meaning that a higher input value corresponds to a higher output probability.
+  \item It is differentiable, allowing for efficient gradient-based optimization during training \cite{bishop2006pattern}.
+\end{itemize}
+
+In the MNIST classification problem, the output layer of the neural network typically consists of 10 neurons, each representing one of the digit classes (0 to 9). The softmax function is applied to the output of these neurons, producing a probability distribution over the classes. The class with the highest probability is then selected as the predicted digit.
+
+During training, the softmax function is used in conjunction with a loss function, such as the cross-entropy loss, to measure the discrepancy between the predicted probabilities and the true labels. The goal is to minimize this loss by adjusting the network's weights through optimization algorithms like stochastic gradient descent \cite{lecun2015deep}.
+
+By using the softmax activation function in the output layer, the neural network can effectively learn to classify the handwritten digits in the MNIST dataset, providing a probabilistic interpretation of its predictions.
+
+\begin{thebibliography}{9}
+\bibitem{goodfellow2016deep}
+  Goodfellow, I., Bengio, Y., and Courville, A. (2016).
+  \textit{Deep Learning}.
+  MIT Press.
+
+\bibitem{bishop2006pattern}
+  Bishop, C. M. (2006).
+  \textit{Pattern Recognition and Machine Learning}.
+  Springer.
+
+\bibitem{lecun2015deep}
+  LeCun, Y., Bengio, Y., and Hinton, G. (2015).
+  Deep learning.
+  \textit{Nature}, 521(7553), 436-444.
+\end{thebibliography}
+
+GPT:
+
+\begin{enumerate}
+    \item \textbf{Overview of the Softmax Activation Function:}
+    In the context of the MNIST classification problem, the Softmax activation function plays a crucial role in the output layer of the neural network. Softmax is used to convert the raw output scores (often called logits) from the neural network into probabilities by taking the exponential of each output and then normalizing these values by dividing by the sum of all the exponentials.
+
+    \item \textbf{Softmax Equation:}
+    The Softmax function can be mathematically represented as follows:
+    \[
+    \text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+    \]
+    where $z_i$ represents the logit (or the raw output score) corresponding to class $i$, $e$ is the base of the natural logarithm, and $K$ is the total number of classes (which is 10 for the MNIST problem, representing the digits 0 through 9).
+
+    \item \textbf{Purpose and Functionality:}
+    The purpose of the Softmax function is to convert the logits into a probability distribution that sums up to 1. This makes it possible to interpret the neural network's output as probabilities, with each value indicating the likelihood that the input image belongs to one of the 10 digit classes.
+
+    \item \textbf{Choosing the Predicted Class:}
+    After applying the Softmax function, the predicted class for an input image is the one with the highest probability. This is consistent with the "argmax" decision rule, where the index (i.e., class) of the maximum value in the Softmax output vector is taken as the prediction.
+
+    \item \textbf{References:}
+    For further reading and a deeper understanding of the Softmax activation function and its application in neural networks, the following references are recommended:
+    \begin{itemize}
+        \item Goodfellow, I., Bengio, Y., Courville, A., \& Bengio, Y. (2016). \textit{Deep Learning} (MIT Press). This book provides a comprehensive introduction to deep learning, including the mathematical underpinnings of neural networks and the role of the Softmax function in classification tasks.
+        \item LeCun, Y., Bottou, L., Bengio, Y., \& Haffner, P. (1998). Gradient-Based Learning Applied to Document Recognition. \textit{Proceedings of the IEEE}, 86(11), 2278-2324. This seminal paper includes discussions on the MNIST dataset and the use of neural networks for handwritten digit recognition.
+    \end{itemize}
+\end{enumerate}
+
+Gemini:
+
+Here's a discussion of the Softmax function in the context of MNIST classification, including equations and references, in LaTeX format:
+
+**The Softmax Activation Function**
+
+In neural networks tackling multi-class classification problems like MNIST, the softmax activation function is frequently applied to the output layer.  Its purpose is to transform the raw output scores (logits) of the network into a normalized probability distribution across the possible classes. 
+
+**Mathematical Definition:**
+
+For a vector of input scores $z = (z_1, z_2, \dots, z_k)$, where $k$ represents the number of classes, the softmax function computes the probability of each class $j$ as follows:
+
+$$
+S(z_j) = \frac{e^{z_j}}{\sum_{i=1}^{k} e^{z_i}} 
+$$
+
+**Properties:**
+
+* **Normalization:** The softmax guarantees that the output probabilities sum up to 1:
+  $$
+  \sum_{j=1}^{k} S(z_j) = 1
+  $$
+* **Differentiability:**  The softmax possesses a smooth gradient, which is essential for the backpropagation algorithm during the training process of neural networks.
+
+**Role in MNIST Classification:**
+
+1. **Raw Output Transformation:** The final layer of the CNN produces raw output scores for each of the 10 digit classes. The softmax function converts these scores into probabilities.
+2. **Class Interpretation:** These probabilities directly indicate the network's confidence in the input image belonging to each digit class.
+3. **Loss Calculation:**  Softmax is often used in conjunction with the cross-entropy loss function, which quantifies the discrepancy between the predicted probabilities and the true class labels.
+
+**References:**
+
+* **Goodfellow, I., Bengio, Y., and Courville, A. (2016). Deep Learning.** Chapter 6.2.2.3, Softmax Function. MIT Press. [http://www.deeplearningbook.org](http://www.deeplearningbook.org) 
+* **Nielsen, M. A. (2015). Neural Networks and Deep Learning.** Chapter 3, How Neural Networks Learn.  [http://neuralnetworksanddeeplearning.com](http://neuralnetworksanddeeplearning.com)
+
+%%%%%%%%%%
+% PROMPT %
+%%%%%%%%%%
+
+Prompt:
+
+Explain the concept of logits. Present one reference or more to backup your explanation. 
+
+Claude:
+
+Logits, also known as log-odds or raw predictions, are the unnormalized output values of a neural network before applying the final activation function, such as the softmax function. In the context of the MNIST classification problem, the logits represent the raw output scores of the neural network for each digit class.
+
+Mathematically, given an input image $\mathbf{x}$, the neural network computes a linear transformation followed by a non-linear activation function in each layer. The output of the final layer, before applying the softmax activation, is the logit vector $\mathbf{z} = (z_1, z_2, \dots, z_K)$, where $K$ is the number of classes (10 in the case of MNIST) \cite{goodfellow2016deep}.
+
+The relationship between logits and probabilities can be expressed as follows:
+
+\begin{equation}
+z_i = \log \frac{p_i}{1 - p_i}
+\end{equation}
+
+where $z_i$ is the logit for class $i$, and $p_i$ is the probability of the input belonging to class $i$. The logits are logarithms of the odds ratios, representing the log-likelihood of the input belonging to a particular class compared to the other classes \cite{bishop2006pattern}.
+
+The softmax function, as discussed earlier, is then applied to the logits to convert them into a valid probability distribution:
+
+\begin{equation}
+p_i = \text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+\end{equation}
+
+During training, the neural network learns to adjust its weights and biases to produce logits that, when passed through the softmax function, result in high probabilities for the correct classes and low probabilities for the incorrect classes.
+
+Logits have some advantages over directly outputting probabilities:
+
+\begin{itemize}
+  \item Logits are unconstrained and can take any real value, allowing for more flexibility in the model's output \cite{nielsen2015neural}.
+  \item Logits provide a clearer separation between the model's raw predictions and the final probabilities, which can be useful for analyzing and interpreting the model's behavior.
+\end{itemize}
+
+In summary, logits are the raw, unnormalized output values of a neural network before applying the final activation function. They represent the log-odds of the input belonging to each class and are transformed into probabilities using the softmax function. Understanding logits is essential for interpreting and working with neural networks in classification tasks like MNIST.
+
+\begin{thebibliography}{9}
+\bibitem{goodfellow2016deep}
+  Goodfellow, I., Bengio, Y., and Courville, A. (2016).
+  \textit{Deep Learning}.
+  MIT Press.
+
+\bibitem{bishop2006pattern}
+  Bishop, C. M. (2006).
+  \textit{Pattern Recognition and Machine Learning}.
+  Springer.
+
+\bibitem{nielsen2015neural}
+  Nielsen, M. A. (2015).
+  \textit{Neural Networks and Deep Learning}.
+  Determination Press.
+\end{thebibliography}
+
+ChatGPT:
+
+\begin{enumerate}
+    \item \textbf{Definition of Logits:}
+    Logits are the raw output scores generated by the last layer of a neural network before applying the Softmax activation function in classification tasks. These scores are unnormalized and can range from negative to positive infinity. Logits represent the preference of the model for each class without being constrained to a probability distribution.
+
+    \item \textbf{Mathematical Representation:}
+    If we consider a neural network with an input $x$, the logits $z$ can be represented as the output of the network's final linear transformation:
+    \[
+    z = Wx + b
+    \]
+    where $W$ is the weight matrix, $b$ is the bias vector, and $x$ is the input to the final layer. The dimensionality of $z$ corresponds to the number of classes in the classification task.
+
+    \item \textbf{Role in Classification:}
+    The logits are essential for understanding the model's predictions because they reflect the linear scores that correlate with the model's confidence in each class. The Softmax function then converts these logits into a probability distribution over the classes.
+
+    \item \textbf{Importance in Training and Inference:}
+    During training, certain loss functions, such as the cross-entropy loss, can directly use the logits to compute the error gradient more efficiently and stably than using the probabilities. This is because working with logits avoids the numerical instability that can arise from the exponential function in the Softmax.
+
+    \item \textbf{References:}
+    For a comprehensive understanding of logits and their role in neural networks, consider the following references:
+    \begin{itemize}
+        \item Goodfellow, I., Bengio, Y., Courville, A., \& Bengio, Y. (2016). \textit{Deep Learning} (MIT Press). This book provides an in-depth exploration of various aspects of neural networks, including the concept of logits and their importance in the architecture of neural networks for classification tasks.
+        \item Bishop, C. M. (2006). \textit{Pattern Recognition and Machine Learning} (Springer). This textbook covers a wide range of machine learning concepts, with detailed explanations of logits within the context of logistic regression and neural networks.
+    \end{itemize}
+\end{enumerate}
+
+Gemini:
+
+## Logits in Neural Networks
+
+In the context of Neural Networks, particularly for classification tasks like MNIST digit recognition, logits represent the **unnormalized** output values produced by the final layer before applying a final activation function. 
+
+Here's a breakdown of the concept:
+
+* **Pre-Activation Stage:** Neural networks process the input data through various layers, progressively extracting features and transforming them. 
+* **Final Layer:** The final layer typically has one neuron for each class the network aims to predict (10 neurons for 10 digits in MNIST).
+* **Logit Values:** Each neuron in the final layer outputs a logit value. These logits embody the network's **raw assessment** of how likely the input belongs to the corresponding class. 
+
+**Properties of Logits:**
+
+* **Numerical Range:** Logits are not confined to the 0-1 range like probabilities. They can be any real number, positive or negative.
+* **Interpretation:** The magnitude of a logit indicates the network's preference for a particular class. A higher positive logit suggests a stronger leaning towards that class.
+
+**Transformation to Probabilities:**
+
+While logits provide insights into the network's preferences, they aren't directly interpretable as probabilities. To convert logits into a valid probability distribution, an activation function like the softmax function is applied.
+
+**Softmax and Logits:**
+
+* **Normalization:** The softmax function takes the logits as input and transforms them into a probability distribution where the sum of probabilities across all classes equals 1.
+* **Classification Decision:**  After applying softmax, the class with the highest probability becomes the network's final prediction.
+
+**Reference:**
+
+* **Géron, Aurélien. (2017). Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow. Chapter 4: Neural Networks.** O'Reilly Media. Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow: [invalid URL removed]
+
+**In essence, logits are the network's unfiltered judgments before converting them into a more interpretable probability distribution for classification tasks.**
+
+%%%%%%%%%%
+% PROMPT %
+%%%%%%%%%%
+
+Given tensors and shape: outputs.data - torch.Size([64, 10]), labels.shape - torch.Size([64]) and predicted.shape torch.Size([64]), write code to convert t
+
+I need to create a cluster based on the data present on outputs.data, which is a tensor. What do you recommend, should it be converted to a numpy array or is it ok to proceed as a tensor data type ?
+
+All replies point to numpy arrays.
+
+%%%%%%%%%%
+% PROMPT %
+%%%%%%%%%%
+
+Write code to Convert outputs.data to a numpy array, append labels and predicted as the 11th and 12th columns.
+
+% num_columns = 12
+% data_np = np.empty((0, num_columns))
+
+% # Convert outputs.data to a NumPy array
+% outputs_np = outputs.data.numpy()
+
+% # Ensure labels and predicted are also NumPy arrays (and reshape for concatenation)
+% labels_np = labels.numpy().reshape(-1, 1)
+% predicted_np = predicted.numpy().reshape(-1, 1)
+
+% # Concatenate labels and predicted to the outputs_np as new columns
+
+% combined_np = np.hstack((outputs_np, labels_np, predicted_np))
+
+% data_np = np.concatenate((data_np, preds_np), axis=0)
+
+Write code to compare the 11 and 12th column of the array data\_np. Sum the values that are the same and the values that are different. Print a percentage of the values that are the same with respect to the number of rows in data\_np array.

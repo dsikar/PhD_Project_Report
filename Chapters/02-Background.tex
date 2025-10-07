@@ -1,0 +1,129 @@
+\chapter{Background}
+
+This chapter discusses the historical context of neural networks, followed by autonomous vehicle technology, trust, regulations, and safety methodologies.
+
+\section{Neural Networks}
+This section presents a discussion of key developments in the field that led to the vision models used in this research, as well as an overview of the architectures: Convolutional Neural Networks (CNNs), Vision Transformers (ViTs), and Vision Language Models (VLMs).
+
+Modern neural networks trace their origins to the logical neuron model proposed by McCulloch and Pitts, which demonstrated that simple binary threshold units could implement any logical function (\cite{mcculloch1943logical}). This foundational work established a mathematical framework for computational models of the mind. Rosenblatt's Perceptron introduced learning through adjustable weights and error correction, establishing the first practical machine learning algorithm (\cite{rosenblatt1958perceptron}).
+Biological inspiration drove architectural advances. Hubel and Wiesel's research on the visual cortex revealed hierarchical feature detection in cat neurons, with simple cells responding to edges and complex cells to abstract patterns (\cite{hubel1962receptive}). Fukushima's Neocognitron directly implemented this hierarchy using S-cells for feature extraction and C-cells for spatial pooling, laying the foundation for modern convolutional neural networks (CNNs) (\cite{fukushima1980neocognitron}).
+
+Subsequent CNN advancements, such as LeCun's LeNet for handwritten digit recognition (\cite{lecun1998gradient}) and AlexNet (\cite{krizhevsky2012imagenet}) also for image classification, solidified CNNs as a standard tool in the computer vision and deep learning toolbox, enabling end-to-end learning for self-driving cars (\cite{bojarski2016end}).
+Efficient training emerged through backpropagation, first formalized by Linnainmaa in the context of automatic differentiation (\cite{linnainmaa1970cumulative}) and later applied to neural networks by Werbos (\cite{werbos1974beyond}). Cybenko's Universal Approximation Theorem proved that feedforward neural networks could approximate any continuous function, providing a theoretical justification for their expressive power (\cite{cybenko1989approximation}).
+
+Modern training relies on key techniques. The Adam optimizer provides adaptive learning rates for faster convergence (\cite{kingma2014adam}). Dropout prevents overfitting by randomly deactivating neurons during training (\cite{srivastava2014dropout}). Early stopping halts training when validation performance degrades (\cite{goodfellow2016deep_early_stopping}).
+Contemporary architectures address diverse computational challenges. CNNs utilize hierarchical convolution and pooling for spatial feature extraction (\cite{lecun1998gradient,krizhevsky2012imagenet}). Vision Transformers process images as patch sequences using global self-attention mechanisms (\cite{dosovitskiy2021image}). Vision-language models, such as Qwen-VL (\cite{bai2023qwen}) and DeepSeek-VL (\cite{zeng2024deepseek}), combine visual encoders with language models through cross-attention adapters, enabling multimodal understanding.
+
+\section{SAE Autonomy Levels}
+
+The Society of Automotive Engineers (SAE) defines six levels of driving automation, from no automation (Level 0) to full automation (Level 5), as outlined in the J3016 standard (\cite{SAEJ3016}). These levels categorize the extent to which a vehicle can perform the dynamic driving task (DDT) and the degree of human intervention required.
+
+Levels 0--2 involve human drivers maintaining primary control, with increasing assistance from advanced driver-assistance systems (ADAS). Levels 3--5 represent conditional to full automation, where the vehicle assumes complete DDT responsibility under specific conditions or universally, progressively eliminating the need for human intervention. The table below summarizes the SAE levels, their capabilities, and human driver requirements.
+
+\begin{table}[h]
+\centering
+\caption{SAE Levels of Driving Automation}
+\begin{tabular}{|c|p{6cm}|p{6cm}|}
+\hline
+\textbf{Level} & \textbf{Description} & \textbf{Human Driver Requirement} \\
+\hline
+0 & No automation; human performs all driving tasks & Full control and monitoring \\
+\hline
+1 & Driver assistance; system handles specific tasks (e.g., steering or acceleration) & Continuous monitoring and control \\
+\hline
+2 & Partial automation; system manages steering and acceleration but requires human oversight & Constant supervision; ready to intervene \\
+\hline
+3 & Conditional automation; vehicle performs DDT in specific conditions (e.g., highway) & Present; must respond to system requests \\
+\hline
+4 & High automation; vehicle performs DDT within operational design domain without human input & None within domain; vehicle self-manages \\
+\hline
+5 & Full automation; vehicle performs DDT in all conditions without human involvement & None; no human driver required \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Global State of Autonomous Vehicle Adoption in 2025}
+
+The global transition to autonomous vehicles (AVs), encompassing SAE Levels 3 to 5, is reshaping transportation through advancements in technology, regulation, infrastructure, and societal integration. The 2025 Global Autonomous Vehicle Adoption Index provides a standardized measure of AV adoption across regions, evaluating market penetration, regulatory frameworks, infrastructure readiness, consumer trust, and industry ecosystems (\cite{KPMG2018}).
+
+North America and Asia-Pacific lead the global landscape, driven by robust private-sector innovation and state-directed strategies, respectively. Europe follows with a safety-focused approach (\cite{GOVUK2024}), while the Middle East, Africa, and Latin America lag due to infrastructural and regulatory constraints, though select markets show potential for rapid advancement through targeted investments (\cite{DubaiLaw2023}).
+
+Regional disparities highlight divergent pathways to AV leadership. North America's dominance stems from extensive R\&D and widespread adoption of ADAS, but fragmented regulations hinder national scaling (\cite{NCSL2025}). Asia-Pacific, particularly China, benefits from cohesive national policies and significant infrastructure investments, such as 5G networks and smart roadways, enabling rapid deployment (\cite{KPMG2018}). Europe's comprehensive regulatory frameworks prioritize safety but slow iterative testing, potentially ceding early market share (\cite{GOVUK2024}). Emerging markets in the Middle East, like the UAE, leverage smart city initiatives to create AV-ready environments, while most African and Latin American nations face foundational challenges in connectivity and governance (\cite{DubaiLaw2023}).
+
+Consumer trust remains a universal barrier to mass adoption, with public scepticism about safety and control persisting despite technological progress (\cite{PatentPC2025a,Deloitte2024}). This trust deficit, most pronounced in Western markets, necessitates transparent safety validation and public education to align perceptions with engineering realities.
+
+Regulatory models also shape adoption trajectories. North America's decentralized approach fosters innovation but lacks cohesion (\cite{NCSL2025}). Asia-Pacific's top-down model accelerates deployment. Europe's consensus-driven framework emphasizes long-term trust over speed (\cite{GOVUK2024}). The symbiotic relationship between AVs and electric vehicles (EVs) further influences progress, as EV infrastructure supports the shared technological foundation of autonomous systems (\cite{IEA2024}).
+
+Strategic imperatives for stakeholders include harmonizing regulations, enhancing infrastructure, and addressing consumer concerns. Policymakers must prioritize clear, unified legal frameworks to reduce compliance burdens and enable scaling (\cite{NCSL2025}). Industry leaders should shift focus from technological development to trust-building through public demonstrations and region-specific strategies (\cite{Deloitte2024}). Emerging markets can attract investment by creating controlled AV testing zones, leveraging their lack of legacy infrastructure to bypass incremental development (\cite{DubaiLaw2023}). Despite data limitations and urban biases in current assessments, ongoing refinements to metrics like cybersecurity and socioeconomic impacts will enhance future evaluations of this transformative mobility landscape (\cite{KPMG2018}).
+
+\section{Societal Impact of Autonomous Vehicles and Systems}
+
+Autonomous vehicles (AVs) and systems promise transformative societal benefits by enhancing safety, mobility, and efficiency. By mitigating human error, the primary cause of traffic accidents, AVs could significantly reduce road fatalities and healthcare costs (\cite{Fagnant2015}). They offer improved mobility for groups like the elderly and disabled, fostering social inclusion (\cite{Harper2016}). Optimized driving patterns and integration with electric vehicles may reduce emissions, though increased vehicle usage could offset these gains (\cite{Greenblatt2015}).
+
+The economic impact of AVs and autonomous systems is likely to be substantial. While they may create new job opportunities in technology and related fields, there are concerns about job displacement, particularly in transportation-related industries (\cite{Autor2015}). The trucking and taxi industries, for instance, could face significant disruption. Some argue that the automation of monotonous roles would benefit society overall, freeing human potential for more creative and fulfilling endeavours (\cite{Picone2025}).
+
+\section{Trust in Autonomous Vehicles}
+
+Trust in AVs encompasses reliability, safety, security, and ethical decision-making. For AVs to be widely accepted and integrated into everyday life, it is essential to address these concerns comprehensively.
+
+\textbf{Reliability} refers to the consistent performance of AVs under various conditions. For consumers, the reliability of AVs is paramount as it determines the vehicle's dependability in routine operations and unexpected scenarios. Issues such as software bugs, hardware malfunctions, or failures in sensor systems can significantly undermine trust. Studies indicate that consumers are particularly wary of AVs' ability to handle adverse weather conditions or complex traffic situations (\cite{gogoll2017}).
+
+\textbf{Safety} is the most significant factor influencing trust in AVs. This aspect covers the vehicle's ability to avoid accidents and protect passengers and pedestrians. According to the National Highway Traffic Safety Administration (NHTSA), while AVs have the potential to reduce accidents caused by human error, there is a need for rigorous testing and validation to ensure their safety in real-world conditions \cite{nhtsa2020}. Incidents involving AVs, such as the fatal Uber crash in 2018, have heightened public concern and scepticism about the technology's readiness (\cite{goodall2016}).
+
+\textbf{Security} concerns involve the protection of AVs from cyber-attacks. As AVs rely heavily on software and connectivity for their operation, they are vulnerable to hacking, which could lead to disastrous consequences. Ensuring robust cybersecurity measures is essential to protect against unauthorized access and data breaches. The European Union Agency for Cybersecurity (ENISA) has emphasized the importance of cybersecurity in AVs, recommending the implementation of stringent security protocols and regular updates to counter emerging threats (\cite{enisa2020}).
+
+\textbf{Ethical decision-making} in AVs involves programming these vehicles to make decisions during unavoidable accidents. This aspect raises moral and philosophical questions about how AVs should prioritize lives and property in critical situations. The "trolley problem" is a classic example often discussed in the context of AV ethics, where the vehicle must choose between two harmful outcomes (\cite{Lin2015}). Public trust in AVs significantly depends on transparent and ethically sound decision-making frameworks that align with societal values.
+
+Consumers are primarily concerned with reliability, safety, security, and ethical decision-making. Additionally, there is apprehension about the lack of control and the ability to intervene in the vehicle's operation during emergencies. Regulators focus on establishing comprehensive guidelines and standards to ensure safe deployment. They are concerned with liability issues, the adequacy of current infrastructure to support AV technology, and the long-term societal impacts of widespread AV adoption (\cite{litman2020}).
+
+Building trust in AVs requires addressing these concerns comprehensively. Both consumer acceptance and regulatory approval hinge on demonstrating that AVs can operate dependably and safely while adhering to ethical standards. Ongoing research, transparent communication, and robust regulatory frameworks are crucial to fostering trust in this transformative technology.
+
+\section{State of the Art}
+
+AV technology has evolved significantly in the past decade, moving from conceptual designs to real-world deployments. Major technology companies and traditional auto-makers are investing heavily in this field, leading to a diverse and competitive landscape.
+
+Currently, most commercially available autonomous systems operate at SAE Level 2 or Level 3 autonomy (\cite{SAE2021}). These systems can control steering, acceleration, and braking in specific scenarios but require human oversight. However, several companies are actively testing Level 4 and Level 5 systems, which promise full autonomy in most or all driving conditions (\cite{Yurtsever2020}).
+
+Waymo, a subsidiary of Alphabet Inc., is one of the leaders in the AV field. Their self-driving taxi service, Waymo One, has been operational in Phoenix, Arizona since 2018, recently expanding to San Francisco (\cite{Waymo2023}). Tesla, with its Autopilot and Full Self-Driving (FSD) systems, has the largest fleet of AVs, providing vast amounts of real-world data (\cite{Tesla2023}).
+
+Other major players include traditional auto-makers like General Motors (through its Cruise subsidiary), Ford, and Volkswagen, as well as technology companies like Uber, Aptiv, and Baidu (\cite{Koopman2019}). These companies are employing a variety of sensing technologies, including LIDAR, radar, cameras, and ultrasonic sensors, often in combination (\cite{Yurtsever2020}).
+
+Recent advancements in the field include improved perception systems capable of detecting and classifying objects with greater accuracy, even in challenging weather conditions (\cite{Grigorescu2020}). There have also been significant developments in decision-making algorithms, with the incorporation of deep learning and reinforcement learning (\cite{Kiran2021}).
+
+Despite these advancements, several challenges remain. These include ensuring safety in numerous edge cases, sometimes referred to as "the long tail", gaining regulatory approval, addressing ethical concerns, and achieving public acceptance (\cite{Koopman2019}). The ability of AVs to operate in diverse environments and weather conditions, as well as their interaction with human-driven vehicles and pedestrians, are ongoing areas of research and development (\cite{Yurtsever2020}).
+
+It is clear that AVs have the potential to disrupt transportation. However, the timeline for widespread adoption of fully autonomous vehicles remains uncertain and dependent on overcoming technical, regulatory, and social challenges (\cite{Litman2023}).
+
+\section{Regulatory Landscape for Autonomous Vehicles and Systems}
+
+The regulatory environment for Autonomous Vehicles (AVs) and other autonomous systems is evolving rapidly, with different regions adopting varied approaches. This diversity in regulation reflects the complex challenges of balancing innovation, safety, and public interest in the face of rapidly advancing technology.
+
+In the United States, the regulatory approach has been largely decentralized, with individual states taking the lead in AV regulation. The National Highway Traffic Safety Administration (NHTSA) has provided guidelines for AV testing and deployment, but these are largely voluntary (\cite{nhtsa2020}). This flexible approach has facilitated extensive AV testing, but it has also led to a patchwork of regulations that may complicate interstate operations.
+
+The European Union has taken a more centralized approach, working towards harmonized regulations across member states. The EU has introduced the AV-Ready initiative, aiming to create a comprehensive regulatory framework for AVs. This includes updates to type-approval regulations and efforts to address liability and ethical issues.
+
+In Asia, countries like China, Japan, and Singapore have been proactive in creating regulatory frameworks for AVs. China, in particular, has implemented national guidelines for AV testing and is working on standards for AV deployment. Singapore has created a flexible regulatory framework that allows for rapid adaptation to technological advancements (\cite{Taeihagh2019}).
+
+Globally, there's a growing recognition of the need for international cooperation in AV regulation. The United Nations Economic Commission for Europe (UNECE) has been working on amendments to the Vienna Convention on Road Traffic to accommodate AVs.
+
+For broader autonomous systems, regulatory approaches vary significantly depending on the application domain. In aviation, for instance, regulations for autonomous drones are more developed than those for autonomous passenger aircraft. In healthcare, regulatory bodies like the FDA in the US are developing frameworks for AI and machine learning in medical devices.
+
+A key challenge across all regions is keeping pace with rapid technological advancements. Regulators are increasingly adopting "adaptive" or "agile" regulatory approaches that allow for more flexibility and rapid updates. These approaches aim to balance the need for safety and accountability with the desire to foster innovation.
+
+Another common theme is the shift towards performance-based regulations rather than prescriptive rules. This approach focuses on defining desired outcomes rather than specifying exact methods, allowing for technological innovation while maintaining safety standards.
+
+Ethics and liability remain challenging areas for regulators globally. Questions about how to encode ethical decision-making into autonomous systems and how to assign liability in case of accidents are still largely unresolved (\cite{Awad2018}).
+
+As the technology continues to evolve, regulatory frameworks will need to adapt. The challenge for policymakers will be to create regulations that ensure safety and public trust while allowing for continued innovation in the field of autonomous systems.
+
+\section{Safety Methodologies for Autonomous Vehicles}
+
+The assessment and verification of safety in Autonomous Vehicles (AVs) present unique challenges that necessitate both the adaptation of traditional automotive safety practices and the development of novel methodologies. This section provides an overview of current approaches; detailed technical methodologies will be presented in the methodology chapter. Current approaches encompass a wide range of techniques, each with its own strengths and limitations.
+
+One prevalent methodology is scenario-based testing, where AVs are evaluated against a comprehensive set of pre-defined driving scenarios (\cite{Feng2021}). These scenarios aim to cover a broad spectrum of driving conditions, from routine situations to rare, high-risk events. However, the vast number of possible scenarios makes exhaustive testing impractical, leading to the development of methods for intelligent scenario selection and generation (\cite{Koren2018}).
+
+Formal methods and model checking represent another critical approach in AV safety assessment. These techniques involve creating mathematical models of AV systems and their environments, then using automated tools to verify that specific safety properties are consistently maintained (\cite{Luckcuck2019}). While powerful, these methods can be computationally intensive and may not scale to highly complex systems.
+
+Simulation-based testing plays a crucial role in AV safety assessment. Advanced simulators enable the testing of AVs in virtual environments, allowing for the evaluation of numerous scenarios without the risks associated with real-world testing (\cite{Dosovitskiy2017}). However, ensuring that simulations accurately represent real-world conditions remains a significant challenge.
+
+This study focuses on the data presented to AV models at runtime and the use of simulators, both critical for decision-making and safety assurance. Analysing runtime data inputs and simulator-based testing will address gaps in current methodologies, enhancing safety validation.

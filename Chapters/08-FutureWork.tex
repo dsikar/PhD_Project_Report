@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CONCLUSION AND FUTURE WORK %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Future Work}
+\label{conclusion_future_work}
+
+% \subsection{Clustering}
+The cluster centroids were initialised with the average softmax output for correct predictions, grouped by class label. The centroids converged quickly with minimal movement from the original position, the exceptions being the classes with lowest class accuracy e.g. number 8 in the MNIST dataset. Still, the clustering obtained high fidelity with respect to the neural network correct classifications, where only 2 out of more than 59,000 examples where "misclustered". No other cluster initialisation scheme was attempted. It would be interesting to determine if alternative initialisation schemes would attain similar fidelity, and how class thresholds would compare with different initialisation schemes.
+
+
+This study has shown that the geometrical properties with respect to the softmax space hold for Convolutional Neural Networks (CNN) and Vision Transformers (ViT). We have shown that the same geometrical properties are likely to hold with Multi-Modal Language Models (MLLM) and Vision Language Models (VLM), where this study has shown that even though with large language models the softmax space is three orders of magnitude larger, the softmax probabilities are overwhelmingly concentrated in the classes of interest e.g. "left", "straight" and "right", where the model does restrict answers to defined words. In some cases, even with very  specific and directed prompts stating the model should only return one of three words, more than I word was retuned.
+
+Based on our experimental findings with quantized steering models and VLM fine-tuning for autonomous driving, several promising research directions emerge:
+
+\textbf{Autonomous Driving Enhancements}
+
+\textbf{Advanced Quantization Strategies:} Our results showed that coarser quantization (3-5 bins) outperformed finer granularity. Future work should explore adaptive quantization that adjusts bin size based on driving scenarios (e.g., highway vs. urban environments).
+
+\textbf{Hybrid CNN-ViT Architectures:} Given that ViT models achieved superior performance (97.97\% accuracy with ClsViT3bB), investigating hybrid architectures that combine CNN spatial processing with ViT attention mechanisms could further improve driving precision.
+
+\textbf{Real-time VLM Integration:} Our experiments revealed latency issues with remote VLM inference. Future research should focus on edge-optimized VLM deployment and local inference solutions for real-time autonomous driving applications.
+
+\textbf{Vision Language Model Applications}
+
+\textbf{VLM Softmax Space Analysis:} Extending our softmax analysis to larger VLMs could reveal interpretable driving decision patterns. The heavily biased softmax distributions we observed (91.41\% straight, 6.64\% right, 1.31\% left) suggest opportunities for bias correction and improved scene understanding.
+
+\textbf{Multi-modal Safety Systems:} Combining visual steering predictions with natural language explanations from VLMs could create more interpretable and trustworthy autonomous driving systems, building on the promising Qwen2-VL fine-tuning results.
+
+\textbf{Large Language Model Integration:} Exploring how LLMs can process driving scenarios through natural language descriptions, potentially creating safer and more interpretable autonomous systems through explicit reasoning chains.
+
+The remote inference setup (Exp. 277) enabled efficient evaluation on an HPC cluster (NVIDIA A100 80GB), and real-time steering tests are left as future work. DeepSeek-VL-1.3B-Chat, lacking a public fine-tuning method, could not be optimized, limiting its softmax output analysis to pre-trained performance ("Right" predictions instead of expected "Straight" predictions.). 
+Future work includes real-time steering tests with the balanced Qwen model, analyzing its centroids for balanced predictions, and developing fine-tuning methods for DeepSeek. 
+
+\textbf{Technical Infrastructure}
+
+\textbf{Distributed Training Solutions:} Our GPU memory constraints highlighted the need for efficient distributed training frameworks that can handle VLM fine-tuning on consumer hardware.
+
+\textbf{CARLA Simulation Improvements:} Developing more sophisticated simulation environments that better capture real-world driving complexity, building on our Figure-of-8 track experiments.
+
+\textbf{Dataset Balancing Techniques:} Our severe class imbalance suggests investigating advanced balancing techniques and synthetic data generation for autonomous driving scenarios.
+
+\textbf{Model Architecture Research}
+
+\textbf{Attention Mechanism Analysis:} Given ViT's superior performance, detailed analysis of attention patterns during driving decisions could provide insights into spatial reasoning in autonomous systems.
+
+\textbf{Regression vs Classification Trade-offs:} Our results showed classification models achieving higher accuracy than regression approaches. Future work should explore hybrid models that combine both paradigms.
+
+\textbf{Uncertainty Quantification:} Building on our D MAE metrics (0.0399-0.0588), developing better uncertainty measures for autonomous driving decisions, particularly for safety-critical scenarios.
+
+\textbf{Broader Impact and Societal Considerations}
+
+The development of more reliable and interpretable autonomous driving systems has significant implications for transportation safety and accessibility. Our work on quantized steering models contributes to creating more predictable and understandable autonomous vehicle behavior.
+
+The integration of vision language models with autonomous driving systems could enable better human-vehicle interaction and more transparent decision-making processes. However, the latency and computational requirements we identified highlight the need for continued research into efficient deployment strategies.
+
+\textbf{Final Remarks}
+
+This thesis has demonstrated strategies that can significantly improve autonomous system safety, by programatically identifying unsafe conditions such that control may be delegated to a human operator.
+
+Our exploration of vision language models, while revealing current limitations in real-time applications, points toward a future where autonomous vehicles can provide natural language explanations for their decisions, enhancing trust and safety in human-AI collaboration.
+
+The quantized steering control paradigm we developed offers a path toward more interpretable and robust autonomous driving systems, contributing to the ongoing effort to create safe and reliable AI-powered transportation solutions.
+
+The well-established study of the softmax space suggests that similar geometric properties may exist in embedding vector spaces, allowing for distance metrics such as cosine similarity that could potentially quantify distances and thresholds to minimise or avoid undesirable outcomes e.g. hallucinations and bias. Ultimately, artificial intelligence is modelled on human intelligence and arguably prone to hallucination and bias. Like error in information systems, both could be treated as inherent attributes of the system, not as anomalies, and managed accordingly.

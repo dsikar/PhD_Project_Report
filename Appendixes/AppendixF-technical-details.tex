@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TECHNICAL DETAILS APPENDIX %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Technical Details}
+
+\label{Appendix-Technical-Details} % label e.g. Appendix-results 
+
+
+\subsection{VLM Remote Inference}
+\label{app:vlm_remote_inference}
+
+\begin{enumerate}
+    \item \textbf{Hardware Constraint}: The local GPU (12GB) cannot support the Qwen model alongside the Carla simulator, requiring remote execution on an A100 80GB GPU at City St George’s HPC.
+    \item \textbf{Open Tunnel}:
+    \begin{itemize}
+        \item Command: \texttt{openvpn3 session-start --config \string~/.ssh/profile-userlocked.ovpn}.
+        \item SSH tunnel: \texttt{ssh -N aczd097@10.200.51.10 -L 2001:172.17.1.101:22}.
+    \end{itemize}
+    \item \textbf{Remote Inference Script}:
+    \begin{itemize}
+        \item Connect: \texttt{ssh city\_hpc\_2001}, then \texttt{ssh gpu04}.
+        \item Environment: \texttt{source \string~/.bashrc}, \texttt{module load libs/nvidia-cuda/11.2.0/bin}, \texttt{export CUDA\_VISIBLE\_DEVICES=0}, \texttt{pyenv activate trans-env}.
+        \item Run: \texttt{nohup python /users/aczd097/archive/git/neurips-2025/scripts/31-qwen-inference-loop.py --adapter\_path /users/aczd097/archive/git/neurips-2025/scripts/qwen2-vl-2b-instruct-carla-sft-balanced/checkpoint-320 --softmax gt 31-qwen-inference-loop.log 2>\&1}.
+        \item Monitors \texttt{/users/aczd097/archive/git/neurips-2025/qwen/input\_dir} for .jpg files, outputs .npy to \texttt{/users/aczd097/archive/git/neurips-2025/qwen/output\_dir}.
+    \end{itemize}
+    \item \textbf{Local Broker Script}:
+    \begin{itemize}
+        \item Run: \texttt{python 31-grok-broker-script.py}.
+        \item Continuously transfers .jpg from local \texttt{\string~/git/neurips-2025/qwen/input\_dir} to remote input directory.
+        \item Transfers .npy from remote output directory to local \texttt{\string~/git/neurips-2025/qwen/output\_dir}.
+        \item Deletes local .jpg after transfer.
+    \end{itemize}
+    \item \textbf{File Operations (Per Frame)}:
+    \begin{itemize}
+        \item Simulation copies .jpg (e.g., \texttt{frame\_000009.jpg}) to local input directory.
+        \item Broker transfers .jpg to remote input directory.
+        \item Inference generates .npy (e.g., \texttt{prediction.npy}).
+        \item Broker downloads .npy to local output directory.
+        \item Local: \texttt{rm \string~/git/neurips-2025/qwen/output\_dir/prediction.npy} after use.
+        \item Remote: \texttt{rm \string~/archive/git/neurips-2025/qwen/output\_dir/prediction.npy}.
+    \end{itemize}
+    \item \textbf{Local Simulation Script}:
+    \begin{itemize}
+        \item Simulator: \texttt{./CarlaUE4.sh -carla-port=3000} in \texttt{/opt/carla-simulator}.
+        \item Script: \texttt{python 08-vit-self-driving.py --config /home/daniel/git/neurips-2025/scripts/config\_640x480\_segmented\_08.json --model /home/daniel/git/neurips-2025/scripts/best\_quantized\_steering\_model\_3\_bins\_balanced\_20250529-212449.pth --bins 3 --noise\_type pepper\_noise --intensity 0 --network vlm --dataset\_balance unbalanced}.
+        \item Generates .jpg frames, retrieves .npy predictions, applies steering, logs waypoint distances.
+    \end{itemize}
+    \item \textbf{Stop Experiment}:
+    \begin{itemize}
+        \item Stop simulation and simulator: \texttt{Ctrl+C}.
+        \item Stop broker: \texttt{Ctrl+C}.
+        \item Stop inference: \texttt{ps aux | grep python}, then \texttt{kill <PID>} (e.g., \texttt{kill 225108}).
+    \end{itemize}
+\end{enumerate}
+
+Inference and simulation running on different processes on different hosts.
+\begin{verbatim}
+┌─────────────────────────────────────┐ 
+│           INFERENCE SCRIPT          │ 
+└─────────────────────────────┬───────┘ 
+         ▲                    │         
+         │                    ▼         
+┌────────┴─ ──────┐┌──────────────────┐ 
+│ INPUT DIRECTORY ││ OUTPUT DIRECTORY │ 
+│ predict.jpg     ││ prediction.npy   │ 
+└─────────────────┘└──────────┬───────┘ 
+         ▲   REMOTE HOST      │         
+─────────┼────────────────────┼──────── 
+         │   LOCAL HOST       │         
+┌────────┴────────────────────┴───────┐ 
+│           BROKER SCRIPT             │ 
+└────────┬────────────────────┬───────┘ 
+         │                    │         
+         │                    ▼         
+┌────────┴────────┐┌──────────────────┐ 
+│ INPUT DIRECTORY ││ OUTPUT DIRECTORY │ 
+│ predict.jpg     ││ prediction.npy   │ 
+└─────────────────┘└──────────┬───────┘ 
+         ▲                    │         
+         │                    ▼         
+┌────────┴────────────────────────────┐ 
+│         SIMULATION SCRIPT           │ 
+└─────────────────────────────────────┘ 
+\end{verbatim}                                        
+                                        
+Inference and simulation running on different processes on the same host.                                        
+\begin{verbatim}                                    
+ ┌─────────────────────────────────────┐
+ │           INFERENCE SCRIPT          │
+ └─────────────────────────────┬───────┘
+          ▲                    │        
+          │                    ▼        
+ ┌────────┴────────┐┌──────────────────┐
+ │ INPUT DIRECTORY ││ OUTPUT DIRECTORY │
+ │ predict.jpg     ││ prediction.npy   │
+ └─────────────────┘└──────────┬───────┘
+          ▲                    │        
+          │                    ▼        
+ ┌────────┴────────────────────────────┐
+ │         SIMULATION SCRIPT           │     
+ └─────────────────────────────────────┘
+\end{verbatim}

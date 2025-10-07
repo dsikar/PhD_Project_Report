@@ -1,0 +1,58 @@
+\chapter{Discussion}
+\label{chap:discussion}
+
+This chapter contains additional discussions, complementary to aspects discussed in Chapter~\ref{chap:results}.
+
+\section{Research Objectives}
+
+This research achieved the stated objectives through systematic experimental validation across 285 experiments, with some limitations in VLM validation.
+
+\subsection{Objective 1: Distance-based Distribution Shift Detection}
+
+Successfully developed Euclidean distance metrics using softmax output clustering. Euclidean distance was as a baseline metric and further work showed it was a reasonable, but perhaps not the best choice.
+
+Validated distance metrics against 5 alternatives (Cosine, KL Divergence, Bhattacharyya, Mahalanobis, Entropy) with cosine similarity showing the most separation between correct and incorrect classifications. Cosine similarity could be potentially the best choice for further explorations in the softmax space.
+
+Achieved high-fidelity clustering with $>99.99\%$ correct assignment to class centroids (59,000+ examples correctly clustered from approximately 60K MNIST).
+
+\subsection{Objective 2: Cross-architectural Validation on Standard Datasets}
+
+Validated distance-to-centroid methodology across CNN, ViT, and VLM architectures on MNIST, CIFAR-10, and autonomous driving datasets. Euclidean distance was shown to be effective, while cosine similarity provides maximum separation between correct and incorrect classifications.
+
+The approach consistently identifies unreliable predictions across all three architecture types, demonstrating that softmax prediction distance to class centroids is relevant regardless of underlying network structure.
+
+\subsection{Objective 3: Accuracy Degradation Characterisation}
+
+Characterized accuracy degradation through systematic noise injection across 12 perturbation types and 10 intensity levels. Figure~\ref{fig:Figures_uncertainty_metrics} demonstrates that for any given distance metric (Euclidean, Cosine, Mahalanobis), noise makes class clusters more sparse by moving predictions away from centroids.
+
+This validates the fundamental principle that prediction distance to class centroids correlates with reliability. Demonstrated linear degradation from 98.52\% to 36.32\% on 1.2 million perturbed MNIST predictions, with established safe prediction thresholds at 0.30-0.40 distance values.
+
+\subsection{Objective 4: Synthetic Dataset Creation for Autonomous Driving}
+
+Created controlled CARLA simulation datasets with balanced/unbalanced steering distributions. Generated datasets of varying complexity: ~153K (15-bin), ~79K (5-bin), ~67K (3-bin) samples. Established Town04 figure-of-eight circuit with traffic and weather variations, providing systematic experimental conditions for safety validation.
+
+\subsection{Objective 5: Autonomous Driving Safety Application}
+
+Applied distance-based detection to autonomous driving with lane invasion safety metric (D MAE < 0.85). All models achieved safety thresholds ranging from 0.0162 to 0.0925 D MAE. Successfully demonstrated correlation between softmax distance and driving safety, with noise levels up to 10\% before lane invasion occurrence.
+
+\subsection{Limitations and Scope}
+
+Research limited to classification tasks with discrete output spaces. CARLA simulation environment, while realistic, may not capture all real-world driving complexities.
+
+VLM validation incomplete: while VLM integration was demonstrated for autonomous driving tasks with zero-shot lane segmentation, and datasets were created for fine-tuning Qwen/Qwen2-VL-2B-Instruct with testing performed on checkpoints, full validation of softmax space distance metrics for VLMs was not achieved.
+
+Method effectiveness depends on representative training data distributions.
+
+\section{Key Contributions}
+
+This research establishes distance-based detection as a practical approach for identifying unreliable neural network predictions across multiple architectures and application domains. The methodology successfully bridges theoretical uncertainty quantification with practical safety applications in autonomous systems.
+
+The integration of distance-to-centroid thresholds with autonomous driving safety demonstrates concrete application of the theoretical framework established in concurrent work on softmax space exploration. Conservative threshold selection based on minimum distances from incorrect predictions provides a principled approach to safety-critical decision making.
+
+While the RegCNNCUFid model (Table~\ref{results:table_regression_models}) showed a lower D MAE (0.0461) compared to RegCNNCU (0.0588), this difference may be attributable to statistical noise rather than a robust effect. Nonetheless, the use of fiducial markers remains a possible direction for further investigation with controlled experiments.
+
+Overall accuracy for CNN classifiers is consistently higher for models trained on unbalanced datasets, while the trend is inverted for ViT classifiers. This may be related to dataset sizes and network capacity.
+
+The hypothesis is that the CNN, being a relatively small model with approximately 200K trainable parameters, learned the smaller, unbalanced datasets better. In contrast, the ViT architecture used for comparison has approximately 85M trainable parameters and learned the larger datasets better.
+
+Dataset size could be used as a training hyperparameter in determining if there is an optimal data quantity that the model could learn, correlating to the number of trainable parameters. This approaches the problem from the dataset size and calibration to adjust to the number of parameters, instead of the traditional approach of changing model size and ultimately the number of parameters to learn a dataset.

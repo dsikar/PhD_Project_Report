@@ -1,19 +1,46 @@
-%%%%%%%%%%%%%%
-%% ABSTRACT %%
-%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%
+% %% ABSTRACT %%
+% %%%%%%%%%%%%%%
 
-%From INM363 MSc Project Guidance Document 2019-20:  
+% %From INM363 MSc Project Guidance Document 2019-20:  
 
-%1. You are expected to clearly identify a problem or requirement, justifying why it is worth exploring or implementing, develop a method suitable for the work, apply this method, analyse the results and evaluate their implications.  
+% %1. You are expected to clearly identify a problem or requirement, justifying why it is worth exploring or implementing, develop a method suitable for the work, apply this method, analyse the results and evaluate their implications.  
 
-%2. Page 2 must contain an indicative Abstract of 100-200 words, and up to five keywords. This is more than an introduction to the project – it should explain what has been achieved and how
+% %2. Page 2 must contain an indicative Abstract of 100-200 words, and up to five keywords. This is more than an introduction to the project – it should explain what has been achieved and how
+
+% \begin{abstract}
+% \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+
+% \vspace{25mm} %25mm vertical space
+  
+  
+% \textbf{Keywords:} keyword1, keyword2, keyword3
+
+% \end{abstract}
+
+% \title{Quantized Neural Networks for Autonomous Driving: CNN vs Vision Transformer Performance in Steering Angle Prediction and Vision Language Model Integration}
+
+% \author{Daniel} % Replace with your actual name
+
+% \date{\today}
 
 \begin{abstract}
-\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 
-\vspace{25mm} %25mm vertical space
-  
-  
-\textbf{Keywords:} keyword1, keyword2, keyword3
+Neural networks deployed in safety-critical applications require mechanisms to detect when they are likely to fail. This thesis develops and validates distance-based methodologies for identifying unreliable predictions in neural networks, with particular application to autonomous driving systems.
+
+The research addresses five objectives: developing distance metrics for distribution shift detection, validating methods across neural network architectures using standard datasets, characterising accuracy degradation under noise conditions, creating synthetic datasets for autonomous driving applications, and demonstrating practical failure prediction in realistic simulation scenarios.
+
+The method uses Euclidean distance to quantify how far a softmax output is from a class centroid, bridging supervised and unsupervised learning regimes. Convolutional Neural Networks (CNNs), Vision Transformers (ViTs), and Vision Language Models (VLMs) are evaluated using MNIST, CIFAR-10, \textit{MNISTified} datasets, and custom autonomous driving datasets generated with the CARLA simulator.
+
+Key findings demonstrate that Euclidean distance from softmax outputs to class centroids effectively serves as a proxy for prediction confidence in classification settings. This holds across CNNs, ViTs, and potentially VLMs, as well as regression models converted to classifiers by binning output ranges.
+
+In autonomous driving simulations, distance-to-centroid thresholds successfully identify unreliable steering predictions and detect when lane invasions are likely to occur. Conservative thresholds derived from incorrect training predictions allow potentially unsafe decisions to be identified and rejected before lane invasions occur, returning control to a human operator.
+
+This work establishes a framework for proactive safety assessment in autonomous systems, demonstrating that distance-based detection can enhance reliability across multiple neural network architectures and application domains in both classification and regression settings.
+
 
 \end{abstract}
+
+% \keywords{Autonomous Driving, Neural Network Quantization, Vision Transformers, Convolutional Neural Networks, CARLA Simulator, Vision Language Models, Steering Prediction, Deep Learning}
+
+% \maketitle

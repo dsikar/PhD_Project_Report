@@ -1,0 +1,23 @@
+Introduction
+
+We want to include experiments, potential papers in the write-up:
+1. MSc - udacity simulator + paper, we want to format it in a way that it could be put on Arxiv
+2. Zivid camera, findings. We want to format it in a way that it could be put on Arxiv
+3. ECAI submission
+4. CGVC submissing
+
+We want to include a section TBC, with results from the carla simulator, also to turn into a paper
+
+We want to include the "nanny-net" paper, with the network trained on softmax outputs, plus a new method for measuring distances to centroids. We keep a (10,10) threshold instead of a (10) threshold i.e. we create 90 pairs (diagonal does not count) of results.
+
+Include papers in appendixes.
+
+Papers
+
+ECAI 2023 - some results, not much written. Exclude
+ECAI 2024 - include
+CGVC 2024 - include
+MSC Thesis - shorten and include
+
+
+

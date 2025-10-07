@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTRODUCTION AND OBJECTIVES %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%This chapter should set the scene for the reader. It must outline the background to the problem, give your reasons for the choice of project, and identify the project’s beneficiaries. Your objectives need to be precisely stated, together with the tests that will show, at the end of the project, that they have been met (or not been met). You need also to outline your methods in broad terms, along with y work plan with sufficient detail to show how you planned to meet the objectives. Outline any major changes of goals or methods that happened during the project. Finally, outline the structure of the report, showing how it fits together.
+
+\chapter{Introduction and Objectives}
+\label{Intro} 
+
+%%%%%%%%%%%%%%%%
+% INTRODUCTION %
+%%%%%%%%%%%%%%%%
+
+% Kept in 01-Introduction-Consolidated.tex
+\section{Introduction}
+
+This study is sponsored by ICRI-SAVe, the Intel Collaborative Research Institute (ICRI) on Safe Automated Vehicles (SAVe), focused on practical innovations that advance the state of the art, security and resilience of real-world autonomous systems such as autonomous vehicles (AVs). Trust is a major bottleneck for commercial introduction of AVs. Consumers must feel comfortable with, and regulators need to build and approve methodologies to prove the safety of, AVs ({ICRI-SAVe2024}. This study aims to contribute in the assessment and quantification of Autonomous Systems Safety, of which AVs are a particular case.
+
+\subsection{ICRI-SAVe}
+
+The ICRI-SAVe project (\cite{ICRI-SAVe2024}), funded by \$300,000 from Intel Corporation (2019–2022), investigated safety assurance for autonomous vehicles through three research themes: assurance cases, diversity and defense-in-depth, and systemic risk modeling. Objectives included enhancing assurance case semantics using the Assurance 2.0 framework, developing statistical inference methods for safety confidence via Bayesian approaches, probabilistically modeling vehicle safety under road hazards and subsystem reliability, and analyzing diversity's role in safety. Methods encompassed the claims-argument-evidence framework, Bayesian reasoning with bounding techniques, stochastic activity networks, Markov/semi-Markov models for perception and safety monitor imperfections, and justification/verification for machine learning, including explanatory rule derivation and architectural diversity assessment. Emphasis was on mathematical and probabilistic modeling. These efforts yielded significant research outputs 
+(\cite{bishop2022bootstrapping,aghazadeh2022arguing,buerkle2022modelling,terrosi2022impact,salako2021conservative,zhao2020assessing,bloomfield2021assurance,rushby2022assessing,popov2021conservative}).
+
+Despite recognizing the importance of simulations for establishing prior confidence in autonomous vehicle safety (\cite{Zhao_2019}) and the inevitability of empirical safety demonstrations through simulated and operational testing (\cite{zhao2020assessing}), the ICRI-SAVe project did not conduct simulation-based research. As the latest output of this programme, this study addressed the gap through simulation-based research to quantify autonomous vehicle safety assurance.
+
+% Moved to 01.5-Background.tex
+\subsection{SAE Autonomy Levels}
+
+The Society of Automotive Engineers (SAE) defines six levels of driving automation, from no automation (Level 0) to full automation (Level 5), as outlined in the J3016 standard (\cite{SAEJ3016}). These levels categorize the extent to which a vehicle can perform the dynamic driving task (DDT) and the degree of human intervention required. Levels 0--2 involve human drivers maintaining primary control, with increasing assistance from advanced driver-assistance systems (ADAS). Levels 3--5 represent conditional to full automation, where the vehicle assumes complete DDT responsibility under specific conditions or universally, progressively eliminating the need for human intervention. The table below summarizes the SAE levels, their capabilities, and human driver requirements.
+
+\begin{table}[h]
+\centering
+\caption{SAE Levels of Driving Automation}
+\begin{tabular}{|c|p{6cm}|p{6cm}|}
+\hline
+\textbf{Level} & \textbf{Description} & \textbf{Human Driver Requirement} \\
+\hline
+0 & No automation; human performs all driving tasks & Full control and monitoring \\
+\hline
+1 & Driver assistance; system handles specific tasks (e.g., steering or acceleration) & Continuous monitoring and control \\
+\hline
+2 & Partial automation; system manages steering and acceleration but requires human oversight & Constant supervision; ready to intervene \\
+\hline
+3 & Conditional automation; vehicle performs DDT in specific conditions (e.g., highway) & Present; must respond to system requests \\
+\hline
+4 & High automation; vehicle performs DDT within operational design domain without human input & None within domain; vehicle self-manages \\
+\hline
+5 & Full automation; vehicle performs DDT in all conditions without human involvement & None; no human driver required \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Global State of Autonomous Vehicle Adoption in 2025}
+
+The global transition to autonomous vehicles (AVs), encompassing SAE Levels 3 to 5, is reshaping transportation through advancements in technology, regulation, infrastructure, and societal integration. The 2025 Global Autonomous Vehicle Adoption Index (GAVAI) provides a standardized measure of AV adoption across regions, evaluating market penetration, regulatory frameworks, infrastructure readiness, consumer trust, and industry ecosystems (\cite{KPMG2018}). North America and Asia-Pacific lead the global landscape, driven by robust private-sector innovation and state-directed strategies, respectively. Europe follows with a safety-focused approach (\cite{GOVUK2025}), while the Middle East and Africa and Latin America lag due to infrastructural and regulatory constraints, though select markets show potential for rapid advancement through targeted investments (\cite{DubaiLaw2023}). Regional disparities highlight divergent pathways to AV leadership. North America's dominance stems from extensive R\&D and widespread adoption of advanced driver-assistance systems (ADAS), but fragmented regulations hinder national scaling (\cite{NCSL2025}). Asia-Pacific, particularly China, benefits from cohesive national policies and significant infrastructure investments, such as 5G networks and smart roadways, enabling rapid deployment (\cite{KPMG2018}). Europe’s comprehensive regulatory frameworks prioritize safety but slow iterative testing, potentially ceding early market share (\cite{GOVUK2025}). Emerging markets in the Middle East, like the UAE, leverage smart city initiatives to create AV-ready environments, while most African and Latin American nations face foundational challenges in connectivity and governance (\cite{DubaiLaw2023}).
+
+Consumer trust remains a universal barrier to mass adoption, with public skepticism about safety and control persisting despite technological progress (\cite{PatentPC2025a,Deloitte2025}). This trust deficit, most pronounced in Western markets, necessitates transparent safety validation and public education to align perceptions with engineering realities. Regulatory models also shape adoption trajectories: North America’s decentralized approach fosters innovation but lacks cohesion (\cite{NCSL2025}), Asia-Pacific’s top-down model accelerates deployment, and Europe’s consensus-driven framework emphasizes long-term trust over speed (\cite{GOVUK2025}). The symbiotic relationship between AVs and electric vehicles (EVs) further influences progress, as EV infrastructure supports the shared technological foundation of autonomous systems (\cite{IEA2025}).
+
+Strategic imperatives for stakeholders include harmonizing regulations, enhancing infrastructure, and addressing consumer concerns. Policymakers must prioritize clear, unified legal frameworks to reduce compliance burdens and enable scaling (\cite{NCSL2025}), while industry leaders should shift focus from technological development to trust-building through public demonstrations and region-specific strategies (\cite{Deloitte2025}). Emerging markets can attract investment by creating controlled AV testing zones, leveraging their lack of legacy infrastructure to bypass incremental development (\cite{DubaiLaw2023}). Despite data limitations and urban biases in current assessments, ongoing refinements to metrics like cybersecurity and socioeconomic impacts will enhance future evaluations of this transformative mobility landscape (\cite{KPMG2018}).
+
+\subsection{Societal Impact of Autonomous Vehicles and Systems}
+
+Autonomous vehicles (AVs) and systems promise transformative societal benefits by enhancing safety, mobility, and efficiency. By mitigating human error, the primary cause of traffic accidents, AVs could significantly reduce road fatalities and healthcare costs (\cite{Fagnant2015}). They offer improved mobility for groups like the elderly and disabled, fostering social inclusion (\cite{Harper2016}). Optimized driving patterns and integration with electric vehicles may reduce emissions, though increased vehicle usage could offset these gains (\cite{Greenblatt2015}).
+
+The economic impact of AVs and autonomous systems is likely to be substantial. While they may create new job opportunities in technology and related fields, there are concerns about job displacement, particularly in transportation-related industries (\cite{Autor2015}). The trucking and taxi industries, for instance, could face significant disruption. Some argue that the automation of monotonous and soul-destroying jobs would benefit society overall, and that it would be a net positive to "let AI have those jobs," freeing up human potential for more creative and fulfilling endeavors (\cite{Picone2025}).
+
+% These three (good) paragraphs have been condensed into one in 01.5-Background.tex. Maybe it would be better to use this original text. TBD
+
+% Significant challenges accompany these benefits. Job displacement in transportation sectors, such as trucking and taxi services, raises economic concerns, despite new opportunities in technology fields (\cite{Autor2015}). Privacy and data security issues arise from the extensive data collected by autonomous systems, necessitating robust legal frameworks (\cite{Taeihagh2019}). Ethical dilemmas, such as decision-making in critical scenarios, remain unresolved, complicating system design (\cite{Awad2018}). Unequal access to these technologies risks exacerbating social inequalities (\cite{Milakis2017}).
+
+% AVs and autonomous systems will likely reshape urban planning, employment, and social norms. Reduced parking needs could free urban land, but urban sprawl may increase (\cite{Duarte2018}). Automation may eliminate routine jobs while creating roles that augment human capabilities, requiring educational shifts to prepare for human-machine collaboration (\cite{Manyika2017}). Shared mobility models and altered human-machine interactions could redefine societal expectations, necessitating dialogue among stakeholders to align deployment with ethical and societal goals (\cite{Fagnant2015}).
+
+% The economic impact of AVs and autonomous systems is likely to be substantial. While they may create new job opportunities in technology and related fields, there are concerns about job displacement, particularly in transportation-related industries (\cite{Autor2015}). The trucking and taxi industries, for instance, could face significant disruption. Some argue that the automation of monotonous and soul-destroying jobs would benefit society overall, and that it would be a net positive to "let AI have those jobs," freeing up human potential for more creative and fulfilling endeavors (\cite{Picone2025}).
+
+\subsection{Ethical Decision-Making}
+\textbf{Ethical decision-making} in AVs involves programming these vehicles to make decisions during unavoidable accidents. This aspect raises moral and philosophical questions about how AVs should prioritise lives and property in critical situations. The "trolley problem" is a classic example often discussed in the context of AV ethics, where the vehicle must choose between two harmful outcomes (\cite{lin2016}). Public trust in AVs significantly depends on transparent and ethically sound decision-making frameworks that align with societal values.
+
+From an environmental perspective, AVs could contribute to reduced emissions and energy consumption through more efficient driving patterns and the potential for increased use of electric vehicles (\cite{Greenblatt2015}). However, this benefit could be offset if AVs lead to increased vehicle usage overall.
+
+Consumers are primarily concerned with the aforementioned aspects of trust—reliability, safety, security, and ethical decision-making. Additionally, there is apprehension about the lack of control and the ability to intervene in the vehicle's operation during emergencies. Regulators, on the other hand, focus on establishing comprehensive guidelines and standards to ensure the safe deployment of AVs. They are concerned with liability issues, the adequacy of current infrastructure to support AV technology, and the long-term societal impacts of widespread AV adoption (\cite{litman2020}).
+
+Building trust in AVs is a complex endeavour that requires addressing reliability, safety, security, and ethical decision-making comprehensively. Both consumer acceptance and regulatory approval hinge on demonstrating that AVs can operate dependably and safely whilst adhering to ethical standards. Ongoing research, transparent communication, and robust regulatory frameworks are crucial to fostering trust in this transformative technology.
+
+\subsection{Safety Methodologies for Autonomous Vehicles}
+
+The assessment and verification of safety in Autonomous Vehicles (AVs) present unique challenges that necessitate both the adaptation of traditional automotive safety practices and the development of novel methodologies. This section provides an overview of current approaches; detailed technical methodologies will be presented in the methodology chapter. Current approaches encompass a wide range of techniques, each with its own strengths and limitations.
+
+One prevalent methodology is scenario-based testing, where AVs are evaluated against a comprehensive set of pre-defined driving scenarios (\cite{Feng2021}). These scenarios aim to cover a broad spectrum of driving conditions, from routine situations to rare, high-risk events. However, the vast number of possible scenarios makes exhaustive testing impractical, leading to the development of methods for intelligent scenario selection and generation \cite{Koren2018}.
+
+Formal methods and model checking represent another critical approach in AV safety assessment. These techniques involve creating mathematical models of AV systems and their environments, then using automated tools to verify that specific safety properties are consistently maintained \cite{Luckcuck2019}. Whilst powerful, these methods can be computationally intensive.
+
+Simulation-based testing plays a crucial role in AV safety assessment. Advanced simulators enable the testing of AVs in virtual environments, allowing for the evaluation of numerous scenarios without the risks associated with real-world testing \cite{Dosovitskiy2017}. However, ensuring that simulations accurately represent real-world conditions remains a significant challenge.
+
+This study focuses on the data presented to AV models at runtime and the use of simulators, both critical for decision-making and safety assurance. Analyzing runtime data inputs and simulator-based testing will address gaps in current methodologies, enhancing safety validation (\cite{Dosovitskiy2017}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RESEARCH OBJECTIVES %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Research Objectives}
+
+This thesis aims to develop and validate methodologies for detecting when neural networks are likely to fail in safety-critical applications. The research addresses five primary objectives:
+
+\begin{enumerate}
+\item \textbf{Distance-based Distribution Shift Detection} \\
+To develop distance metrics that quantify how far test data distributions deviate from training distributions, enabling detection of when neural networks are likely to fail.
+
+\item \textbf{Cross-architectural Validation on Standard Datasets} \\
+To validate distance-based detection methods across neural network architectures (CNN, ViT, VLM) using established computer vision datasets (MNIST, CIFAR-10).
+
+\item \textbf{Accuracy Degradation Characterisation} \\
+To characterise neural network accuracy degradation under noise and out-of-distribution conditions, establishing safe prediction thresholds based on distance metrics.
+
+\item \textbf{Synthetic Dataset Creation for Autonomous Driving} \\
+To create synthetic datasets for self-driving car applications using realistic game-engine simulation environments, providing controlled experimental conditions for safety validation.
+
+\item \textbf{Autonomous Driving Safety Application} \\
+To apply distance-based detection methodology to autonomous driving systems, demonstrating practical failure prediction in realistic simulation scenarios.
+\end{enumerate}
+
+These objectives collectively establish a framework for proactive safety assessment in autonomous systems, focusing on failure detection rather than system hardening.
+
+Elements of this research have been peer-reviewed and published at the CGVC 2025 proceedings \cite{sikar2024misclassificationlikelihoodmatrixclasses}, with additional work accepted for presentation at the LOD 2025 \cite{sikar2025explorationssoftmaxspaceknowing} conference and inclusion in the Nature - Springer LNCS Proceedings.
+
+The rest of this report is organised as follows:
+
+\begin{itemize}
+    \item research journey
+    \item methods
+    \item results
+    \item related work
+    \item evaluation reflection and conclusions
+    \item future work
+    \item experiments appendix
+\end{itemize}
+
+%Missing - Abstract
+% Work plan
+% Wed, low prod day (meeting plus rowing),
+% focus on 1. Rearrange results, 2. including ALL IMPORTANT HOOK between LOD centroids and CARLA centroids. 3. Reference checking....
+% Thu, low prod day Kingston plus rehearsal, focus on Related work - 1. equations please
+% Friday, full day, complete related work + rebuttal, conference registration.
+% Friday continued, thesis submission on Research Manager

@@ -1,0 +1,29 @@
+% START COPIED FROM 05a-ResultsPreamble.tex %
+\chapter{Results}
+\label{Results} 
+
+%%%%%%%%%%%%%%
+%% FOREWORD %%
+%%%%%%%%%%%%%%
+
+% Where did the stats come from ?
+% /home/daniel/git/phd-thesis/wip
+
+This section discusses the experimental results obtained during the course of this study. 285 experiments were documented across 290 experiment IDs, conducted between November 2021 and June 2025, spanning CARLA simulator and simulation setup, image classification and autonomous driving model development. Initial experiments (1-8) established the CARLA simulation environment with traffic generation, dynamic weather conditions, and vehicle control systems. Image classification experiments (11-28) systematically evaluated CNN accuracy degradation against 12 perturbation types on MNIST datasets, including development of a perturbed MNIST dataset for controlled noise analysis.
+
+The research progressed through three phases. The early phase (experiments 1-50) focused on CNN baseline performance and simulation infrastructure development. The middle phase (experiments 51-150) introduced Vision Transformer architectures for both image classification and autonomous driving applications, examining parameter scaling and pre-trained model adaptation. The advanced phase (experiments 151-290) incorporated Vision Language Models for autonomous driving tasks, applying multimodal architectures to the steering prediction under noisy conditions' problem.
+
+Key experimental themes included noise impact analysis (47 experiments), infrastructure and hardware evaluation (13 experiments), and systematic comparison of CNN, ViT, and VLM architectures across multiple datasets. The methodology development progressed from image classification, to regression-based steering prediction to classification-based approaches using discrete steering angle values discretised into bins. Autonomous driving experiments constituted 70\% of the total research effort (201/285 experiments), with the CARLA simulator serving as the primary experimental platform. The experimental sequence shows progression from traditional computer vision approaches, from convolutional models through transformer models to vision/multimodal large language models. The experiment logs are presented in a separate appendix.
+
+We next present the datasets, followed by sections with results that are representative our stated objectives:
+
+\begin{itemize}
+
+\item Distance-based Distribution Shift Detection
+\item Cross-architectural Validation on Standard Datasets
+\item Accuracy Degradation Characterisation
+\item Synthetic Dataset Creation for Autonomous Driving
+\item Autonomous Driving Safety Application
+\end{itemize}
+% END COPIED FROM 05a-ResultsPreamble.tex %
+

@@ -707,5 +707,234 @@ Worked on quizi BMC and competition, added presentations to google drive, shared
 
 Created another latex project to document iclr2024 automated literature survey method.
 
+****************
+** 2024.10.09 **
+****************
+
+Found a youtube channel:
+
+This video specifically deals with training a CNN to steer:
+https://www.youtube.com/watch?v=uhBK3GWqNyE
+
+The github repo has jupyter notebooks with code, including driving with reinforcement learning, which looks promissing e.g.:
+
+https://github.com/vadim7s/SelfDrive/blob/master/RL/carenv.py
+
+line 191:
+
+self.sensor.listen(lambda data: self.process_img(data))
+
+Which seem to suggest noise can be added to the data before passing onto agent.
+
+Another channel:
+
+https://www.youtube.com/playlist?list=PLQVvvaa0QuDeI12McNQdnTlWz9XlCa0uo
+
+https://github.com/Sentdex/Carla-RL
+
+RL seems to be too memory/cpu intensive, looks like it is a non-starter.
+
+****************
+** 2024.10.10 **
+****************
+
+Trying to get cv2 to run locally on jupyter notebook with carla. cv2 exists is working in the pyenv environment, however, in the pyenv environment current we have carla python module 0.9.15 which is not playing with the carla version in /opt/carla-simulator.
+What to do ?
+If we want to run the tutorials, on http://localhost:8889/tree/git/SelfDrive/Tutorials
+we need to downgrade the carla version on pip
+
+****************
+** 2024.10.14 **
+****************
+
+Google scholar searches related to transforming regressor networks to classifier networks
+
+"discretization in machine learning" - https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=%22discretization+in+machine+learning%22&btnG=
+
+"binning continuous variables for classification" - no results
+
+"regression to classification conversion" - https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=%22regression+to+classification+conversion%22&btnG=
+
+"discretization in machine learning" - https://www.google.com/search?q=%22discretization+in+machine+learning%22&client=ubuntu&hs=b7x&sca_esv=b5fe372bbb1d1118&sxsrf=ADLYWIKJCEX5jrD8gaWhmv6biO3DYIqyiw%3A1728488678471&ei=5qQGZ-61HJeri-gP7uv1mQ0&ved=0ahUKEwjuwLaN0oGJAxWX1QIHHe51PdMQ4dUDCBA&uact=5&oq=%22discretization+in+machine+learning%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiJCJkaXNjcmV0aXphdGlvbiBpbiBtYWNoaW5lIGxlYXJuaW5nIkgAUABYAHAAeAGQAQCYAQCgAQCqAQC4AQPIAQCYAgCgAgCYAwCSBwCgBwA&sclient=gws-wiz-serp
+
+****************
+** 2024.11.17 **
+****************
+
+Use the AI-Scientist agent, by Sakana AI. Also used claude desktop. Generated one article with AI-Scientist and started modifying source code to also do literature reviews.
+Both AI-Scientist and claude desktop provide docker containers as starting points.
+Both were run locally and available for future runs. 
+
+(base) daniel@simbox:~/git/anthropic-quickstarts/computer-use-demo(main)$ docker ps -a
+CONTAINER ID   IMAGE                        COMMAND             CREATED       STATUS                        PORTS     NAMES
+6cf255179c3c   claude-computer-use:latest   "./entrypoint.sh"   2 hours ago   Exited (137) 18 minutes ago             xenodochial_austin
+515bdf43343b   experimental/ai-scientist    "/bin/bash"         3 days ago    Up 3 days                               xenodochial_agnesi
+
+One the teaching term is finished in mid-December, the plan for the following 6 weeks leading to the end of January, and the start of the next term, is to structure the thesis and complete Carla experiments.
+
+****************
+** 2024.11.21 **
+****************
+
+Gathering training data.
+
+We restart from 2024.10.10 to align jupyter notebook with /opt/carla-simulator. The version on /opt/carla-simulator is 0.9.13 and the notebook we are running in  ~/git/self-driving/carla is for the Python API carla version 0.9.15.
+
+****************
+** 2024.11.23 **
+****************
+
+Created a repo to add notebooks that were poluting carla/PythonAPI/Examples
+Now writing code in github.com/dsikar/carla-driver-data
+
+Referenced git@github.com:vadim7s/SelfDrive.git
+Then one of the videos referenced in the tutorials, from the CARLA tutorials
+https://www.youtube.com/watch?v=om8klsBj4rc&t=1184s
+
+Added some code to the new repo script folder.
+Uploaded a video to youtube from new script
+
+Next steps:
+
+1. log steering angle
+2. save images
+3. plot path
+4. follow path
+5. control sun - OK
+6. control weather - OK
+7. train model as classifier
+7.1 correct predictions clustering
+8. Add noise
+9. plot ground truth angles
+10. plot noisy steering
+11. 
+
+
+
+****************
+** 2024.12.23 **
+****************
+
+Cloned git@github.com:s-chh/PyTorch-Scratch-Vision-Transformer-ViT.git and ran
+the ViT training session on MNIST from scratch. Results:
+
+Test acc: 99.52%	Test loss: 0.0177
+Test Confusion Matrix:
+[[ 976    0    1    0    0    0    1    1    1    0]
+ [   0 1134    1    0    0    0    0    0    0    0]
+ [   0    0 1029    1    0    0    0    2    0    0]
+ [   0    0    0 1010    0    0    0    0    0    0]
+ [   0    0    0    0  971    0    3    1    0    7]
+ [   1    0    0    5    0  884    1    1    0    0]
+ [   2    2    0    0    0    2  951    0    1    0]
+ [   0    3    1    0    0    0    0 1023    0    1]
+ [   0    0    1    2    0    0    0    1  970    0]
+ [   0    0    0    0    3    1    0    1    0 1004]]
+Ended at 2024-12-21 20:29:44
+Duration: 4:37:51.821924
+
+Note, the model was not saved. Another run required with modified code to save model.
+
+Finished reading the AI-Scientist paper. Next, run with compressed networks:
+
+https://github.com/dsikar/compression-training/
+
+****************
+** 2024.03.12 **
+****************
+
+Camera study scripts/23-camera-placement-study.ipynb
+git@github.com:dsikar/carla-driver-data.git
+
+(carla-env) daniel@simbox ~/git/carla-driver-data/scripts (main)$ find . -name "*.ipynb" -exec grep -l "best_steering_model_v1.pth" {} +
+./17-trained-network-validations.ipynb
+./16-self-driving.ipynb
+./11-basic-pid-self-drive.ipynb
+./15-network-training.ipynb
+
+Data recording:
+
+./11-basic-pid-self-drive.ipynb
+
+(carla-env) daniel@simbox ~/git/carla-driver-data/scripts (main)$ grep -l "carla_dataset" *.ipynb
+11-basic-pid-self-drive.ipynb
+13-steering-stats.ipynb
+14-image-cropping-and-pre-processing.ipynb
+15-network-training.ipynb
+17-trained-network-validations.ipynb
+
+****************
+** 2024.03.13 **
+****************
+
+* Recording data with scripts/wip/carla_figure8_selfdrive_recorder.py
+
+****************
+** 2025.08.20 **
+****************
+
+From 19.08.2025:
+
+"Hi Daniel,
+
+There's something wrong with the submitted pdf on Research Manager. I returned the submission to you so you can update the thesis pdf file, please.
+
+A lot of the materials in the current pdf (code, experiment setup, intermediate results) should be removed from the main body of the thesis into a separate appendix.
+
+The thesis should have some 150 pages maximum and it should follow the structure of your transfer report: Abstract, Introduction, Background, Related Work, Method, Results, Discussion, Conclusion and Future Work.
+
+Best,
+Artur"
+
+Approach:
+1. Proof read and archive sections that are not wanted.
+2. Remove appendix
+3. Create separate appendix
+4. Re-submit thesis
+
+1. Abstract, Introduction, Background, Related Work, Method, Results, Discussion, Conclusion and Future Work.
+
+2025.08.31
+
+The text needs converting to passive voice
+
+For your transfer/phd thesis you used/plan to use:
+Passive voice: Cosine similarity was used...
+Impersonal: This study presents...
+First person singular: I used cosine similarity...
+First person plural: We used cosine similarity...
+
+2025.09.03
+Had meeting with Artur who suggested that in the Introduction two or more contributions are listed, then
+have an applications chapter with the contributions.
+
+Contribution 1 - LOD paper, metrics to quantify confidence
+Contribution 2 - Same metrics applied to the CARLA Simulator
+
+New structure
+
+Introduction
+Background (pro)
+
+2025.09.08
+
+The table of contents has been reduced by combined sections and removing section headers, where the section headers are now boldface type strings.
+
+Todos
+1. The second contribution chapter needs to be written, though this is mainly a copy-and-paste from existing sections. This is also a good exercise and the output should form the basis of a paper or who knows, maybe even a journal paper, about the application of the softmax space to self-driving lane invasion detection, via a regression to classification transform.
+
+2. 7.2 requires discussion for the best performing and additional models. There are plenty of plots and tables, and generating short paragraphs discussing each results should not be much of a problem.
+
+3. For the VLM results, there is plenty on the (now omitted) results appendix that tells a story about scene understanding, and how prompts were refined to elicit the optimal answers.
+
+4. The discussion could probably do with a roundup of what has gone on.
+
+5. Conclusion deserves a visit and lots of love, maybe move key contributions from Discussion to conclusion.
+
+6. Future Work
+We really need to go to town here. There is probably a lot that can be done with LLMs and embedding spaces, and since "everything is a vector", there is no end to what kind of relations between uncertainty and distance metrics could be found
+
+7. Finally, this thesis needs READING from start to finish, get rid of all typos and remove as many intermediate results as possible. Might be able to get it down to 100 pages.
+
 
 

@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%%%%
+%% RELATED WORK %%
+%%%%%%%%%%%%%%%%%%
+
+\chapter{Related Work}
+\label{related_work}
+
+This chapter reviews the key literature relevant to our research on softmax-based prototype learning and classification uncertainty. We organize the discussion into three main areas: failure detection and misclassification identification, confidence-based prediction methods, and evaluation frameworks for classification reliability.
+
+\section{Failure Detection and Misclassification Identification}
+
+\subsection{Residual-based Error Detection (RED)}
+
+Qiu and Miikkulainen \cite{QiuMiikkulainen2022} proposed Residual-based Error Detection (RED), a framework for detecting misclassification errors in neural networks. RED's key innovation is its ability to provide both a detection score and the uncertainty associated with that score, addressing the unreliability of traditional confidence metrics \cite{Provost1998}.
+
+RED builds upon the RIO (Residual prediction with Input/Output kernel) method \cite{Qiu2020}, extending it to classification through several modifications:
+\begin{enumerate}
+    \item Extension of RIO's output kernel to handle multi-output vector data (mRIO)
+    \item Learning to predict classification correctness using target detection scores $c_i = \delta_{y_i,\hat{y}_i}$
+    \item Computing residuals $r_i = c_i - \hat{c}_i$ between target scores and maximum class probabilities
+\end{enumerate}
+
+In deployment, RED provides a Gaussian distribution $\hat{c}'_* \sim N(\hat{c}_* + \bar{\hat{r}}_*, \text{var}(\hat{r}_*))$ where the mean serves as the detection score and the variance explicitly represents uncertainty \cite{QiuMiikkulainen2022}.
+
+\subsection{Prototype-based Classification Methods}
+
+\subsubsection{Feature Space Prototyping}
+
+Traditional prototype-based methods operate in the learned feature space. Center Loss \cite{Wen2016} addresses the geometric structure of feature spaces by encouraging intra-class compactness through an auxiliary penalty term:
+
+$$L_C = \frac{1}{2}\sum_{i=1}^{m} \|f(x_i) - c_{y_i}\|_2^2$$
+
+where $f(x_i)$ is the feature vector and $c_{y_i}$ is the learned centroid for class $y_i$. The total loss combines softmax loss with Center Loss: $L = L_{Softmax} + \lambda L_C$.
+
+Prototypical Networks \cite{Snell2017} demonstrate the effectiveness of feature-space prototyping for few-shot learning. They compute class prototypes as arithmetic means of support set embeddings:
+
+$$\mu_k = \frac{1}{|S_k|} \sum_{x_i \in S_k} f_\phi(x_i)$$
+
+Classification is then performed by finding the closest prototype using softmax over negative squared distances.
+
+% \subsubsection{Output Space Prototyping}
+
+% In contrast to feature-space methods, Stadelmann et al. \cite{Stadelmann2021} proposed "Softmax-Prototyping," which operates directly in the network's output space by averaging posterior class-probability vectors. This approach represents a fundamental shift from geometric to probabilistic prototype representation.
+
+% The softmax prototype for class $c$ is computed as:
+% $$\mu_c = \frac{1}{N_c} \sum_{i|label(x_i)=c} p_i$$
+
+% where $p_i = \text{softmax}(f(x_i)/T)$ and $T$ is the temperature parameter. This method's effectiveness depends critically on model calibration and the choice of softmax temperature.
+
+\section{Confidence-based Prediction Methods}
+
+\subsection{Learning Model Confidence}
+
+Corbière et al. \cite{Corbiere2019} addressed failure prediction by proposing True Class Probability (TCP) as an alternative to Maximum Class Probability (MCP). TCP is defined as the probability with respect to the true class: $P(Y = y^*|w,x)$. 
+
+Their ConfidNet architecture learns this TCP criterion during training using an $\ell_2$ loss function. ConfidNet builds on features from pre-trained classification models and consistently outperforms traditional confidence measures including MCP, Trust Score \cite{Jiang2018}, and Monte-Carlo Dropout \cite{Gal2016}.
+
+The key insight is that TCP inherently associates lower values with misclassifications and higher values with correct predictions, improving separation between correct and incorrect predictions compared to traditional confidence measures.
+
+\subsection{Uncertainty Quantification}
+
+Monte Carlo Dropout \cite{Gal2016} provides a Bayesian interpretation of dropout, enabling uncertainty estimation by performing multiple forward passes with different dropout masks. This approach treats dropout as a variational approximation to a Gaussian process.
+
+Trust Score \cite{Jiang2018} measures the agreement between a classifier's prediction and a modified nearest-neighbor classifier in the learned feature space, providing an alternative confidence measure that is less susceptible to adversarial examples.
+
+\section{Evaluation Frameworks for Classification Reliability}
+
+\subsection{Unified Evaluation Protocols}
+
+Jaeger et al. \cite{Jaeger2022} identified critical inconsistencies in failure detection evaluation and proposed a unified evaluation protocol. They highlighted three main pitfalls:
+\begin{enumerate}
+    \item Heterogeneous task definitions
+    \item Limited scope of failure sources
+    \item Discrepancy between stated purpose and actual evaluation
+\end{enumerate}
+
+Their unified framework defines classification output filtering based on Confidence Scoring Functions (CSF) $g(x)$ with threshold $\tau$. The binary failure label is defined as $y_f(x,w,y) = I(y_{cl} \neq \hat{y}_m(x,w))$.
+
+They advocate for Area under the Risk-Coverage-Curve (AURC) as the primary evaluation metric, which intrinsically assesses both classifier accuracy and CSF ranking performance in a single score.
+
+\subsection{Calibration and Temperature Scaling}
+
+The role of model calibration in confidence estimation has been extensively studied \cite{Guo2017}. Modern neural networks are often poorly calibrated, producing overconfident predictions. Temperature scaling provides a simple post-hoc calibration method by optimizing a single parameter $T$ on a validation set to minimize negative log-likelihood.
+
+The relationship between calibration and prototype quality is particularly relevant for softmax-based prototyping methods, where well-calibrated probability distributions are essential for meaningful prototype formation.
+
+\section{Summary and Research Gaps}
+
+The literature reveals a rich landscape of approaches to classification reliability and prototype-based learning. However, several gaps remain:
+
+\begin{itemize}
+    \item Limited exploration of the relationship between output-space prototyping and model calibration
+    \item Insufficient theoretical analysis of the geometric properties of probability simplex representations
+    \item Need for unified evaluation frameworks that consider both feature-space and output-space methods
+    \item Limited understanding of how softmax temperature affects prototype quality and downstream task performance
+\end{itemize}
+
+Our research addresses these gaps by providing a comprehensive analysis of softmax-based prototype formation and its applications to classification reliability assessment.

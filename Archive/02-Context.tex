@@ -1,0 +1,468 @@
+%%%%%%%%%%%%%
+%% CONTEXT %%
+%%%%%%%%%%%%%
+
+% README Some text here can be recycled. There is some treatment of different simulators, in addition to CARLA. Also the line about society being increasingly subject to autonomous systems (need to find some good examples of AI decision making autonomous systems that affect society at large). Examples of AI-enabled autonomous systems are self-driving cars and autonomous robots in healthcare.
+
+%This chapter explains the current state of your topic, in practice and theory. This is the state of the world which you intend to improve, and the state of knowledge on top of which you build your advances and from which you learn knowledge to apply and constraints on your work. So, you will report and analyse what is known about a certain topic, as reported in reference literature and published scientific literature; if you are developing a product, you will need to report about comparable or competing products over which you intend to improve or from which you will obtain ideas; you may need to describe legal or societal situation within which your work takes place; etc.  
+  
+%It is important to demonstrate scholarship, i.e. the ability to read about a subject area in a range of sources, assimilate the material and then discuss it intelligently.  
+  
+%You should demonstrate that you understand what you have read by providing some analysis or commentary in view of the goals of your project: it is not enough simply to provide summaries of what you have read. References should be cited following the Harvard Referencing Style. You must also explain, both in this chapter and, as appropriate, in others, how the results of the studies to which you make reference inform your project work. To gain a passing grade, your report MUST demonstrate adequate engagement with academic literature and any other sources necessary for the work to be well informed.  
+
+% The story we want to tell
+% 1. Historical perspective
+% 1.1 Self-driving cars
+% 1.2 Autonomous Systems
+% 1.3 Autonomous Robots
+% 2. ML/AI applied to AV/AS
+% 2.1 Distribution shift
+
+% Place our study in this context
+
+% (...)
+
+\chapter{Context}
+\label{Context} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HISTORICAL PERSPECTIVE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% GROK
+
+\% GROK - https://x.com/i/grok?conversation=1925107334080037022
+
+Key Points
+
+    Research suggests autonomous vehicles began with radio-controlled experiments in the 1920s, evolving through decades of technological advancements.
+    It seems likely that key milestones include early demonstrations, DARPA challenges, and recent regulatory changes, with ongoing debates about safety and ethics.
+    The evidence leans toward significant progress by 2025, with partially automated systems widely available, but fully autonomous cars (Level 5) are not yet in consumer hands.
+
+Early Developments
+Autonomous vehicles started with early experiments in the 1920s, like Houdina Radio Control's radio-controlled car demo in New York City. By the 1930s, visions like Norman Bel Geddes' Futurama exhibit at the 1939 New York World's Fair predicted automated highways. The 1950s saw RCA Labs and General Motors testing systems with wired guidance and automatic controls, setting the stage for future innovations.
+Research and Growth
+The 1960s and 1970s brought university projects, such as Ohio State’s driverless cars and Japan’s camera-based systems, showing growing interest. The 1980s saw major leaps with Carnegie Mellon’s Navlab and Mercedes-Benz’s Eureka Prometheus Project, using computer vision for road navigation. These efforts laid groundwork for later commercialization.
+Commercial and Regulatory Advances
+The 1990s and 2000s marked progress with Navlab’s cross-country journey and DARPA’s Grand Challenges, boosting technology. Google’s 2009 self-driving car project and Tesla’s 2014 Autopilot announcement highlighted commercial interest. By the 2010s, regulations emerged, like Nevada’s 2012 license and Waymo’s 2018 robotaxi service, reflecting growing acceptance.
+Current State in 2025
+By 2025, vehicles with advanced driver-assistance systems, like adaptive cruise control, are common, with companies like Waymo and Nuro pushing boundaries. However, fully autonomous cars remain future-focused, with Stage 4 predicted by 2030–35. Regulatory challenges, especially in the US, contrast with China’s streamlined approach, fueling ongoing debates.
+Historical Perspective on the Development of Autonomous Vehicles
+Introduction
+Autonomous vehicles, often referred to as self-driving cars, have captivated innovators and the public for over a century. Their evolution from rudimentary radio-controlled experiments to sophisticated systems reflects advancements in artificial intelligence, robotics, and sensor technologies. This report provides a detailed historical overview, tracing key milestones from the early 20th century to the current state in 2025, highlighting technological, commercial, and regulatory developments. It aims to offer a comprehensive understanding of how autonomous vehicles have progressed, acknowledging the complexities and ongoing debates surrounding safety, ethics, and adoption.
+Early Beginnings (1920s - 1950s)
+The journey began in the 1920s with Houdina Radio Control’s demonstration of the "American Wonder," a radio-controlled car tested in New York City in July 1925. Despite crashing into a sedan, this event marked the first significant experiment in vehicle automation. The 1930s saw visionary concepts, notably Norman Bel Geddes' Futurama exhibit at the 1939 New York World's Fair, which showcased radio-controlled electric cars propelled by electromagnetic fields, predicting realization by 1960 in his book "Magic Motorways" (1940) .
+The 1950s brought tangible progress. RCA Laboratories developed a system in 1953 with a miniature car guided by wires, demonstrated on a 400-foot strip of public highway near Lincoln, Nebraska, in 1957. General Motors provided equipped cars for automatic steering, acceleration, and brake control, expecting commercialization by 1975. Radar Assistance Systems with emergency brake functionality were introduced in concept cars like the Ford FX Atomos and Cadillac Cyclone in 1959, laying foundational technologies for later systems.
+Research and Development (1960s - 1980s)
+The 1960s saw academic efforts intensify. Ohio State University launched a driverless car project in 1960, activated by electronic devices, claiming readiness for public roads within 15 years by 1966. In the UK, the Transport and Road Research Laboratory tested a driverless Citroen DS at 80 mph using magnetic cables, though funding was withdrawn by the mid-1970s due to economic constraints.
+The 1970s introduced the first self-driving car without rails or wires. Tsukuba Mechanical Engineering Laboratory in Japan designed a car in 1977 equipped with two cameras using analog computer technology for signal processing, capable of recognizing street markings at nearly 20 mph. Preliminary research into intelligent automated logic was also conducted at the University of Illinois' Coordinated Science Laboratory, expanding the technological base.
+The 1980s marked a pivotal era with the emergence of truly autonomous vehicles. Carnegie Mellon University’s Navlab and the DARPA-funded Autonomous Land Vehicle (ALV) project in 1984 used lidar, computer vision, and robotic control, achieving speeds up to 19 mph. Mercedes-Benz, in collaboration with Bundeswehr University Munich, developed a vision-guided robotic van that reached 59.6 mph on streets without traffic as part of the Eureka Prometheus Project (1987–1995). HRL Laboratories (formerly Hughes Research Labs) demonstrated off-road autonomous navigation in 1987, traveling 2,000 feet at 1.9 mph. By 1989, Navlab pioneered neural networks for control, enhancing adaptability .
+Advancements and Commercialization (1990s - 2010s)
+The 1990s saw significant achievements. Navlab completed a 3,100-mile cross-country journey in 1995, autonomously controlled for 98.2\% of the distance, demonstrating long-distance viability. ParkShuttle, billed as the world’s first driverless vehicle, started pilot projects in December 1997 at Schiphol Airport and in 1999 at Rivium, Netherlands, using magnets for position verification. Toyota introduced Adaptive Cruise Control (ACC) in May 1998 on the Progres compact luxury sedan in Japan, marking a step toward semi-autonomous driving.
+The 2000s were driven by military and competitive initiatives. The Demo III project in 2001 demonstrated unmanned ground vehicles navigating difficult terrain. DARPA’s Grand Challenge in 2004 offered \$1 million for a 150-mile course, with no completions, but the 2005 challenge saw five vehicles finish, highlighting progress. Velodyne’s lidar became integral, and Carnegie Mellon University’s Chevy Tahoe won the 2007 Urban Challenge. Google began developing self-driving cars privately in 2009, based on studies showing driver error as a leading crash cause. Rio Tinto started testing the Komatsu Autonomous Haulage System in December 2008, expanding in November 2011 for mining operations .
+The 2010s brought commercialization and regulation. VisLab’s Intercontinental Autonomous Challenge in 2010 covered a 9,900-mile journey, showcasing global potential. Nevada issued the first self-driving car license in May 2012 to a Google-modified Toyota Prius. Tesla announced Autopilot in October 2014, and SAE International published the J3016 classification in 2014, standardizing autonomy levels. Waymo launched "Waymo One" robotaxi in December 2018 in Phoenix, Arizona. Regulatory advancements included Japan’s Level 3 legislation in 2019, effective April 2020, and the EU’s Regulation (EU) 2019/2144, applying from 2022 .
+Recent Developments and Current State (2020s)
+By 2025, the autonomous vehicle landscape has evolved significantly. Vehicles with partially automated systems, such as lane-keeping assist, adaptive cruise control, and traffic jam assist, are widely available, as noted in recent analyses . Stage 4 automation, allowing fully autonomous operation within geofenced boundaries, is predicted for consumers by 2030–35, though fully autonomous cars (Stage 5) remain unavailable, with varying expert predictions on implementation timing.
+Key developments in 2025 include expanding autonomous capabilities beyond privately owned vehicles. Toyota Research Institute (TRI) hypothesizes technologies like self-drifting Supra to teach better control and intervene in hazardous scenarios, encouraging non-constrained narratives of autonomy . Nuro focuses on driverless delivery vehicles, aiming to license its tech stack to producers of passenger vehicles and delivery drones. Wayve develops a hardware-agnostic AI-based driving brain, adaptable from Level 2 to Level 4, working with camera-only or combined systems, trained based on hardware and user preferences.
+User experience is increasingly vital, with Waymo emphasizing features like music choice, traffic rendering, and interior sensors for forgotten items, ensuring consistent safe rides across locations like San Francisco and Los Angeles, with plans to expand to Tokyo. AI simulations are crucial, with Mobileye and Bot Auto stressing accurate simulations based on road data and recreated accidents/hazards, measuring accuracy over distance driven.
+Regulatory challenges persist, particularly in the US, with fragmented oversight by local and federal agencies creating inefficiencies. In contrast, China’s clear, transparent regulations enable self-certification and popularity of robotaxi services like Baidu’s Apollo Go and Pony.Ai. The Ride AI conference in 2025 highlighted the need for closer alignment between technology developers, automakers, and regulators to reduce inefficiencies and accelerate autonomous mobility .
+Current Market Offerings (2025)
+As of 2025, several vehicles feature advanced driver-assistance systems, bringing them close to self-driving capabilities. Below is a table of notable models, their prices with autonomous features, and key systems:
+Vehicle
+	
+Price w/ Autonomous Features
+	
+Autonomous System
+	
+Key Features
+2025 Genesis G90
+	
+\$89,700
+	
+Highway Driving Assist
+	
+Adaptive cruise control, lane-centering assist, <95 mph, hands on wheel
+2025 Tesla Model S
+	
+\$89,990
+	
+Autopilot, Full Self-Driving (Supervised)
+	
+Lane-departure warning, lane-keep assist, adaptive cruise control, \$8,000 for FSD
+2025 BMW X5
+	
+\$68,200
+	
+Driving Assistance Professional (\$2,500)
+	
+Traffic-jam assist, adaptive cruise control, <40 mph on highways
+2025 Chevrolet Tahoe
+	
+\$72,725
+	
+Super Cruise (via Advanced Tech Package, ~\$5,000)
+	
+Driver assistance on mapped highways
+2025 Mercedes-Benz E-Class
+	
+\$64,350
+	
+Driver Assistance Package (\$1,950)
+	
+Semi-autonomous driving capability
+2025 Volvo V90 Cross Country
+	
+\$59,800
+	
+Pilot Assist
+	
+Lane-centering assist, adaptive cruise control, up to 80 mph
+2025 Lincoln Corsair
+	
+\$53,455
+	
+BlueCruise (Collection II ~\$4,000, III ~\$11,000 on base)
+	
+Hands-free on certain roads
+2025 Ford F-150
+	
+\$56,580
+	
+BlueCruise (\$495, requires ~\$5,500 options)
+	
+Adaptive cruise control, lane-centering assist, hands-free on mapped highways
+2025 Kia EV6
+	
+\$52,900
+	
+Upgraded Highway Driving Assist (GT-Line)
+	
+Augmented reality nav, remote park, intersection assist, lane-change system
+2025 Tesla Model 3
+	
+\$50,490
+	
+Autopilot, Full Self-Driving (Supervised)
+	
+Accelerate, decelerate, park, steer, turn, \$8,000 for FSD
+2025 Nissan Ariya
+	
+\$54,370
+	
+ProPilot Assist 2.0 (standard on Platinum+ e-4ORCE)
+	
+Hands-free highway driving, accelerates, brakes, steers
+2025 Infiniti QX50
+	
+\$43,000
+	
+ProPilot Assist
+	
+Lane-keep assist, adaptive cruise control, steady highway pace
+2025 Volkswagen ID.4
+	
+\$39,735
+	
+IQ.Drive Travel Assist
+	
+Lane-centering, maintains distance, hands on wheel
+2025 Hyundai Palisade
+	
+\$36,800
+	
+No hands-free, standard safety features
+	
+Stop-and-go adaptive cruise control, lane-keep assist, junction detection
+2025 Subaru Impreza
+	
+\$23,495
+	
+EyeSight (not hands-free)
+	
+Adaptive cruise control, automatic emergency braking, lane-departure warning
+These vehicles, detailed in Vehicles That Are Almost Self-Driving in 2025 | U.S. News - Cars, showcase the integration of advanced systems into mainstream models, reflecting the current state of autonomous technology.
+Conclusion
+The development of autonomous vehicles has been a century-long journey of innovation, from early radio-controlled experiments to the advanced systems of 2025. While fully autonomous vehicles (Level 5) remain on the horizon, the progress in partially automated systems and regulatory frameworks suggests a transformative future for transportation. Ongoing debates around safety, ethics, and regulatory alignment highlight the complexity, yet the potential for increased safety, efficiency, and convenience is clear.
+Key Citations
+
+    History of self-driving cars detailed timeline Wikipedia
+    Autonomous vehicle definition history facts Britannica
+    Self-driving cars 2025 current state MotorTrend
+    Vehicles almost self-driving 2025 US News Cars
+
+
+% Gemini - https://gemini.google.com/app/0b6df1a8d666bd97
+
+A Historical Perspective on the Development of Autonomous Vehicles: From Vision to RealityIntroductionThe concept of autonomous vehicles (AVs) represents one of humanity's enduring dreams: the ability to travel without direct human intervention, transforming mobility, safety, and efficiency. This report provides a comprehensive historical perspective on the development of autonomous vehicles, tracing their evolution from nascent conceptualizations and early mechanical experiments to sophisticated, AI-driven systems and their ongoing commercialization. The analysis will explore the pivotal technological advancements, key academic and governmental initiatives, and the critical societal and regulatory challenges that have shaped and continue to influence the trajectory of self-driving technology.I. The Genesis of Autonomy: Early Visions and Mechanical Marvels (Pre-20th Century to Mid-20th Century)The aspiration for self-driving mechanisms predates the automobile itself, rooted in centuries of human ingenuity and imagination. These early concepts and demonstrations laid the foundational ideas for future technological pursuits.Conceptual Beginnings: Leonardo da Vinci's Self-Propelled CartThe earliest known conceptualization of an autonomous vehicle dates back to the 16th century, with Leonardo da Vinci's design for a small, three-wheeled, self-propelled cart. This clockwork-driven device, propelled by springs and featuring a pre-programmable steering system and a remote parking brake, is widely regarded as the first self-driving vehicle and even the first robot of any kind.1 In 2016, historians in Florence successfully built a prototype from da Vinci's original sketches, confirming its functional design.1 This early vision highlights a long-standing human desire to automate movement and reduce manual effort.The consistent appearance of self-propulsion and automated guidance concepts across different eras and domains—from da Vinci's mechanical cart to mythical "flying carpets" 4 and practical "auto-tillers" for sailboats 4—indicates a fundamental and persistent human aspiration to overcome the limitations of manual control and enhance mobility. This is not merely a technological curiosity but a deep-seated drive for efficiency, convenience, and perhaps even a sense of wonder in movement. This historical continuity suggests that the pursuit of autonomous vehicles is not a fleeting technological trend, but rather a long-term societal ambition rooted in basic human needs and desires. This implies that despite current challenges, there will likely be sustained investment and eventual widespread adoption, as the underlying drivers for autonomy remain powerful.Early 20th-Century Demonstrations: Radio-Controlled "Phantom Autos"The early 20th century saw the first practical, albeit rudimentary, demonstrations of driverless cars, showcasing the potential of emerging technologies like radio control. In 1925, electrical engineer Francis P. Houdina showcased a radio-controlled full-size automobile, dubbed the "American Wonder" or "Phantom Auto," on the streets of New York and Milwaukee.1 This vehicle, a 1926 Chandler, was controlled by a second car following closely behind, demonstrating the potential of radio technology for remote driving.5 While the project ultimately failed due to a crash 1, it marked a significant step in translating theoretical autonomy into a physical demonstration, even if it relied on external human operation rather than onboard intelligence.The nature of Houdina's "Phantom Auto" and other early prototypes that "relied heavily on specialized external inputs" 5 reveals a distinct initial engineering approach. Rather than attempting to imbue the vehicle with self-contained intelligence, the focus was on remote operation or guidance via external infrastructure. This highlights the technological limitations of the era, where complex onboard computation and sensing were not yet feasible. This early limitation in onboard processing capabilities directly influenced the subsequent research trajectory, leading to a prolonged period where concepts like "smart roads" 4 were prioritized. This infrastructure-centric view was a necessary intermediate step before advancements in computing power and sensor technology allowed for the development of truly self-contained autonomous vehicles.Futuristic Visions: Norman Bel Geddes' Futurama and the Concept of Automated HighwaysThe 1930s brought forth grand visions of automated transportation systems that captivated the public imagination. At the 1939 New York World's Fair, industrial designer Norman Bel Geddes presented his "Futurama" exhibit, sponsored by General Motors. This dazzling display showcased semi-autonomous vehicles traveling on interstate highways, guided by a combination of radio control and magnets embedded in the pavement.1 Bel Geddes' "Magic Motorways" envisioned controlled-access freeways where automatic systems would take over driving, allowing occupants to relax.4 The exhibit was immensely popular, viewed by five million fairgoers, who saw it as a "dramatic and graphic solution" to the daily "harassment" of driving.7 This early public engagement demonstrated a clear societal appetite for automated driving solutions.Norman Bel Geddes' Futurama exhibit was explicitly framed as a "dramatic and graphic solution to a problem which they all faced"—the "harassment by the daily task" of driving.7 The overwhelming public response, with five million fairgoers making it "the most popular show of any Fair in history" 7, underscores that the public's interest in autonomous vehicles was, from the outset, driven by a desire for convenience, safety, and relief from the burdens of driving, rather than merely technological novelty. This early public acceptance and enthusiasm indicate that the market and societal push for AVs are not solely contingent on technological perfection. Instead, they are deeply influenced by the promise of improved quality of life, reduced stress, and enhanced mobility. This underlying societal demand continues to be a powerful, consistent force influencing the pace and direction of AV development and adoption today.8Pioneering Infrastructure-Based Systems: RCA Labs and General Motors' Firebird SeriesFollowing the Futurama exhibit, efforts continued to develop infrastructure-dependent autonomous systems. By the 1950s, electrical impulses became a preferred method for remote driving. RCA Labs, in collaboration with the State of Nebraska, successfully demonstrated a full-size system in 1957 on a 400-foot strip of public highway. This system used detector circuits embedded in the pavement to detect vehicle location and velocity, providing guiding information to autonomous cars.5General Motors further explored this concept with its Firebird series of concept cars in the 1950s. The Firebird II (1956) and Firebird III (1958) were designed to drive autonomously using an "auto guide" system. Two coils near the front wheels would receive electronic impulses from a cable buried in the road, converting them into steering commands to keep the car on course.1 These vehicles also featured advanced concepts like a display instead of a rearview mirror (fed by a rear-mounted camera), weather and traffic information screens, and electric gear selection.9Ambitious development of electronic roadways continued into the 1960s, involving projects by Ohio State University, the US Bureau of Public Roads, and the Bendix Corporation.5 The UK's Transport and Road Research Laboratory also conducted "drive-by-wire" research, developing cars that could move at 130 km/h over a track by 1969.5 However, despite these efforts, upgrading infrastructure proved too costly and restrictive to present a viable and scalable solution for widespread autonomous mobility.1The repeated attempts to implement infrastructure-based guidance systems (RCA Labs, GM Firebirds, Ohio State, Bendix, UK TRRL) demonstrate a persistent engineering approach. However, the explicit statement that "upgrading infrastructure proved too costly and restrictive" 1 reveals a critical economic and logistical barrier. The failure of these systems to achieve widespread viability was not primarily a technical limitation but rather an insurmountable challenge in terms of cost and the practicality of retrofitting entire national road networks. This significant economic and logistical hurdle directly forced a fundamental paradigm shift in autonomous vehicle research. It compelled developers to move away from relying on "smart roads" and instead focus on creating "smart cars"—vehicles capable of self-contained autonomy, where the intelligence and sensing capabilities reside entirely onboard. This pivot was essential for the eventual commercial viability and scalability of AVs.II. Academic Pursuits and Government Initiatives (Mid-20th Century to Late 20th Century)The latter half of the 20th century marked a significant shift in the development of autonomous vehicles, with universities and government agencies taking the lead in foundational research. This period saw a move towards self-contained autonomous systems, driven by advancements in computing and early artificial intelligence.Foundational University Research: The Stanford Cart and University of Tsukuba's InnovationsAcademia played a crucial role in the next stage of AV development, focusing on onboard perception and navigation. In 1961, researchers at Stanford University developed a small cart, initially designed to navigate the moon's surface using a basic form of computer vision.1 Reconfigured in 1966 to experiment with self-driving vehicles, the Stanford Cart pioneered the video processing technology that would later be vital for autonomous vehicles.5 By 1979, the Stanford Cart could autonomously cross a room crowded with chairs in about five hours, demonstrating slow but independent navigation around obstacles without human input.5Further progress was made in Japan. In 1977, mechanical engineers at the University of Tsukuba developed a passenger vehicle capable of driving autonomously at up to 20 miles per hour.1 This car was equipped with two cameras that used analog computer technology for signal processing and relied on specially marked streets.6 This marked the first self-driving car that did not rely upon rails or wires under the road, signifying a move towards greater vehicle independence.6The development of the Stanford Cart and the University of Tsukuba's vehicle represents a pivotal moment: the shift from relying on external infrastructure to endowing the vehicle itself with the intelligence to perceive and navigate its environment. This transition was driven by the recognition of the impracticality and high cost of embedding guidance systems into entire road networks. By focusing on onboard computer vision and processing, researchers began to unlock the potential for truly self-contained autonomous operation. This fundamental change in approach laid the groundwork for the modern autonomous vehicle, where the vehicle itself is the primary intelligent agent.DARPA's Early Contributions: The Autonomous Land Vehicle (ALV) ProjectThe Defense Advanced Research Projects Agency (DARPA) emerged as a significant force in fostering autonomous vehicle development, particularly through its Strategic Computing Initiative. In 1984, DARPA funded the Autonomous Land Vehicle (ALV) project, a major undertaking in the self-driving sphere.1 The ALV project employed an early form of lidar to navigate off-road and achieved the first road-following demonstration using lidar, computer vision, and autonomous robotic control, directing a robotic vehicle at speeds up to 19 miles per hour (31 km/h).1 By 1987, HRL Laboratories (formerly Hughes Research Labs) demonstrated the first off-road map and sensor-based autonomous navigation on the ALV, allowing the vehicle to travel over 2,000 feet (610 m) at 1.9 miles per hour (3.1 km/h) on complex terrain with steep slopes, ravines, large rocks, and vegetation.6DARPA's involvement was not merely about funding; it was about strategically catalyzing the foundational technologies necessary for autonomous mobility. By focusing on challenges like off-road navigation, which required robust perception and control in unstructured environments, DARPA pushed the boundaries of what was technologically possible. The agency's emphasis on integrating cutting-edge sensor technologies like lidar with advanced computer vision and robotic control systems was crucial. This strategic investment in core technological capabilities, rather than specific applications, created a fertile ground for innovation that would later benefit both military and commercial autonomous vehicle development. The ALV project's successes demonstrated the potential for autonomous systems to operate in challenging, real-world conditions, validating the underlying research directions.European Collaboration: The Eureka PROMETHEUS ProjectParallel to efforts in the United States, Europe launched a monumental collaborative initiative: the Eureka PROMETHEUS Project (PROgraMme for a European Traffic of Highest Efficiency and Unprecedented Safety). Active from 1987 to 1995, this was the largest R&D project ever in the field of driverless cars, receiving €749,000,000 in funding from EUREKA member states and defining the state of the art of autonomous vehicles.1 Numerous universities and car manufacturers participated in this Pan-European project, cooperating with over forty research establishments across seven sub-projects.14Key areas of research included driver assistance by computer systems (PRO-CAR), vehicle-to-vehicle communication (PRO-NET), vehicle-to-environment communication (PRO-ROAD), methods and systems of artificial intelligence (PRO-ART), and custom hardware for intelligent processing in vehicles (PRO-CHIP).14 A significant culmination of the project occurred in 1994, when twin robot vehicles VaMP and VITA-2, developed by Daimler-Benz and Ernst Dickmanns' team at Bundeswehr University Munich, drove over 1,000 kilometers (620 miles) on a Paris multi-lane highway in standard heavy traffic at speeds up to 130 km/h (81 mph).5 They demonstrated autonomous driving in free lanes, convoy driving, automatic tracking of other vehicles, and lane changes with autonomous passing.6The Eureka PROMETHEUS Project demonstrated the immense power of pan-European collaboration in accelerating autonomous vehicle development. By pooling resources, expertise, and funding from multiple nations, universities, and industrial partners, the project achieved breakthroughs that would have been far more challenging for individual entities. This collaborative model facilitated a comprehensive approach, addressing not only core technological challenges like AI and sensor integration but also crucial aspects such as vehicle-to-vehicle and vehicle-to-infrastructure communication, which are vital for future intelligent transport systems. The success of the PROMETHEUS project underscored that complex, large-scale technological endeavors benefit significantly from coordinated, multi-stakeholder efforts, setting a precedent for future international cooperation in AV research.Pioneering AI Integration: Carnegie Mellon University's Navlab SeriesCarnegie Mellon University's Navigation Laboratory (Navlab) played a foundational role in integrating artificial intelligence into autonomous vehicles. Research on computer-controlled vehicles began at CMU in 1984 as part of the DARPA Strategic Computing Initiative, leading to the production of the first vehicle, Navlab 1, in 1986.1 Navlab 1 was a full-size Chevrolet panel van packed with computer hardware, including Sun workstations and a Warp supercomputer, capable of 100 MFLOP/sec.16 This vehicle drove itself (slowly) around suburban neighborhoods 1, achieving a top speed of 20 mph (32 km/h) by the late 1980s.16A significant innovation from the Navlab team was the ALVINN (An Autonomous Land Vehicle in a Neural Network) system, developed in 1988.16 ALVINN pioneered the use of neural networks to steer and control autonomous vehicles, forming the basis of contemporary control strategies.3 It was trained using supervised learning on simulated road images and later with real data, demonstrating the ability to drive Navlab 1 along a wooded path under various weather conditions.16 In 1995, Navlab 5 completed a landmark autonomous US coast-to-coast journey from Pittsburgh, Pennsylvania, to San Diego, California, with 98.2\% of the trip being autonomous at an average speed of 63.8 mph (102.7 km/h).3 This achievement, with human intervention only for speed and braking, showcased the advanced capabilities of neural network-driven control systems.3The pioneering work on neural networks at Carnegie Mellon University represented a paradigm shift in autonomous control. Before ALVINN, autonomous vehicle control often relied on explicit, rule-based programming, which struggled with the complexity and variability of real-world driving environments. The introduction of neural networks allowed vehicles to learn from data, effectively perceiving and reacting to their surroundings in a more adaptive and robust manner. This marked a fundamental conceptual leap, moving from rigidly defined instructions to systems that could generalize and make decisions based on learned patterns. The success of Navlab 5's coast-to-coast journey, largely autonomously controlled by a neural network, provided compelling evidence that AI-driven approaches were not only feasible but also highly effective for complex, real-world driving tasks, setting the stage for the deep learning revolution in autonomous vehicles.III. The Dawn of Modern Autonomy: Competitions, Commercialization, and Technological Leaps (Early 2000s to Present)The early 21st century witnessed a dramatic acceleration in autonomous vehicle development, driven by high-stakes competitions, significant private sector investment, and rapid advancements in core enabling technologies.The DARPA Grand Challenges: A Catalyst for InnovationThe DARPA Grand Challenges served as a pivotal catalyst for modern autonomous vehicle development. Designed to foster the development of self-driving ground vehicles, these prize-based competitions attracted a diverse community of innovators beyond traditional defense contractors.18The first Grand Challenge in 2004 tasked teams with autonomously navigating a 142-mile course across the Mojave Desert.18 Despite 15 vehicles starting, none finished the course, with the top vehicle traveling only 7.5 miles, highlighting the immense complexity of the task.18 However, this initial competition successfully "created a community of innovators" and provided a "promising glimpse at what was possible".18Learning from the first attempt, DARPA held a second Grand Challenge in 2005. This time, five vehicles out of 195 teams successfully completed a 132-mile course in southern Nevada. Stanford University's entry, "Stanley," finished first, winning the \$2 million prize.11The final competition, the DARPA Urban Challenge in 2007, pushed the boundaries further by requiring autonomous vehicles to navigate a simulated urban environment, adhering to traffic laws and interacting with other robotic and human-driven vehicles.22 Six out of eleven teams successfully completed the course, with Carnegie Mellon University's "Tartan Racing" team placing first and winning \$2 million.18 This challenge demonstrated the ability of intelligent autonomous vehicles to operate in urban scenarios, a critical step for future commercial applications.22The DARPA Grand Challenges fostered a collaborative ecosystem for rapid innovation. By creating a clear, ambitious goal with significant incentives, DARPA successfully galvanized a broad community of researchers, engineers, and enthusiasts. The challenges forced interdisciplinary collaboration, pushing teams to integrate diverse technologies and solve complex, real-world problems under pressure. The public nature of the competitions, including the failures and successes, generated widespread interest and demonstrated the tangible progress being made. This open, competitive, and collaborative environment not only accelerated technological advancements but also trained a generation of autonomous vehicle experts who would go on to found or lead many of the prominent AV companies today, directly leading to the founding of the autonomous vehicle industry and influencing Google's Waymo project.23Emergence of Key Enabling TechnologiesThe rapid progress in autonomous vehicles in the 21st century has been underpinned by significant advancements in several core technologies.Advanced Sensing SystemsSensors form the backbone of autonomous vehicles, providing real-time data about the vehicle's surroundings. The core trio includes radar, cameras, and LiDAR, each evolving rapidly to enhance accuracy and reliability.24
+LiDAR: Light Detection and Ranging (LiDAR) technology, which uses laser pulses to create detailed 3D maps of the environment, has a history dating back to the invention of the laser in 1960.26 The first LiDAR system capable of measuring distance was developed in 1962.26 Its use in autonomous vehicles began in the early 2000s, enabling vehicles to create detailed 3D maps for navigation and obstacle avoidance.26 Modern LiDAR systems are smaller, cheaper, and more efficient, contributing significantly to the accuracy and reliability of AVs.25
+Radar: Radar systems, which use electromagnetic waves to detect objects' distance, speed, and angle, have been integrated into vehicles since the 1960s, initially for features like adaptive cruise control.28 Early systems offered basic measurements but lacked sophistication.29 Significant advancements include the shift to 79 GHz frequency bands, improved resolution, and the introduction of 4D imaging radar, which adds vertical angle detection.28 This allows for high-resolution environmental mapping and robust performance in adverse weather or low-light conditions, complementing cameras and LiDAR.28 AI and machine learning are revolutionizing radar signal processing, making systems more adaptive and capable of learning from dynamic environments, reducing false positives, and improving object classification.29
+Cameras: Camera technology has seen continuous improvements in clarity and range of vision, enabling AVs to detect and interpret road signs, lane markings, and traffic signals more accurately.25 Cameras provide visual information for recognizing traffic lights, pedestrians, and signage.24 They require sophisticated algorithms for processing and interpreting visual data, and their performance can be affected by poor lighting, glare, or inclement weather.8
+The robust environmental perception required for autonomous driving necessitates the sophisticated integration of various sensing systems, a concept known as sensor fusion. No single sensor type is sufficient on its own due to inherent limitations. For instance, cameras offer rich visual data but struggle in low light or adverse weather, while radar excels in such conditions but has lower resolution. LiDAR provides precise 3D mapping but can be expensive and affected by heavy rain or snow.8 By combining and correlating data from LiDAR, radar, and cameras, autonomous vehicles can overcome the individual weaknesses of each sensor, creating a more comprehensive, reliable, and redundant understanding of their surroundings. This multi-modal approach is crucial for ensuring safe and efficient navigation in diverse and unpredictable real-world scenarios.High-Definition Mapping and LocalizationHigh-definition (HD) mapping is a crucial element for autonomous driving technologies, offering unparalleled accuracy that details critical elements like lane markings and road boundaries for precise navigation.30 Unlike traditional maps, HD maps provide incredibly detailed information, including lane boundaries, curvatures, and even temporary road changes like construction zones, and are continuously updated to reflect real-time changes.25Localization technology, which enables a vehicle to determine its exact position within a few centimeters, works hand-in-hand with HD mapping.25 This is achieved by combining data from GPS, cameras, and other sensors, allowing AVs to accurately locate themselves in their environment, which is crucial for safe navigation, especially in urban areas.25 The integration of Global Navigation Satellite System (GNSS) with Inertial Navigation Systems (INS) provides highly accurate and robust positioning, filling gaps in GNSS coverage and correcting INS drift.31 While some AV solutions aim to operate without HD maps, a hybrid approach integrating the precision of HD maps with the broader accessibility and cost-effectiveness of traditional SD+ maps is emerging.30The synergy of mapping and localization is fundamental for precision navigation in autonomous vehicles. HD maps provide a static, highly detailed blueprint of the environment, offering crucial context that goes beyond real-time sensor data. Localization systems, by precisely determining the vehicle's exact position relative to this map, allow the AV to understand where it is within its lane, its distance from road boundaries, and its relationship to traffic signals with centimeter-level accuracy.31 This combination enables the vehicle to plan maneuvers, predict scenarios, and navigate complex road networks with a level of precision and foresight that would be impossible with real-time sensor data alone, especially in dynamic and challenging urban environments.31Artificial Intelligence and Machine LearningArtificial intelligence (AI) and machine learning (ML) are the driving forces behind autonomous vehicles' ability to make real-time decisions, transforming perception, planning, and execution frameworks.25 Breakthroughs in AI, ML, and deep learning (DL) have propelled the development of self-driving technology, empowering engineers to address complex challenges surrounding scene perception, motion control, path planning, and behavior arbitration.32AI algorithms process vast amounts of data from sensors like LiDAR, cameras, and radar to enhance situational awareness, enabling vehicles to identify objects, interpret signals, and anticipate the actions of other road users.24 Deep learning algorithms, such as convolutional neural networks (CNNs) and recurrent neural networks (RNNs), are applied to 3D data collected by sensors to help the AV understand its scene, plan maneuvers, and make decisions.32 AI also plays a role in vehicle monitoring for predictive maintenance and adapting to user behavior.33AI and ML serve as the brain of autonomous vehicles, driving sophisticated decision-making processes. Traditional programming methods struggle to account for the infinite variability and unpredictability of real-world driving. AI, particularly through deep learning, allows AVs to learn from vast datasets of driving scenarios, enabling them to recognize patterns, classify objects, predict movements, and make complex decisions in real time. This capability extends beyond simple rule-following, allowing the vehicle to adapt to unforeseen circumstances, interpret subtle cues, and continuously improve its performance over time. The ability of AI to process and synthesize multi-modal sensor data for comprehensive environmental understanding is what elevates autonomous vehicles beyond mere automation to truly intelligent systems.Vehicle-to-Everything (V2X) CommunicationVehicle-to-Everything (V2X) communication is a crucial aspect of autonomous vehicles, allowing them to interact with other vehicles (V2V), infrastructure (V2I), pedestrians (V2P), and networks/clouds (V2N/C).19 This peer-to-peer wireless technology enables AVs to instantly exchange data such as road conditions, traffic updates, and safety alerts, leading to faster and more informed decision-making.25 For example, AVs can use V2X to communicate data about traffic light cycles, allowing them to adjust speed and pathing to avoid red lights.25 "Platoons" of interconnected AVs can also share data to reduce fuel consumption.25The integration of 5G cellular network technology is fundamental for C-V2X systems, providing the necessary coverage, reliability, low latency, high data speed, and bandwidth.19 5G facilitates real-time data transmission, critical for updating and refining maps as road conditions change, and enhances the capabilities of hybrid mapping systems.30 As of 2024, V2X technology is primarily limited to pilot projects and specific vehicle models, rather than being a standard feature across the automotive industry.8V2X communication expands the vehicle's awareness beyond its onboard sensors, providing a crucial layer of perception that enhances safety and efficiency. While individual sensors offer a localized view, V2X allows vehicles to "see" around corners, through obstacles, and beyond their immediate line of sight by receiving information from other connected entities. This capability enables proactive decision-making, such as anticipating traffic congestion, receiving warnings about hazards beyond visual range, or coordinating movements in complex intersections. The ability to share and receive real-time data from the broader transportation ecosystem significantly improves situational awareness, reduces reaction times, and paves the way for more coordinated and efficient traffic flow, moving beyond the limitations of purely ego-vehicle perception.Increased Computing Power and Edge ComputingThe development of autonomous vehicles has been inextricably linked to the evolution of computing power. Early experimental vehicles like Carnegie Mellon's Navlab 1 in 1986 required a full-size van packed with computer hardware, including a "fridge-sized" Warp supercomputer, consuming significant power from a portable 5 kW generator.16 This illustrates the immense computational demands of early AI and vision processing tasks. For example, the Stanford Cart in 1979 would process images for ten to fifteen minutes each time it moved one meter.5Today, the integration of powerful edge computing systems has significantly improved autonomous vehicles' ability to process sensor data locally.25 This advancement reduces latency in decision-making and decreases reliance on cloud connectivity.25 Modern vehicles now utilize specialized processors capable of handling multiple terabytes of data per hour, enabling faster responses to dynamic driving conditions.25 AI-powered robots, including AVs, utilize edge computing to process sensor data locally in real-time, enabling fast, agile decision-making, particularly valuable in applications requiring quick responses.34The relentless pursuit of onboard computational power has been a continuous thread throughout the history of autonomous vehicle development. Early attempts were severely constrained by the sheer size, cost, and processing limitations of available computers, forcing researchers to rely on slow, deliberate movements or external infrastructure. As computing power became more compact, efficient, and powerful, it enabled the vehicle to process complex sensor data in real-time, run sophisticated AI algorithms, and make rapid decisions entirely onboard. The shift to edge computing, where data is processed directly within the vehicle rather than relying on distant cloud servers, is a direct response to the need for ultra-low latency and heightened reliability, especially in safety-critical driving scenarios. This continuous increase in localized processing capability is fundamental to achieving higher levels of autonomy and ensuring the vehicle can react instantaneously to dynamic environments.Private Sector Acceleration and Commercialization EffortsThe early 2000s marked a significant shift with increased private sector involvement, transforming autonomous vehicle research into commercialization efforts. Google initiated its self-driving car project in 2009, later rebranded as Waymo, and by 2014, it revealed a prototype of a 100 percent driverless car.19 Waymo was the first to commercialize a robotaxi service in Phoenix, Arizona, in December 2018, expanding to a geofenced area in October 2020 with real-time monitoring and remote engineer intervention for exceptions.13Other major companies and startups have since entered the field, each with unique approaches to AV manufacturing.35 Tesla, for instance, has developed an autopilot neural network that incorporates diverse real-world vehicle simulations, with its AI solution detecting objects, estimating depth, and performing semantic segmentation.32 However, Tesla's "Autopilot" and "Full Self-Driving" features are Level 2 automation, requiring full driver engagement and monitoring, and have faced scrutiny regarding safety and marketing claims.37Other key players include:
+Zoox (Amazon subsidiary): Utilizes computer vision to analyze surroundings.32
+Cruise (GM subsidiary): Began offering driverless taxi service in San Francisco in February 2022, though service was suspended in 2023.13
+Pony.ai: Builds autonomous vehicle capabilities for robotrucks, robotaxis, and personal vehicles.32
+Nuro: Began autonomous commercial delivery operations in California in 2021.13
+WeRide: Launched the first fully driverless Robotaxi trial operation project in the Middle East (Abu Dhabi) in May 2025.13
+Honda and Mercedes-Benz: Have been among the first manufacturers to sell SAE Level 3 cars, allowing drivers to take their eyes off the road in specific conditions.13
+The industry is maturing, with a focus on scaling and commercializing autonomy.23 Robotaxis are already operating in select regions like San Francisco and Wuhan, China.8 Autonomous trucks are also emerging, with hub-to-hub models showing significant promise for automation, particularly in the United States.23 While personal vehicles are transitioning to higher levels of automation (L2/L2+ dominating for the next decade), L3 adoption remains limited due to safety, liability, and cost concerns, and L4 deployment will be niche by 2035.40The commercialization imperative represents a critical phase in the evolution of autonomous vehicles, translating decades of research into marketable products and services. The shift from academic prototypes and government-funded challenges to private companies investing billions signifies a belief in the economic viability and societal demand for AVs. This phase is characterized by a focus on refining technology for mass production, addressing real-world operational complexities, and developing sustainable business models. The emergence of robotaxis and autonomous trucking services highlights the initial areas where the technology offers immediate commercial value, driven by potential safety improvements, efficiency gains, and the promise of 24/7 operations.39 This transition underscores that technological feasibility alone is insufficient; successful deployment requires overcoming economic, regulatory, and public acceptance hurdles to achieve widespread adoption.IV. Navigating the Road Ahead: Challenges and Societal ImplicationsDespite significant advancements, the widespread deployment of autonomous vehicles faces persistent challenges related to safety, regulation, ethics, and public acceptance.Safety Concerns and Public PerceptionSafety remains paramount in the development and deployment of autonomous vehicles, and public perception is heavily influenced by incidents involving AVs.20 Early studies comparing autonomous vehicle accident records to human-driven vehicles showed higher crash rates for AVs in certain scenarios. A 2013 University of Michigan study found 9.1 self-driving vehicle crashes per million miles traveled, more than double the 4.1 crashes per million miles for human-driven cars.42 Most AV accidents (64\%) were rear-end incidents, compared to 28.3\% for conventional vehicles.42Specific scenarios pose greater risks for AVs. They were almost twice as likely to crash when turning and five times as likely in low-light conditions (dusk and dawn).42 Researchers suggest these differences may be due to a lack of situational awareness and difficulty adjusting to glares, shadows, and reflections, or sensory overload when processing complex turning scenarios.42 High-profile accidents, such as the fatal Uber self-driving crash in Arizona in 2018, have attracted global attention and fueled doubts.43 In this incident, the Uber AV initially misidentified a pedestrian pushing a bicycle as an "unknown object," then a "vehicle," and finally a "bicycle," highlighting challenges in timely interpretable scene understanding, especially in out-of-distribution scenarios.43 Tesla's Autopilot system has also been a factor in numerous accidents, with reports indicating over 1,600 crashes involving advanced driver-assistance systems, more than 4 out of every 5 such crashes reported to NHTSA since 2021.37Public perception of autonomous driving is a mixed landscape of excitement and skepticism.8 While many are enthusiastic about potential benefits like reduced accidents and increased mobility for the elderly and disabled, significant concerns persist regarding safety, reliability, and trust.8 A 2025 AAA survey found that 6 in 10 U.S. drivers are still afraid to ride in a self-driving vehicle, despite a slight increase in trust from the previous year.44 Interest in the development of self-driving vehicles as a priority has decreased among U.S. drivers, with most preferring advancements in traditional safety systems.44 This indicates that public acceptance is not guaranteed and requires transparency and stringent testing.8The paradox of safety in autonomous vehicles reveals a higher standard of expectation and a greater degree of public skepticism compared to human-driven vehicles. While AVs are touted for their potential to significantly reduce accidents by eliminating human error, each incident involving an autonomous system receives heightened scrutiny and disproportionately impacts public trust.41 This phenomenon stems from a societal tendency to attribute more blame and less trust to machines than to humans for identical errors, particularly when the machine's "failure" is perceived as foreseeable or preventable by a more capable system.41 This heightened scrutiny means that even non-at-fault accidents can lead to judgments of liability against AV manufacturers, as consumers may believe the autonomous system could have acted more optimally to avoid or minimize harm.45 Consequently, achieving a level of safety that matches or surpasses human drivers is an ongoing challenge, and effectively communicating the capabilities and limitations of AV technology through education and transparent reporting is crucial for building public confidence and ensuring widespread adoption.Regulatory and Legal FrameworksThe rapid advancement of autonomous vehicle technology has necessitated the development of new regulatory and legal frameworks worldwide. Questions about responsibility, safety standards, software reliability, environmental performance, and cybersecurity are central to this evolving landscape.46International agreements, such as amendments to the 1968 Vienna Convention on Road Traffic, have been reformed to allow for automated features, acknowledging the shift from the principle that a driver is always fully in control.46 The UNECE (United Nations Economic Commission for Europe) has published regulations on cybersecurity (Regulation 155), software updates (Regulation 156), and Automated Lane Keeping Systems (ALKS) (Regulation 157), with ALKS speed limits increasing to 130 km/h and including rules for automated lane changes.46In the United States, the Department of Transportation (DOT) and the National Highway Traffic Safety Administration (NHTSA) have issued frameworks to prioritize safety, unleash innovation, and enable commercial deployment.47 This includes streamlining incident reporting requirements for vehicles with Automated Driving Systems (ADS) and Level 2+ Advanced Driver Assistance Systems (ADAS), focusing on incidents with property damage exceeding \$1,000.47 Japan has also amended its laws to include regulations for Level 3 autonomy and a licensing system for Level 4 services in limited areas, particularly for depopulated regions.6The evolving regulatory landscape for autonomous vehicles represents a complex endeavor to balance technological innovation with public safety and accountability. Traditional legal frameworks, designed for human-driven vehicles, are ill-equipped to address the nuanced issues of liability, responsibility, and operational standards for machines that make life-and-death decisions. The shift in international conventions to allow for automated features indicates a global recognition of this challenge, but establishing clear guidelines for software reliability, cybersecurity, and data transparency remains critical. The ongoing development of reporting requirements and licensing systems reflects a proactive effort by governments to gather data, ensure safety, and build a framework that fosters trust while enabling the technology's potential benefits. This dynamic interplay between technological advancement and regulatory adaptation will continue to shape the pace and scope of AV deployment.Ethical DilemmasThe rise of autonomous driving technology raises significant ethical and societal questions, extending beyond technical challenges. One fundamental ethical challenge involves programming autonomous cars to respond to life-and-death scenarios, often framed by the "Trolley Problem".8 This thought experiment asks whether an AV should prioritize the safety of its occupants, potentially risking harm to pedestrians, or prioritize the greater good by protecting pedestrians at all costs.20 Addressing this requires integrating moral decision-making into AI systems, raising questions about how to encode ethical principles into algorithms and whether AI can truly understand human morality.20Beyond accident scenarios, ethical implications include the potential impact on employment, particularly for drivers in sectors like trucking and ride-hailing.8 While autonomous systems may reduce "dull, dirty, and dangerous jobs," they could also change job tasks, requiring workforce upskilling and reskilling (e.g., truck drivers transitioning to supervisory roles for autonomous fleets).34 Concerns also exist regarding equity and accessibility, questioning whether the benefits of autonomous driving will be widely distributed or exacerbate existing social inequalities.8 Furthermore, security is a critical concern, as vulnerabilities to cyberattacks could lead to unauthorized control or manipulation of vehicle systems, posing severe safety risks.8The discussion around ethical AI in autonomous vehicles moves beyond mere technical feasibility to address profound questions of moral accountability. When an autonomous system is faced with an unavoidable accident, its programmed decision-making algorithm must implicitly or explicitly embody a set of ethical priorities. This forces society to confront difficult moral dilemmas, such as the "Trolley Problem," and decide how human values should be codified into machine behavior. The challenge lies not only in the technical implementation of such algorithms but also in achieving public consensus and trust regarding these embedded ethical frameworks. Furthermore, the broader societal implications, including job displacement and equitable access, highlight that the successful integration of AVs requires a holistic approach that considers not just the technology but also its profound impact on human lives, livelihoods, and societal structures.Future Outlook and Remaining ChallengesThe journey of autonomous vehicles, from early visions to current realities, continues to evolve rapidly. While fully autonomous Level 4 vehicles are already on the road in select regions, significant technological hurdles, combined with regulatory and ethical challenges, remain obstacles to large-scale deployment.8Remaining technological challenges include ensuring reliability in adverse weather conditions, low light, or complex urban environments, as sensors can encounter difficulties.20 The need for sophisticated algorithms to process and interpret visual data, and the high data processing requirements for LiDAR, persist.8 There is potential for breakthroughs in AI and perception technologies to enable real-time map creation, reducing reliance on fully mapped HD data and leading to more adaptable and cost-efficient mapping solutions.30Market expansion and competition are dynamic, with over 500 companies globally involved in AV technology development.31 While robotaxis are expected to be present in large numbers across 40 to 80 cities globally by 2035 (mostly in China and the US), Europe is expected to remain cautious.40 Autonomous trucks, particularly in hub-to-hub models, show significant promise, with projections suggesting they could account for up to 30\% of new truck sales in the US by 2035.40The long road to widespread adoption of autonomous vehicles requires acknowledging persistent hurdles that extend beyond mere technological refinement. Despite impressive demonstrations, real-world variability in weather, lighting, and unpredictable human behavior continues to challenge even the most advanced systems. These technical complexities are compounded by the economic realities of large-scale deployment, the need for robust and adaptable regulatory frameworks, and the critical task of building and maintaining public trust. The industry must continue to focus on developing sustainable business models, ensuring cybersecurity, and proactively addressing the societal impacts, such as workforce transitions. Ultimately, the future of autonomous mobility depends on a thoughtful, collaborative approach across public, private, and academic sectors to navigate these multifaceted challenges and realize the technology's transformative potential.V. ConclusionThe historical development of autonomous vehicles is a testament to humanity's enduring fascination with self-propelled mobility and the relentless pursuit of technological advancement. From Leonardo da Vinci's visionary clockwork cart in the 16th century to early 20th-century radio-controlled "phantom autos" and the grand visions of automated highways, the desire for autonomous transport has been a consistent thread through centuries. Early efforts, often constrained by the limitations of infrastructure-dependent systems, eventually gave way to a paradigm shift towards onboard intelligence, driven by foundational academic research at institutions like Stanford and the University of Tsukuba.The latter half of the 20th century saw significant government and collaborative initiatives, notably DARPA's ALV project and the pan-European PROMETHEUS project, which pushed the boundaries of computer vision, sensor integration, and AI in autonomous navigation. Carnegie Mellon University's pioneering work with neural networks in its Navlab series, culminating in a coast-to-coast autonomous journey, demonstrated the transformative power of AI in vehicle control.The 21st century ushered in an era of rapid acceleration, catalyzed by the DARPA Grand Challenges, which fostered a vibrant ecosystem of innovation and talent. This period has been defined by the maturation of key enabling technologies: sophisticated sensor fusion combining LiDAR, radar, and cameras for robust environmental perception; high-definition mapping and precise localization systems; the pervasive integration of AI and machine learning for complex decision-making; and the nascent development of Vehicle-to-Everything (V2X) communication. Simultaneously, private sector investment has surged, leading to the commercialization of robotaxi services and autonomous trucking, albeit with a phased rollout and varying levels of automation.However, the journey to widespread autonomy is far from complete. Persistent challenges include ensuring safety in all real-world conditions, navigating a complex and evolving regulatory landscape, addressing profound ethical dilemmas, and building public trust. The historical narrative underscores that the successful realization of autonomous vehicles depends not solely on technological perfection but also on a delicate balance of economic viability, societal acceptance, and a robust, adaptive governance framework. As the technology continues to mature, the future of autonomous mobility will be shaped by ongoing collaboration, transparent communication, and a commitment to addressing the multifaceted implications of this transformative innovation.References1 https://www.mobileye.com/blog/history-autonomous-vehicles-renaissance-to-reality/4 https://computerhistory.org/blog/where-to-a-history-of-autonomous-vehicles/2 https://www.mobileye.com/blog/history-autonomous-vehicles-renaissance-to-reality/#:~:text=The\%20concept\%20of\%20an\%20autonomous,first\%20robot\%20of\%20any\%20kind.5 https://www.engineering.com/the-road-to-driverless-cars-1925-2025/8 https://alphatarget.com/blog/driving-towards-autonomy/20 https://blog.emb.global/history-of-autonomous-vehicles/9 https://schaeffler-tomorrow.com/en/article/the-future-back-then11 https://ee259.stanford.edu/12 https://www.computerhistory.org/revolution/artificial-intelligence-robotics/13/293/127716 https://en.wikipedia.org/wiki/Navlab17 https://www.ri.cmu.edu/robotics-groups/navlab/32 https://numalis.com/ai-in-self-driving-cars/6 https://en.wikipedia.org/wiki/History_of_self-driving_cars39 https://www.weforum.org/stories/2025/01/ai-and-autonomous-systems/34 https://onlinedegrees.sandiego.edu/application-of-ai-in-robotics/14 https://dbpedia.org/page/Eureka_Prometheus_Project15 https://en.wikipedia.org/wiki/Eureka_Prometheus_Project18 https://www.darpa.mil/news/2014/grand-challenge-ten-years-later22 http://www.coep.ufrj.br/~ramon/COE-841/robotics/book\%202009\%20-\%20The\%20DARPA\%20Urban\%20Challenge\%20-\%20Buehler,\%20Iagnemma\%20&\%20Singh.pdf23 https://www.roadtoautonomy.com/darpa-urban-challenge-commercialization/21 https://en.wikipedia.org/wiki/History_of_self-driving_cars#:~:text=The\%20DARPA\%20Grand\%20Challenge\%20was,accidents\%20as\%20of\%20August\%202012.26 https://www.pointscan.co.uk/history-and-impact-of-lidar-technology/27 https://en.wikipedia.org/wiki/Lidar28 https://www.allaboutcircuits.com/industry-articles/the-evolution-of-radar-technology-shaping-autonomous-driving/29 https://levelfivesupplies.com/advancements-in-radar-technology-for-autonomous-vehicles/24 https://www.automate.org/news/-5925 https://www.techtimes.com/articles/308859/20241223/what-advancements-are-being-made-autonomous-vehicle-technology.htm6 https://en.wikipedia.org/wiki/History_of_self-driving_cars30 https://www.appliedintuition.com/blog/hybrid-mapping-strategies31 https://navigation.chcnav.com/about/news/2025/CHC-Navigation-GNSS-and-Autonomous-Driving---Precision-Under-Pressure13 https://en.wikipedia.org/wiki/Self-driving_car19 https://www.fr.com/uploads/1698-technical-advancements-and-the-legal-considerations-of-autonomous-vehicles-final.pdf3 https://www.smarteye.se/blog/the-evolution-of-driver-monitoring-systems-for-autonomous-cars/10 https://evmagazine.com/articles/the-genesis-of-autonomous-driving-from-concept-to-reality36 https://www.urbansdk.com/blog/autonomous-vehicles-history35 https://wandb.ai/ivangoncharov/AVs-report/reports/Autonomous-Vehicle-Companies-and-Their-ML--VmlldzoyNTg1Mjc16 https://en.wikipedia.org/wiki/History_of_self-driving_cars46 https://en.wikipedia.org/wiki/Regulation_of_self-driving_cars44 https://newsroom.aaa.com/2025/02/aaa-fear-in-self-driving-vehicles-persists/42 https://www.rescusaveslives.com/blog/how-safe-are-self-driving-cars/47 https://www.mayerbrown.com/en/insights/publications/2025/04/dot-and-nhtsa-announce-autonomous-vehicle-framework40 https://reports.weforum.org/docs/WEF_Autonomous_Vehicles_2025.pdf41 https://www.diva-portal.org/smash/get/diva2:1814196/FULLTEXT01.pdf45 https://www.hbs.edu/ris/download.aspx?name=23-036.pdf43 https://www.researchgate.net/publication/347786768_Who_is_Liable_for_the_UBER_Self-Driving_Crash_Analysis_of_the_Liability_Allocation_and_the_Regulatory_Model_for_Autonomous_Vehicles37 https://teamjustice.com/tesla-autopilot-accidents-legal-rights-liability/38 https://www.npr.org/2025/01/15/nx-s1-5234124/tesla-crash-reporting-fsd7 https://www.americanscientist.org/article/the-road-ahead6 https://en.wikipedia.org/wiki/History_of_self-driving_cars
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Robustness, trust, reliability, safety %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Gemini https://gemini.google.com/app/ac0400070bb83c58
+% Grok 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% TESTING AV Software %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+There have been calls for a more systematic and comprehensive approach to software testing in order to ensure the quality and safety of autonomous vehicles, embodied in efforts such as adapting the ISO 26262 development V process to address the unique testing problems encountered in autonomous vehicles. Major challenge areas in testing, such as the driver being out of the loop and dealing with non-deterministic algorithms, can be addressed by general solution approaches including phased deployment, architecture separation, and fault injection for more efficient testing (\cite{koopman2016challenges}).
+
+Society is increasingly reliant on autonomous systems,  being used in a wide variety of industries, including IT, finance, transportation, medical surgery, and industrial automation. Autonomous systems are automating tasks that were once done by humans, and they are doing so with increasing accuracy and efficiency (\cite{ebert2019validation}).
+
+
+%%%%%%%%%%%%%%%%%%
+% DISTRUST IN AI %
+%%%%%%%%%%%%%%%%%%
+
+As of mid-2023, there remains a significant level of distrust in artificial intelligence (AI) among the general public and certain sectors (\cite{futureoflife2023pausegiantai}). This distrust stems from several sources. Firstly, there's the opacity of AI decision-making processes, often referred to as the "black box" (\cite{burrell2016}) problem, which makes it difficult to understand how AI systems arrive at specific outcomes. This lack of transparency can lead to skepticism and uncertainty. Secondly, there are concerns about the potential misuse of AI in areas like surveillance, data privacy, and military applications. Additionally, people worry about the societal implications of AI, such as job displacement due to automation and the deepening of socio-economic inequalities. Lastly, instances of AI systems demonstrating bias — because they've been trained on biased data or because of issues in their design — have also led to a lack of trust. These issues underline the importance of the ongoing discussions and initiatives centered on AI ethics, transparency, and regulation.
+
+The potential of automated and autonomous systems to improve quality of life is vast. For example, autonomous mobility systems have the potential to eliminate up to 90\% of accidents and reduce commuting time by up to 50\% (\cite{kalra2016driving}).
+
+The Society of Automotive Engineers (SAE) \cite{sae_org} International  is a global association of over 128,000 engineers and technical experts in the aerospace, automotive, and commercial vehicle industries. Founded in 1905, its mission is to advance mobility knowledge and solutions, through initiatives such a education and the development of standards, such as the J3016, Establishing uniform levels of driving automation and related terminology that fulfills multiple objectives, such as
+
+levels of driving automation which defines six levels of driving automation, from Level 0 to Level 5:
+
+\begin{enumerate}
+    \item Level 0 - No Automation: The human driver does all the driving.
+    \item Level 1 - Driver Assistance: The vehicle can assist with some functions, but the human driver does most of the driving.
+    \item Level 2 - Partial Automation: The vehicle has combined automated functions like acceleration and steering, but the human driver must remain engaged with the driving task and monitor the environment at all times.
+    \item Level 3 - Conditional Automation: The vehicle can manage most aspects of driving, including monitoring the environment. The driver must be ready to take control at any time.
+    \item Level 4 - High Automation: The vehicle can perform all driving tasks under certain conditions. The driver may have the option to control the vehicle.
+    \item Level 5 - Full Automation: The vehicle can perform all driving tasks, under all conditions that a human driver could perform them. No human attention is required.
+\end{enumerate}
+
+The core features expected from an autonomous vehicle simulation environment to validate self driving AIs:
+
+\begin{enumerate}
+\item Realistic Environments: The simulation environment should mimic real-world conditions as closely as possible. This includes realistic landscapes, road conditions, buildings, and all other aspects of the physical world that a self-driving vehicle might encounter. It should also simulate various weather conditions like rain, snow, fog, and different times of day.
+\item Dynamic Objects: Besides static objects, the simulator should be able to incorporate dynamic objects such as other vehicles, pedestrians, cyclists, and animals that move and behave as they would in real life.
+\item Sensor Simulation: The environment should be able to simulate the data from the different sensors used in autonomous vehicles. This includes lidar, radar, ultrasonic sensors, and cameras. The data should closely match the real-world data that these sensors would capture.
+\item Physics-based Modeling: The simulator should incorporate realistic physics to correctly model vehicle dynamics, tire-road interaction, and other physical phenomena.
+\item Scalability: The simulation environment should be scalable to test multiple scenarios and vehicle models. It should also be able to handle large-scale simulations to test fleet operations.
+\item Flexibility: The environment should allow for a wide range of scenarios to be simulated, including rare or dangerous situations that may not be feasible or safe to test in real-world conditions.
+\item Repeatability: It should be possible to reproduce exact conditions and scenarios multiple times. This is crucial for validating results and debugging issues.
+\item Integration with AI Development Platforms: The simulator should be able to integrate with AI development platforms, allowing for the training and testing of AI models within the simulation environment.
+\item Performance Metrics: The simulator should provide a way to measure and evaluate the performance of the self-driving AI. This could include metrics like decision-making time, adherence to traffic rules, safety metrics, etc.
+\item Multi-Agent Environment: The simulator should support multi-agent environments, where multiple self-driving vehicles can interact with each other and the environment.
+\item Hardware-in-the-loop Simulation: For more advanced testing, the simulator should support hardware-in-the-loop (HIL) simulation. This allows for real vehicle components to be tested in conjunction with the simulation.
+\end{enumerate}
+
+\section{Surveys}
+
+% https://scholar.google.co.uk/scholar?q=A+survey+on+simulation+environments+for+autonomous+driving+research&hl=en&as_sdt=0&as_vis=1&oi=scholart
+
+\cite{kaur2021survey} provide a comprehensive review of simulators for testing self-driving cars. They begin by discussing the motivation and background, including the increasing complexity of automotive software and the need for rigorous testing. The authors then identify key requirements for an ideal autonomous vehicle simulator, covering perception, localization/mapping, path planning, vehicle control, virtual environments, traffic infrastructure, scenario simulation, ground truth data, and software qualities. Six commonly used open-source simulators (MATLAB, CarSim, PreScan, Gazebo, CARLA, LGSVL) are reviewed in detail. Through comparison, the authors find CARLA and LGSVL to be most suitable for end-to-end testing of self-driving capabilities, while other simulators have strengths in specific sub-areas. Key challenges for simulation are also discussed, such as lack of standards and inability to test connected vehicles. Overall, this survey offers a comprehensive overview of simulators for developing and testing self-driving car systems.
+
+
+Anomaly detection is an important capability for autonomous vehicles to safely handle rare events and corner cases encountered on the road. Researchers have surveyed techniques for detecting anomalies across different sensor modalities commonly used in autonomous driving systems, including cameras, lidars, radars, and multimodal data fusion. Key challenges involve identifying unknown obstacles, weather effects, collective anomalies that differ from normal patterns, and eliminating false ghosts targets. Promising approaches utilize confidence scores, reconstruction, prediction, generative models, and temporal feature analysis. The survey categorizes techniques based on anomaly level, sensor modality, datasets used, and online deployment capability. It provides a landscape of anomaly detection methods and datasets, while highlighting open research questions around factors like lack of lidar and radar benchmarks. Overall, the paper delivers a valuable reference for researchers advancing anomaly detection for robust perception in autonomous driving (\cite{bogdoll2022anomaly})
+
+\cite{Yurtsever_2020} provide a comprehensive overview of the state-of-the-art in automated driving systems (ADS). They discuss the potential benefits of ADS, including preventing accidents and reducing emissions, as well as challenges such as handling complex urban environments. The authors review system architectures, including modular versus end-to-end approaches, sensors and hardware, and core ADS functions like localization, mapping, perception, planning, control, human-machine interaction, and risk assessment. Key perception tasks covered include 2D and 3D object detection, semantic segmentation, lane/road detection, and object tracking. Planning methods reviewed include global and local (motion) planning. The paper concludes with a summary of publicly available datasets and software tools for ADS development and testing. Overall, this paper offers a thorough review of the current practices, emerging technologies and open challenges in developing robust automated driving systems.
+
+\subsection{Path planning}
+
+@inproceedings{kuwata2009real,
+  title={Real-time motion planning with applications to autonomous urban driving},
+  author={Kuwata, Yoshiaki and Fiore, Gaston A and Teo, Justin and Frazzoli, Emilio and How, Jonathan P},
+  booktitle={2009 IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  pages={4749--4755},
+  year={2009},
+  organization={IEEE}
+}
+
+\subsection{Self-driving platforms}
+
+The desirable features of self-driving platforms arguably are:
+
+* Localization stack
+* Surround view
+* GPS
+* Object detection, classification and segmentation
+* Intended path of moving objects
+
+
+\section{Features of Autoware}
+
+Autoware is an open-source software project that provides a complete set of self-driving modules, including localization, detection, prediction, planning, and control. It is designed to be modular and scalable, so that it can be used in a variety of vehicles and applications.
+
+Here are some of the key features of Autoware:
+
+\begin{itemize}
+  \item **Modular architecture:** Autoware is designed as a modular system, with each module responsible for a specific task. This makes it easy to add or remove modules, and to customize Autoware for different applications.
+  \item **Open source:** Autoware is open source software, which means that it is freely available to anyone to use, modify, and distribute. This makes it a valuable resource for the autonomous driving community, and it allows for rapid development and innovation.
+  \item **Comprehensive documentation:** Autoware comes with comprehensive documentation, which includes tutorials, reference guides, and API documentation. This makes it easy to learn how to use Autoware, and to get started developing autonomous driving applications.
+  \item **Active community:** Autoware has a large and active community of developers and users. This community provides support and resources for users of Autoware, and it helps to drive the development of the project.
+\end{itemize}
+
+Some of the specific features of Autoware include:
+
+\begin{itemize}
+  \item **Localization:** Autoware provides a variety of localization algorithms, including GPS, IMU, and LIDAR.
+  \item **Detection:** Autoware can detect a variety of objects in the environment, including vehicles, pedestrians, cyclists, and traffic signs.
+  \item **Prediction:** Autoware can predict the behavior of other road users, which helps it to plan safe and efficient trajectories.
+  \item **Planning:** Autoware can plan safe and efficient trajectories for the vehicle to follow.
+  \item **Control:** Autoware can control the vehicle's steering, acceleration, and braking.
+\end{itemize}
+
+Autoware is a powerful and versatile software platform for autonomous driving. It is used by a variety of companies and research institutions around the world, and it is actively being developed and improved.
+
+
+From ChatGPT:
+
+Autoware is an open-source software for self-driving vehicles. As of my knowledge cutoff in September 2021, some of the core features of Autoware include:
+
+1. **3D Localization**: It can accurately identify the vehicle's position in a pre-mapped area using sensor inputs.
+
+2. **3D Mapping**: Autoware supports creating detailed 3D maps of environments, which are crucial for the autonomous navigation.
+
+3. **Obstacle Detection**: It can recognize obstacles in the environment in real-time using sensor data. This is important for safe navigation.
+
+4. **Object Tracking**: Autoware can track moving objects such as pedestrians and other vehicles, which is critical for decision-making and action-taking in a dynamic environment.
+
+5. **Path Planning**: The software can plan the optimal path from point A to point B, considering the environment and other factors.
+
+6. **Vehicle Control**: It can execute the planned path by controlling the vehicle's steering, acceleration, and braking.
+
+7. **Simulations**: Autoware also supports simulations, allowing developers to test and fine-tune their autonomous driving algorithms in a safe and controlled environment before deploying them in the real world.
+
+8. **Sensor Fusion**: Autoware can integrate data from different types of sensors such as Lidar, radar, cameras, and GPS, among others, to create a more holistic understanding of the environment.
+
+9. **Software Architecture**: Autoware uses a flexible and modular software architecture based on ROS (Robot Operating System), which allows easy integration and customization with various hardware platforms and software components.
+
+10. **Data Logging and Visualization**: It supports logging and visualizing data for analysis and debugging.
+
+Remember that this information is based on the state of Autoware as of 2021, and additional features or changes may have occurred after that time. Please check the latest documentation for the most up-to-date information.
+
+
+From Claude:
+
+Here are some key features of Autoware, an open-source software for self-driving vehicles:
+
+- Sensor integration - Autoware is designed to work with many different sensors like cameras, LiDAR, RADAR, etc. It provides drivers and interfaces to integrate these different sensors.
+
+- Perception - The perception module includes detection and tracking of objects like vehicles, pedestrians, lanes, traffic signs etc. using sensor data. Algorithms like deep learning are used for object recognition.
+
+- Localization - Autoware offers localization algorithms like particle filter based localization to estimate the precise location of the ego vehicle using map data and sensor inputs.
+
+- Mapping - Maps can be created by merging LiDAR point cloud data. Autoware also supports usage of pre-built maps.
+
+- Motion Planning - This module plans the trajectory and speed of the vehicle to enable autonomous driving. Algorithms used include lattice planner, waypoint follower etc. 
+
+- Control - The vehicle control module outputs appropriate throttle, brake and steering commands to execute the planned trajectory. 
+
+- Route Planning - Route planning algorithms can plan global routes from source to destination in the road network.
+
+- Vehicle Integration - Autoware is designed to be hardware independent and can be integrated with many vehicle platforms via ROS.
+
+- Safety - Safety features include emergency stop, collision avoidance, fail-safes, redundancy etc.
+
+- Open Source - Autoware is open-source and allows community contributions to the self-driving software stack.
+
+In summary, Autoware provides a full stack solution for autonomous driving which is modular, hardware independent and supports collaboration through its open source model.
+
+
+\subsection{Autoware}
+
+\section{Integration of Autoware and CARLA}
+
+Autoware is an open-source software project that provides a complete set of self-driving modules, including localization, detection, prediction, planning, and control. It is designed to be modular and scalable, so that it can be used in a variety of vehicles and applications.
+
+CARLA is a simulator for autonomous driving research. It provides a realistic environment in which to test and evaluate autonomous driving algorithms. CARLA is based on the Unreal Engine, which is a powerful game engine that can be used to create realistic and immersive environments.
+
+The integration of Autoware and CARLA allows users to test and evaluate Autoware's algorithms in a realistic environment. This is important because it allows users to see how Autoware performs in different scenarios, such as traffic jams and intersections. The integration is achieved through the use of ROS, a middleware for robotics. ROS provides a common platform for Autoware and CARLA to communicate with each other.
+
+The integration of Autoware and CARLA has a number of benefits. First, it allows users to test Autoware's algorithms in a realistic environment. This is important because it allows users to see how Autoware performs in different scenarios. Second, the integration allows users to debug Autoware's algorithms more easily. This is because CARLA provides a variety of tools for debugging, such as a playback function that allows users to replay past simulations.
+
+The integration of Autoware and CARLA is a valuable tool for autonomous driving research. It allows users to test and evaluate Autoware's algorithms in a realistic environment, and it makes it easier to debug Autoware's algorithms.
+
+\begin{itemize}
+  \item Autoware is an open-source software project that provides a complete set of self-driving modules.
+  \item CARLA is a simulator for autonomous driving research that provides a realistic environment in which to test and evaluate autonomous driving algorithms.
+  \item The integration of Autoware and CARLA allows users to test and evaluate Autoware's algorithms in a realistic environment.
+  \item The integration of Autoware and CARLA has a number of benefits, including the ability to test Autoware's algorithms in different scenarios and to debug Autoware's algorithms more easily.
+\end{itemize}
+
+\section{Features of Autoware}
+
+Autoware is an open-source software project that provides a complete set of self-driving modules, including localization, detection, prediction, planning, and control. It is designed to be modular and scalable, so that it can be used in a variety of vehicles and applications.
+
+Here are some of the key features of Autoware:
+
+\begin{itemize}
+  \item **Modular architecture:** Autoware is designed as a modular system, with each module responsible for a specific task. This makes it easy to add or remove modules, and to customize Autoware for different applications.
+  \item **Open source:** Autoware is open source software, which means that it is freely available to anyone to use, modify, and distribute. This makes it a valuable resource for the autonomous driving community, and it allows for rapid development and innovation.
+  \item **Comprehensive documentation:** Autoware comes with comprehensive documentation, which includes tutorials, reference guides, and API documentation. This makes it easy to learn how to use Autoware, and to get started developing autonomous driving applications.
+  \item **Active community:** Autoware has a large and active community of developers and users. This community provides support and resources for users of Autoware, and it helps to drive the development of the project.
+\end{itemize}
+
+Some of the specific features of Autoware include:
+
+\begin{itemize}
+  \item **Localization:** Autoware provides a variety of localization algorithms, including GPS, IMU, and LIDAR.
+  \item **Detection:** Autoware can detect a variety of objects in the environment, including vehicles, pedestrians, cyclists, and traffic signs.
+  \item **Prediction:** Autoware can predict the behavior of other road users, which helps it to plan safe and efficient trajectories.
+  \item **Planning:** Autoware can plan safe and efficient trajectories for the vehicle to follow.
+  \item **Control:** Autoware can control the vehicle's steering, acceleration, and braking.
+\end{itemize}
+
+Autoware is a powerful and versatile software platform for autonomous driving. It is used by a variety of companies and research institutions around the world, and it is actively being developed and improved.
+
+%%%%%%%%%%%%%%%%%%%%
+% FINAL VIEWS ON SIMULATORS
+%%%%%%%%%%%%%%%%%%%%
+
+Simulation is a core part of autonomous systems testing and while it is an important validation component of the research presented here, it is not pursued in-depth e.g. to the point of generating a self-driving stack that could be entered into the Carla Challenge. The main focus of this research is developing methods to identify data that is not safe to present to the self-driving model specifically, and generally to any classification model, given the same methodology.
+
+%%%%%%%%%%%%%%%%%%%%
+% RELATED WORK
+%%%%%%%%%%%%%%%%%%%%
+
+% \section{Related Work}
+% \label{context:related-work}
+
+Related work
+https://gemini.google.com/app/c638b97ef81c5be0 Hess/Jiang/Sikar compare and contrast
+https://notebooklm.google.com/notebook/862fb3a5-f4ba-4d00-ae2e-0590bc1f2c5b
+https://gemini.google.com/app/692ba949a5b19fc0 - see center loss
+
+Jiang et al. 2019, "The underlying intuition is that if the high-density region corresponding to the predicted class is significantly closer to the testing sample than the high-density region of any other class, then the prediction is considered trustworthy."
+
+The fundamental difference between our work and that of Jiang et al. 2019, is that the latter implies a deterministic decision will be made about correctness, while the former states that high-confidence predictions are known to also be sometimes incorrect, and present expected ratios of correct:incorrect predictions that are network training accuracy / data dependant, not an over-arching abstraction applicable in every case. Both approaches are geometry-based.
+
+Jiang et al. "This implies that a complex, high-performing classifier can be paired with a simpler, geometry-based external mechanism (the Trust Score) that acts as a "sanity check" on its predictions." is similar to Sikar et al. in that a geometry-based external mechanism (Trust Score/Centroids and Thresholds). While Jiang et al. make deterministic assumptions based on geometry and high-density regions, Sikar et al. acknowledge that misclassifications exist in high-density regions, i.e. high-confidence incorrect predictions. 
+
+Hess et al. state "we aim for robust networks which map well-classifiable points close to the corresponding centroid and points which are difficult to classify further away from all centroids". This is clearly an artifact of traditional classifier network training i.e. minimising loss functions through gradient descent.
+
+Hess el al. claim "The k-means/softmax relation can be used to explain why softmax-based neural networks are sensitive to adversarial attacks such as one-pixel attacks." while also state
+
+All works discussed base their findings solely on convolution-based image classifiers, while this work also explores Vision Transformers while Vision Language Models are shown to present similar properties, while deeper analysis to compare and contrast VLM with CNN and ViT networks is left as future work. 
+
+The results presented in subsection \ref{res:ed_centroids_preceding_lane_invasion}, table ?? show that incorrect predictions with undesirable outcomes (lane invasions) happen in numbers, not in isolation. Therefor, a network classifier trained for a specific task, as is often the case, is likely to make predictions where correct and incorrect classifications correspond to known geometric characteristics of the network, preserved in the centroids.
+
+The work in Sikar et al. 2019 specifically states that thresholds are domain specific while Hess et al. make no such provisions.
+
+% hendricks and gimple 2017
+% "However, in this work we also show the prediction probability of incorrect and out-of-distribution
+% examples tends to be lower than the prediction probability for correct examples. Therefore, cap-
+% turing prediction probability statistics about correct or in-sample examples is often sufficient for
+% detecting whether an example is in error or abnormal, even though the prediction probability viewed
+% in isolation can be misleading"
+
+
+
+
+
+
+
+

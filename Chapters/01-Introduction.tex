@@ -1,0 +1,83 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+This study was sponsored by ICRI-SAVe, the Intel Collaborative Research Institute (ICRI) on Safe Automated Vehicles (SAVe), focused on practical innovations that advance the state of the art, security and resilience of real-world autonomous systems such as autonomous vehicles (AVs).
+
+Trust is a major bottleneck for commercial introduction of AVs. Consumers must feel comfortable with AVs, and regulators need to build and approve methodologies to prove their safety \cite{ICRI-SAVe2024}. This study aims to contribute to the assessment and quantification of autonomous systems safety, of which AVs are a particular case.
+
+The ICRI-SAVe project (\cite{ICRI-SAVe2024}), funded by Intel Corporation (2019–2022), investigated safety assurance for autonomous vehicles through three research themes: assurance cases, diversity and defence-in-depth, and systemic risk modelling. The project developed statistical inference methods for safety confidence, probabilistic models for vehicle safety under various hazards, and justification techniques for machine learning systems. These efforts yielded several research outputs (\cite{bishop2022bootstrapping,aghazadeh2022arguing,buerkle2022modelling,terrosi2022impact,salako2021conservative,zhao2020assessing,bloomfield2021assurance}).
+
+The project emphasized the importance of simulations for establishing prior confidence in autonomous vehicle safety and conducted simulation-based research \cite{zhao2020assessing,terrosi2022impact}. This study extends simulation-based research to quantify autonomous vehicle safety based on the degree of separation between training and testing data—that is, between data the model learned and data the model encounters at runtime.
+
+\section{Contributions}
+
+\textbf{Quantifying uncertainty:} Two primary contributions to neural network reliability assessment are presented in quantifying uncertainty. First, a new lightweight approach for quantifying the reliability of neural network outputs is introduced that requires minimal computational overhead, using only existing softmax outputs along with a set of centroids and thresholds, without requiring additional network modifications or training. Second, a combined analysis of distance metrics and model accuracy is provided to tackle distribution shifts, with experimental results demonstrating consistency across Convolutional Neural Network (CNN) and Vision Transformer (ViT) architectures.
+
+The method operates by clustering softmax probability vectors from correct predictions to create class centroids, then measuring Euclidean distances between new predictions and these centroids to identify when predictions should be classified as "unknown" rather than assigned to a specific class. Conservative thresholds are set based on the minimum distance observed for incorrect predictions in training data.
+
+The approach was evaluated across multiple datasets and architectures. Testing was conducted on MNIST, CIFAR-10, and out-of-distribution datasets including English handwritten characters and MNISTified CIFAR-10, using CNNs, ViTs, and Vision Language Models (VLMs). The results confirmed that accurately predicted examples cluster more tightly around class centroids compared to misclassified or out-of-distribution examples, supporting the use of distance metrics as effective confidence proxies. This validation across different network architectures and distribution shift scenarios demonstrates the method's potential as a practical tool for identifying when neural networks should defer decisions to human operators rather than provide potentially unreliable automated classifications.
+
+\textbf{Detecting lane invasions:} By applying the methodology described in the previous contribution, it is possible to detect when lane invasions will occur in a simulated environment. Using the CARLA simulator, datasets were created by gathering images from a front-facing camera placed on a vehicle driven by an algorithm, going around a figure-of-eight circuit in the Town04 CARLA map. The images were labelled with the continuous steering angle applied to the vehicle at the time the image was captured. CNN and ViT regression models trained to predict continuous values were used to learn the steering angles given the images. Once models were obtained that could successfully perform the steering task, the models were converted from regressors to classifiers, trained to predict an angle class with the angles placed into bins.
+
+Several models were trained using different binning schemes (3, 5, and 15 bins), resulting in classifier models that were also able to successfully steer the simulated vehicle around the figure-of-eight circuit. Thereafter, noise was added to the images captured in real time within the simulation before being presented to the model. As noise was added, the distance between the softmax output (the prediction) and the class centroids was measured until a lane invasion would occur. Based on the observations, a threshold was then set such that if the predictions were consistently above the threshold, a lane invasion would occur. Therefore, the geometric properties of the softmax space observed in the image classification setting were also observed in the self-driving setting, with the regression transformed into classification. That is, the further predictions were from the centroid, the more likely the prediction was incorrect.
+
+The geometric properties of predictions in $n$-dimensional clustering spaces were also observed in Vision Language Models performing scene understanding (e.g., "which way should the vehicle steer"), where the prediction is constrained to a subset of tokens (e.g., "Left", "Straight" and "Right" steering). The analysis of distances to centroids in this case was left for future work.
+
+\section{Objectives}
+
+The objectives of this study are to:
+
+\begin{enumerate}
+    \item Develop methods to quantify data distribution shifts based on neural network predictions
+    \item Validate methods using different neural network architectures with standard and custom datasets
+    \item Characterise neural network accuracy degradation under noisy conditions
+    \item Create synthetic datasets for autonomous driving neural network training
+    \item Apply resulting methods to autonomous driving scenarios
+\end{enumerate}
+
+The rest of this thesis is organized as follows: Chapter 2 presents the first contribution on quantifying uncertainty through softmax clustering; Chapter 3 describes the second contribution on detecting lane invasions in autonomous driving; Chapter 4 discusses the results and implications; and Chapter 5 concludes with future research directions.
+
+\subsection*{List of Abbreviations}
+\begin{description}
+	\item[ADAS] Advanced Driver-Assistance Systems
+	\item[API] Application Programming Interface
+	\item[AURC] Area under the Risk-Coverage-Curve
+	\item[AV] Autonomous Vehicle
+	\item[BNN] Bayesian Neural Network
+	\item[CARLA] Car Learning to Act
+	\item[CNN] Convolutional Neural Network
+	\item[CSF] Confidence Scoring Functions
+	\item[DDT] Dynamic Driving Task
+	\item[ENISA] European Union Agency for Cybersecurity
+	\item[EV] Electric Vehicle
+	\item[FSD] Full Self-Driving
+	\item[GAVAI] Global Autonomous Vehicle Adoption Index
+	\item[GPU] Graphics Processing Unit
+	\item[HPC] High-Performance Computing
+	\item[ICRI] Intel Collaborative Research Institute
+	\item[KL] Kullback-Leibler
+	\item[LLM] Large Language Model
+	\item[LoRA] Low-Rank Adaptation
+	\item[MAE] Mean Absolute Error
+	\item[MAP] Maximum a Posteriori
+	\item[MCP] Maximum Class Probability
+	\item[ML] Machine Learning
+	\item[MLP] Multi-Layer Perceptron
+	\item[MMD] Maximum Mean Discrepancy
+	\item[MSE] Mean Squared Error
+	\item[NHTSA] National Highway Traffic Safety Administration
+	\item[OOD] Out-of-Distribution
+	\item[PMNIST] Perturbed MNIST
+	\item[QLoRA] Quantized Low-Rank Adaptation
+	\item[RED] Residual-based Error Detection
+	\item[ReLU] Rectified Linear Unit
+	\item[RIO] Residual prediction with Input/Output kernel
+	\item[RvC] Regression via Classification
+	\item[SAE] Society of Automotive Engineers
+	\item[SAVe] Safe Automated Vehicles
+	\item[SGD] Stochastic Gradient Descent
+	\item[TCP] True Class Probability
+	\item[UNECE] United Nations Economic Commission for Europe
+	\item[ViT] Vision Transformer
+	\item[VLM] Vision Language Model
+\end{description}

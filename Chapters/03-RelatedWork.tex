@@ -1,0 +1,48 @@
+\chapter{Related Work}
+\label{chap:related_work}
+
+This chapter reviews key literature relevant to distance-based uncertainty quantification and failure detection in neural networks, focusing on softmax-based approaches and classification reliability assessment.
+
+\section{Softmax-Centroid Relationships}
+
+Hess et al. \cite{HessEtAl2020} argue that softmax-based neural network classification is equivalent to k-means clustering in the transformed feature space. Their work demonstrates that the softmax function partitions the input space into cones, with each cone corresponding to a class centroid at equal distance from the origin.
+
+However, there is a fundamental difference between training a neural network and k-means clustering. In neural network training, the actual point defined by softmax output scores moves during training, i.e., while the network is learning, parameters are being adjusted to improve accuracy given an objective function. The predictions move through the $n$-dimensional clustering space. At the beginning of the training process, where accuracy is typically lower than at the end, both the predictions (softmax outputs) and the centroids (softmax output averages) are in a state of flux, until training stops and the network's weights and biases are fixed.
+
+In contrast, k-means clustering operates on fixed data. The points in any number of dimensions $n$ are fixed at the outset, and the centroids are the entities that move during the clustering process. Therefore, the process of training a neural network is not equivalent to k-means clustering.
+
+The first author of \cite{HessEtAl2020} acknowledges that "It's probably misleading to call the centers centroids, because they are strictly speaking no centroids [sic]" and that "The proof in the arXiv version has a flaw, but we can show a similar result, which I hope to publish some time" \cite{hess2025email}.
+
+\section{Error Detection Methodologies}
+
+Qiu and Miikkulainen \cite{QiuMiikkulainen2022} propose RED (Residual-based Error Detection), which uses Gaussian Processes to detect misclassification errors. Their method builds on RIO (Residual prediction with Input/Output kernel) and provides both detection scores and uncertainty estimates for these scores.
+
+RED shares our goal of identifying unreliable predictions, but employs a fundamentally different approach. RED constructs residuals between target detection scores and maximum class probabilities, requiring additional Gaussian Process training. In contrast, the distance-to-centroid approach requires only computing Euclidean distances to pre-calculated centroids, offering computational simplicity.
+
+Corbière et al. \cite{Corbiere2019} address failure prediction by introducing True Class Probability (TCP) as an alternative to Maximum Class Probability (MCP). Their ConfidNet architecture learns to predict TCP during training using an L2 loss function, demonstrating superior separation between correct and incorrect predictions compared to traditional confidence measures.
+
+Both ConfidNet and our work recognize that maximum softmax probability is insufficient for reliable confidence assessment. ConfidNet learns confidence through a separate neural network, while the distance-based approach leverages geometric properties of the softmax space directly. The distance method requires no additional training and provides immediate confidence assessment based on distance thresholds to class centroids.
+
+\section{Evaluation Frameworks}
+
+Jaeger et al. \cite{Jaeger2022} critique current evaluation practices for failure detection, identifying inconsistencies in task definitions, limited failure source coverage, and evaluation-purpose misalignment. They propose unified evaluation using Area under the Risk-Coverage-Curve (AURC) and Confidence Scoring Functions (CSF).
+
+Their work validates the need for consistent evaluation methodologies that our work addresses through systematic evaluation and comparison across multiple distance metrics (Euclidean, Cosine, Mahalanobis, etc.) and datasets (MNIST, CIFAR-10, etc.). This validation establishes Euclidean distance as a reasonable metric choice, i.e., not the best (cosine similarity performs better) but far from the worst (entropy performs worse). The distance-based approach provides a unified framework applicable across different architectures without requiring method-specific modifications.
+
+\section{Prototype-Based and Distance Methods}
+
+Center Loss \cite{Wen2016} encourages intra-class compactness in feature spaces through an auxiliary penalty term, promoting geometric clustering around learned centroids. Prototypical Networks \cite{Snell2017} demonstrate feature-space prototyping effectiveness for few-shot learning by computing class prototypes as arithmetic means of support set embeddings and performing classification via nearest prototype assignment.
+
+Trust Score \cite{Jiang2018} measures agreement between a classifier's prediction and a modified nearest-neighbor classifier in the learned feature space, providing confidence measures less susceptible to adversarial examples. Monte Carlo Dropout \cite{Gal2016} provides Bayesian uncertainty estimation through multiple forward passes with different dropout masks, treating dropout as a variational approximation to a Gaussian process.
+
+Our methodology operates directly in the softmax output space rather than feature spaces, offering architecture independence. The method demonstrates that simple Euclidean distance to class centroids provides effective confidence assessment while maintaining computational efficiency compared to more complex distance-based approaches.
+
+\section{Calibration Methods}
+
+Temperature scaling \cite{Guo2017} provides post-hoc calibration by optimizing a single parameter on validation sets to minimize negative log-likelihood. Modern neural networks often produce poorly calibrated, overconfident predictions, which makes calibration relevant to confidence assessment methods. The relationship between calibration and prototype quality is particularly important for softmax-based methods where well-calibrated probability distributions are essential for meaningful analysis.
+
+\section{Summary}
+
+The reviewed literature establishes theoretical foundations for centroid-based neural network analysis and demonstrates various approaches to confidence estimation and error detection. The distance-to-centroid methodology builds upon these foundations while offering a lightweight, architecture-independent approach to uncertainty quantification in neural network predictions.
+
+While existing methods provide valuable frameworks for uncertainty quantification and error detection, several gaps remain. Most approaches require additional training, operate in feature spaces rather than output spaces, or are architecture-specific. This thesis addresses these gaps by demonstrating that simple distance metrics in softmax space provide effective uncertainty quantification across multiple architectures (CNNs, ViTs, VLMs) and application domains (classification, regression in autonomous driving scenarios).
